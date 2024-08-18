@@ -43,6 +43,7 @@ public class LogInController {
         } else {
 
             wrongUsernameOrPassword.setText("");
+
             if (userRole.equals("admin")) {
                 StageManager.switchScene("admin.fxml");
             } else {
