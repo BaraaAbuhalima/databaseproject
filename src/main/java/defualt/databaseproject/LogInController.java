@@ -20,6 +20,7 @@ public class LogInController {
     private Label wrongUsernameOrPassword;
 
     private int userId = -1;
+    private String userRole;
 
     @FXML
     public void handleButtonClick(ActionEvent actionEvent) {
@@ -31,7 +32,7 @@ public class LogInController {
         userList.forEach(user -> {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {
                 userId = user.getUserId();
-
+                userRole = user.getUserRole();
             }
         });
 
@@ -42,8 +43,11 @@ public class LogInController {
         } else {
 
             wrongUsernameOrPassword.setText("");
-            StageManager.switchScene("dash.fxml");
-
+            if (userRole.equals("admin")) {
+                StageManager.switchScene("admin.fxml");
+            } else {
+                StageManager.switchScene("dash.fxml");
+            }
         }
 
     }
