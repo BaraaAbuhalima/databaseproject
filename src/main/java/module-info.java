@@ -10,6 +10,7 @@ module defualt.databaseproject {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens defualt.databaseproject to javafx.fxml;
     exports defualt.databaseproject;
