@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/DatabaseOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/StageManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/ActiveRecordPattern/ActiveRecordPattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/RegisterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/REGISTER.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/ActiveRecordPattern/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/ActiveRecordPattern/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/LogIn.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,7 +68,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "ActiveDesigenPatternUsers",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723913403091</updated>
       <workItem from="1723913404207" duration="13320000" />
-      <workItem from="1723995441114" duration="4264000" />
+      <workItem from="1723995441114" duration="7926000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
