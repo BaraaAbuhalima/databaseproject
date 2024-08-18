@@ -1,15 +1,17 @@
 package defualt.databaseproject;
 
+import defualt.databaseproject.ActiveRecordPattern.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class LogInController {
 
     @FXML
-    private TextField usernameTextField;
+    private TextField userNameTextField;
 
     @FXML
     private PasswordField passwordTextField;
@@ -17,37 +19,33 @@ public class LogInController {
     @FXML
     private Label wrongUsernameOrPassword;
 
-    @FXML
+    private int userId = -1;
 
+    @FXML
     public void handleButtonClick(ActionEvent actionEvent) {
 
-        String username = usernameTextField.getText();
+        String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
+        ArrayList<Users> userList = Users.find("user_name", userName);
 
-        String sqlStatement = "Select * from users where user_name= '" + username + "' and user_password= '" + password + "';";
-        ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-
-        try {
-            if (resultSet == null) {
-
-                wrongUsernameOrPassword.setText("Please enter a valid username ");
-            }
-            if (!resultSet.next()) {
-
-                System.out.println("Username or password are not correct");
-                wrongUsernameOrPassword.setText("Username or password are not correct");
-
-            } else {
-
-                wrongUsernameOrPassword.setText("");
-                StageManager.switchScene("dash.fxml");
+        userList.forEach(user -> {
+            if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {
+                userId = user.getUserId();
 
             }
-        } catch (SQLException e) {
+        });
 
-            System.out.println("Error in printing Result");
+        if (userId == -1) {
+            System.out.println("Username or password are not correct");
+            wrongUsernameOrPassword.setText("Username or password are not correct");
+
+        } else {
+
+            wrongUsernameOrPassword.setText("");
+            StageManager.switchScene("dash.fxml");
 
         }
+
     }
 
 
