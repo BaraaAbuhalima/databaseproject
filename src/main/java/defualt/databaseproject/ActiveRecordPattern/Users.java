@@ -84,10 +84,12 @@ public class Users implements ActiveRecordPattern<Users> {
 
     }
 
+    @Override
     public void save() {
 
     }
 
+    @Override
     public void delete() {
 
     }
