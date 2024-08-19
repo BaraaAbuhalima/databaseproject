@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 
 public class LogInController {
@@ -26,7 +27,9 @@ public class LogInController {
 
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
-        ArrayList<Users> userList = null;//Users.find("user_name", userName);
+        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new SimpleEntry<String, String>("user_name", userName));
+        ArrayList<Users> userList = Users.find(criteria);
 
         userList.forEach(user -> {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {

@@ -20,20 +20,19 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         DatabaseOperations.initilizeConnection();
-//        System.out.println(Orders.findbyId(14).getCreatedAt().toString());
 
 
-        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
-        criteria.add(new SimpleEntry<>("user_name", "br"));
-        criteria.add(new SimpleEntry<>("user_role", "user"));
-        Users.delete(criteria);
-//        StageManager.setStage(stage);
-//        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Welcome Back !");
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        stage.show();
+//        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
+//        criteria.add(new SimpleEntry<>("user_name", "br"));
+//        criteria.add(new SimpleEntry<>("user_role", "user"));
+//        Users.delete(criteria);
+        StageManager.setStage(stage);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Welcome Back !");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
     public static void main(String[] args) {
