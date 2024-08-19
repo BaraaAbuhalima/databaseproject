@@ -1,11 +1,10 @@
 package defualt.databaseproject;
 
-import defualt.databaseproject.ActiveRecordPattern.Users;
+import ActiveRecordPattern.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 public class LogInController {
@@ -27,7 +26,7 @@ public class LogInController {
 
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
-        ArrayList<Users> userList = Users.find("user_name", userName);
+        ArrayList<Users> userList = null;//Users.find("user_name", userName);
 
         userList.forEach(user -> {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {
