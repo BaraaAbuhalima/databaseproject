@@ -37,9 +37,6 @@ public final class DatabaseOperations {
         }
     }
 
-    static {
-        initilizeConnection();
-    }
 
     public static void closeConnection() {
         try {
@@ -60,8 +57,8 @@ public final class DatabaseOperations {
         try {
 
             if (query.trim().toLowerCase().startsWith("select")) {
-
                 resultSet = statement.executeQuery(query);
+
 
             } else {
 

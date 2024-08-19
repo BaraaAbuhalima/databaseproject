@@ -17,9 +17,12 @@ public interface ActiveRecordPattern {
         return null;
     }
 
+    public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
+
+    }
+
     public boolean delete();
 
-    public static boolean delete(int userId) {
-        return false;
-    }
+
 }
+

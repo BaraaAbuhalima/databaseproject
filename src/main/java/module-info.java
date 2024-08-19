@@ -11,6 +11,7 @@ module defualt.databaseproject {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires jasperreports;
 
     opens defualt.databaseproject to javafx.fxml;
     exports defualt.databaseproject;

@@ -88,6 +88,7 @@ public class Users implements ActiveRecordPattern {
             while (resultSet.next()) {
                 Users newUser = new Users();
                 newUser.setUserId(resultSet.getInt("user_id"));
+
                 newUser.setUserName(resultSet.getString("user_name"));
                 newUser.setUserRole(resultSet.getString("user_role"));
                 newUser.setUserPassword(resultSet.getString("user_password"));
@@ -167,13 +168,19 @@ public class Users implements ActiveRecordPattern {
     }
 
 
-    public static boolean delete(int userId) {
-        if (Users.findByID(userId) != null) {
-            sqlStatement = "DELETE FROM users WHERE user_id='" + userId + "';";
-            DatabaseOperations.makeQuery(sqlStatement);
-            return true;
+    public static void delete(ArrayList<SimpleEntry<String, String>> criteria) {
+
+        sqlStatement = "DELETE FROM users WHERE\n";
+
+        for (int i = 0; i < criteria.size(); i++) {
+            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
+            if (i < criteria.size() - 1) {
+                sqlStatement += " AND ";
+            }
+
         }
-        return false;
+        System.out.println(sqlStatement);
+        DatabaseOperations.makeQuery(sqlStatement);
     }
 
 
