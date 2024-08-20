@@ -21,11 +21,11 @@ public class Employee implements ActiveRecordPattern {
     private String zipCode;
     private String country;
     private static String entityName = "employee ";
-    private String gender;
+    private char gender;
     private static String sqlStatement;
 
     public Employee(int employeeId, String firstName, String secondName, String lastNameS, int salary,
-                    String email, String phone, String country, String city, String street, String zipCode, String gender) {
+                    String email, String phone, String country, String city, String street, String zipCode, char gender) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -55,7 +55,7 @@ public class Employee implements ActiveRecordPattern {
         this.city = null;
         this.street = null;
         this.zipCode = null;
-        this.gender = null;
+        this.gender = 'M';
         this.country = null;
     }
 
@@ -103,7 +103,7 @@ public class Employee implements ActiveRecordPattern {
         return zipCode;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 
@@ -147,7 +147,7 @@ public class Employee implements ActiveRecordPattern {
         this.zipCode = zipCode;
     }
 
-    public void setGender(String gender) {
+    public void setGender(char gender) {
         this.gender = gender;
     }
 
@@ -164,13 +164,12 @@ public class Employee implements ActiveRecordPattern {
         for (int i = 0; i < criteria.size(); i++) {
             sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
             if (i < criteria.size() - 1) {
-                sqlStatement += " AND";
+                sqlStatement += " AND ";
             }
 
         }
 
         ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-
         try {
 
             while (resultSet.next()) {
@@ -186,7 +185,7 @@ public class Employee implements ActiveRecordPattern {
                 newEmployee.setCity(resultSet.getString("country"));
                 newEmployee.setStreet(resultSet.getString("street"));
                 newEmployee.setZipCode(resultSet.getString("zip_code"));
-                newEmployee.setGender(resultSet.getString("gender"));
+                newEmployee.setGender(resultSet.getString("gender").charAt(0));
                 employeesList.add(newEmployee);
             }
 
@@ -216,7 +215,7 @@ public class Employee implements ActiveRecordPattern {
                 newEmployee.setCity(resultSet.getString("country"));
                 newEmployee.setStreet(resultSet.getString("street"));
                 newEmployee.setZipCode(resultSet.getString("zip_code"));
-                newEmployee.setGender(resultSet.getString("gender"));
+                newEmployee.setGender(resultSet.getString("gender").charAt(0));
             }
         } catch (SQLException e) {
             System.out.println("Error while finding employees");
@@ -247,12 +246,13 @@ public class Employee implements ActiveRecordPattern {
 
     @Override
     public boolean save() {
-        if (employeeId >= 0 && firstName != null && secondName != null && lastNameS != null && email != null) {
+        if (firstName != null && secondName != null && lastNameS != null && email != null) {
             String sqlStatment = "INSERT INTO " + entityName + "(\n" +
-                    " user_name, user_role, user_password)" +
-                    "VALUES ('" + this.employeeId + "','" + this.firstName + "','" + this.secondName + "','" + this.lastNameS + "','" +
+                    " first_name, second_name, last_name, salary, email, phone, city, street, zip_code, gender, country) " +
+                    "VALUES ('" + this.firstName + "','" + this.secondName + "','" + this.lastNameS + "','" +
                     this.salary + "','" + this.email + "','" + this.phone + "','" + this.city + "','" + this.street + "','" +
                     this.zipCode + "','" + this.gender + "','" + this.country + "');";
+            System.out.println(sqlStatment);
             DatabaseOperations.makeQuery(sqlStatment);
 
             return true;
@@ -265,7 +265,8 @@ public class Employee implements ActiveRecordPattern {
 
         if (Employee.findByID(employeeId) != null) {
 
-            sqlStatement = "DELETE FROM " + entityName + " WHERE user_id='" + employeeId + "';";
+            sqlStatement = "DELETE FROM " + entityName + " WHERE employee_id ='" + employeeId + "';";
+            System.out.println(sqlStatement);
             DatabaseOperations.makeQuery(sqlStatement);
 
             return true;
