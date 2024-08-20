@@ -3,21 +3,20 @@ package ActiveRecordPattern;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 
-public class Orders extends ActiveRecordPatternClass {
+public class Orders implements ActiveRecordPattern {
 
-    private static String entityName = "orders";
-    private String baraa;
-    private static ArrayList<Triplet> attributes;
-
-    static {
-        attributes = new ArrayList<Triplet>();
-        attributes.add(new Triplet<Integer>(Types.INT, "order_id", "setOrder", -1));
-        attributes.add(new Triplet<Integer>(Types.INT, "total_price", "setTotalPrice", 0));
-        attributes.add(new Triplet<Integer>(Types.INT, "discount", "setDiscount", 0));
-        attributes.add(new Triplet<Integer>(Types.INT, "customer_id", "setCustomerId", 0));
+    @Override
+    public boolean update(ArrayList<SimpleEntry<String, String>> criteria) {
+        return false;
     }
 
-    public Orders() {
-        super(attributes, entityName);
+    @Override
+    public boolean save() {
+        return false;
+    }
+
+    @Override
+    public boolean delete() {
+        return false;
     }
 }

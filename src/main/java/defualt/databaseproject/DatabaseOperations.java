@@ -1,7 +1,6 @@
 package defualt.databaseproject;
 
 import java.sql.*;
-import java.util.Locale;
 
 public final class DatabaseOperations {
 
@@ -37,6 +36,9 @@ public final class DatabaseOperations {
         }
     }
 
+    static {
+        initilizeConnection();
+    }
 
     public static void closeConnection() {
         try {
@@ -53,25 +55,15 @@ public final class DatabaseOperations {
 
     public static ResultSet makeQuery(String query) {
         ResultSet resultSet = null;
-
         try {
 
-            if (query.trim().toLowerCase().startsWith("select")) {
-                resultSet = statement.executeQuery(query);
-
-
-            } else {
-
-                statement.executeUpdate(query);
-
-            }
-
+            resultSet = statement.executeQuery(query);
             System.out.println("query: " + query + "Executed Successfully");
 
 
         } catch (SQLException e) {
 
-            System.err.println(e.getMessage());
+            System.out.println("Error executing query");
 
         }
         return resultSet;
