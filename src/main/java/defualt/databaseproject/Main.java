@@ -1,13 +1,16 @@
 package defualt.databaseproject;
 
 import ActiveRecordPattern.Employee;
-import ActiveRecordPattern.ActiveRecordPatternClass;
+import ActiveRecordPattern.Orders;
+import ActiveRecordPattern.Users;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.time.ZonedDateTime;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 
@@ -16,12 +19,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        ActiveRecordPatternClass later = new ActiveRecordPatternClass(,"orders");
 
-        ArrayList<T> criteria = new ArrayList<>();
         DatabaseOperations.initilizeConnection();
+        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
         criteria.add(new SimpleEntry<>("city", "Nablus"));
-
 //        criteria.add(new SimpleEntry<>("first_name", "jack"));
         ArrayList<Employee> ffd = Employee.find(criteria);
         ffd.forEach(ele -> {
