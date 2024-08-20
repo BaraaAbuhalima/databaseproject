@@ -24,6 +24,7 @@ public class Employee implements ActiveRecordPattern {
     private char gender;
     private static String sqlStatement;
 
+
     public Employee(int employeeId, String firstName, String secondName, String lastNameS, int salary,
                     String email, String phone, String country, String city, String street, String zipCode, char gender) {
         this.employeeId = employeeId;
