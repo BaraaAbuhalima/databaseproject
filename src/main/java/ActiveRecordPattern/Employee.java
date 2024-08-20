@@ -24,7 +24,7 @@ public class Employee implements ActiveRecordPattern {
     private char gender;
     private static String sqlStatement;
 
-    public Employee(int employeeId, String firstName, String secondName, String lastNameS, int salary,
+    public Employee(String firstName, String secondName, String lastNameS, int salary,
                     String email, String phone, String country, String city, String street, String zipCode, char gender) {
         this.employeeId = employeeId;
         this.firstName = firstName;
@@ -197,13 +197,14 @@ public class Employee implements ActiveRecordPattern {
     }
 
     public static Employee findByID(int employeeID) {
+
         sqlStatement = "select * from " + entityName + " where employee_id='" + employeeID + "'";
         ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-        Employee newUser = null;
+        Employee newEmployee = new Employee();
         try {
             while (resultSet.next()) {
-                newUser = new Employee();
-                Employee newEmployee = new Employee();
+
+
                 newEmployee.setEmployeeId(resultSet.getInt("employee_id"));
                 newEmployee.setFirstName(resultSet.getString("first_name"));
                 newEmployee.setSecondName(resultSet.getString("second_name"));
@@ -220,7 +221,7 @@ public class Employee implements ActiveRecordPattern {
         } catch (SQLException e) {
             System.out.println("Error while finding employees");
         }
-        return newUser;
+        return newEmployee;
     }
 
     @Override

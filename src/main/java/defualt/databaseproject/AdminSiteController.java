@@ -52,6 +52,9 @@ public class AdminSiteController {
     @FXML
     private Label AdminNameDisplay;
 
+    public AdminSiteController() {
+//        this.NumberOfEmployeeLable.setText("dfsdfdsfdsfsd");
+    }
 
     public static int numberOfEmployee() {
         int Count = 0;
@@ -196,11 +199,13 @@ public class AdminSiteController {
     private RadioButton textfieldaddemployeedategendermale;
     @FXML
     private RadioButton textfieldaddemployeedategenderfemale;
-    @FXML
-    ButtonGroup buttonGroupForGender = new ButtonGroup();
+
 
     @FXML
     public void savsAddEmployeeButtonClick(ActionEvent actionEvent) {
+        ToggleGroup toggleGroup = new ToggleGroup();
+        textfieldaddemployeedategenderfemale.setToggleGroup(toggleGroup);
+        textfieldaddemployeedategendermale.setToggleGroup(toggleGroup);
 
         System.out.println("save employee");
         String firstName = textfieldaddemployeefirstname.getText();
@@ -214,13 +219,14 @@ public class AdminSiteController {
         String city = textfieldaddemployeecity.getText();
         String zip = textfieldaddemployeezipcode.getText();
         int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
-        char genderMale = 'M';
-        char genderFemale = 'F';
-        // Date date=textfieldaddemployeedate
-        Employee employee = new Employee(99, firstName, middleName, lastName, salary, email, phone, country, city, street, zip, genderFemale);
-        employee.save();
-        Users user = new Users(firstName, "user", password);
-        user.save();
+
+        char gender = toggleGroup.getToggles().equals(textfieldaddemployeedategendermale) ? 'M' : 'F';
+
+//        DatePicker date = textfieldaddemployeedate;
+        Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street, zip, gender);
+        System.out.println(employee.save());
+//        Users user = new Users(firstName, "user", password);
+//        user.save();
     }
 
 
@@ -270,7 +276,8 @@ public class AdminSiteController {
 
     @FXML
     public void IDviewEmployeeButtonClick(ActionEvent actionEvent) {
-        Employee employee = findByID(Integer.parseInt(textfieldidviewemployee.getText()));
+        Employee employee = Employee.findByID(Integer.parseInt(textfieldidviewemployee.getText()));
+        System.out.println(employee.getFirstName());
         viewEmployeeFirstName.setText(employee.getFirstName());
         viewEmployeeMidName.setText(employee.getSecondName());
         viewEmployeeLastName.setText(employee.getLastNameS());

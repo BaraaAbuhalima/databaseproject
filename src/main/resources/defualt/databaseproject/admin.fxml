@@ -416,9 +416,9 @@
                                                    fx:id="textfieldaddemployeelastname"
                                                    style="-fx-background-radius: 20px;"/>
                                         <RadioButton layoutX="279.0" layoutY="415.0" mnemonicParsing="false" text="Male"
-                                                     fx:id="textfieldaddemployeegendermale" textFill="WHITE"/>
+                                                     fx:id="textfieldaddemployeedategendermale" textFill="WHITE"/>
                                         <RadioButton layoutX="158.0" layoutY="415.0" mnemonicParsing="false"
-                                                     fx:id="textfieldaddemployeegenderfemale" prefHeight="17.0"
+                                                     fx:id="textfieldaddemployeedategenderfemale" prefHeight="17.0"
                                                      prefWidth="82.0" text="Female"
                                                      textFill="#fffefe"/>
                                         <DatePicker layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0"

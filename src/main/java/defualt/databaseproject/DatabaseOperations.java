@@ -54,16 +54,20 @@ public final class DatabaseOperations {
     }
 
     public static ResultSet makeQuery(String query) {
+
         ResultSet resultSet = null;
         try {
-
-            resultSet = statement.executeQuery(query);
+            if (query.toLowerCase().startsWith("select")) {
+                resultSet = statement.executeQuery(query);
+            } else {
+                statement.executeUpdate(query);
+            }
             System.out.println("query: " + query + "Executed Successfully");
 
 
         } catch (SQLException e) {
-
-            System.out.println("Error executing query");
+            System.out.println("Error executing query" + query);
+            e.printStackTrace();
 
         }
         return resultSet;

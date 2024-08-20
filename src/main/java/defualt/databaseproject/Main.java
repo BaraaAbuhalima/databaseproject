@@ -19,7 +19,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
+        Employee employee = Employee.findByID(1);
+        System.out.println(employee.getFirstName());
         DatabaseOperations.initilizeConnection();
         ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
         criteria.add(new SimpleEntry<>("city", "Nablus"));
