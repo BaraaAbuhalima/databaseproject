@@ -13,8 +13,6 @@ public class Users implements ActiveRecordPattern {
     private String userName;
     private String userRole;
     private String userPassword;
-
-
     private static String sqlStatement;
 
     public Users(String userName, String userRole, String userPassword) {
@@ -105,7 +103,7 @@ public class Users implements ActiveRecordPattern {
     }
 
     public static Users findByID(int userID) {
-        sqlStatement = "select * from users where " + "user_id ='" + userID + "'";
+        sqlStatement = "select * from users where user_id='" + userID + "'";
         ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
         Users newUser = null;
         try {
@@ -117,11 +115,9 @@ public class Users implements ActiveRecordPattern {
                 newUser.setUserPassword(resultSet.getString("user_password"));
             }
         } catch (SQLException e) {
-
             System.out.println("Error while finding users");
         }
         return newUser;
-
     }
 
     @Override
