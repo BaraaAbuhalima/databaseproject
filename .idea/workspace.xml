@@ -7,8 +7,10 @@
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/printorders.jrxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +23,7 @@
         <option value="Interface" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -67,7 +70,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "besho",
+    "git-widget-placeholder": "AdminSite",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/m1234/Desktop/databaseproject/databaseproject.git/src/main/resources/defualt/databaseproject",
     "node.js.detected.package.eslint": "true",
@@ -75,7 +78,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -132,7 +135,7 @@
       <workItem from="1724008766904" duration="5263000" />
       <workItem from="1724065029850" duration="78000" />
       <workItem from="1724065125198" duration="1866000" />
-      <workItem from="1724083569511" duration="8071000" />
+      <workItem from="1724083569511" duration="15352000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

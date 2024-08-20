@@ -2,13 +2,22 @@ package defualt.databaseproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.swing.JRViewer;
+import org.postgresql.ds.PGSimpleDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 public class AdminSiteController {
 
@@ -228,5 +237,39 @@ public class AdminSiteController {
 
     }
 
+
+    @FXML
+    public void printButtonClick(ActionEvent actionEvent) {
+        AdminMainPage.setVisible(false);
+        AddEmployee.setVisible(false);
+        ViewEmployee.setVisible(false);
+        AddSupplier.setVisible(false);
+        ViewSupplier.setVisible(false);
+        AddComponent.setVisible(false);
+        ViewComponent.setVisible(false);
+        Connection con;
+        InputStream input;
+        JasperDesign jasperDesign;
+        JasperReport jasperReport;
+        JasperPrint jasperPrint;
+        OutputStream output;
+        try {
+            Class.forName("org.postgresql.Driver");
+            con = DriverManager.getConnection(
+                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
+                    "baraamoh",
+                    "baraamoh12345"
+            );
+
+            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
+            jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
 }

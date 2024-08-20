@@ -152,7 +152,8 @@
                         </ImageView>
                         <Button id="button" layoutX="14.0" layoutY="488.0" mnemonicParsing="false" prefHeight="23.0"
                                 prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Print report" textFill="WHITE">
+                                text="Print report" textFill="WHITE"
+                                onAction="#printButtonClick">
                             <font>
                                 <Font name="Arial Bold" size="10.0"/>
                             </font>
