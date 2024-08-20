@@ -116,7 +116,7 @@
                             </font>
                         </Label>
                         <Label contentDisplay="CENTER" layoutX="14.0" layoutY="191.0" prefHeight="23.0"
-                               prefWidth="198.0" text="mohammad bishawi" textFill="WHITE">
+                               prefWidth="198.0" text="mohammad bishawi" textFill="WHITE" fx:id="AdminNameDisplay">
                             <font>
                                 <Font name="Arial Bold" size="20.0"/>
                             </font>
@@ -407,28 +407,36 @@
                                             </font>
                                         </Label>
                                         <TextField layoutX="157.0" layoutY="52.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeefirstname"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField layoutX="158.0" layoutY="93.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeemiddlename"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField layoutX="158.0" layoutY="135.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeelastname"
                                                    style="-fx-background-radius: 20px;"/>
                                         <RadioButton layoutX="279.0" layoutY="415.0" mnemonicParsing="false" text="Male"
-                                                     textFill="WHITE"/>
+                                                     fx:id="textfieldaddemployeegendermale" textFill="WHITE"/>
                                         <RadioButton layoutX="158.0" layoutY="415.0" mnemonicParsing="false"
-                                                     prefHeight="17.0" prefWidth="82.0" text="Female"
+                                                     fx:id="textfieldaddemployeegenderfemale" prefHeight="17.0"
+                                                     prefWidth="82.0" text="Female"
                                                      textFill="#fffefe"/>
                                         <DatePicker layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0"
+                                                    fx:id="textfieldaddemployeedate"
                                                     style="-fx-padding: 0px; -fx-background-position: center;">
                                             <opaqueInsets>
                                                 <Insets/>
                                             </opaqueInsets>
                                         </DatePicker>
                                         <TextField layoutX="158.0" layoutY="175.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeeemail"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeephone"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0"
                                                    prefWidth="57.0" promptText="Country"
+                                                   fx:id="textfieldaddemployeecountry"
                                                    style="-fx-background-radius: 20px;"/>
                                         <Label layoutX="25.0" layoutY="53.0" text="First name" textFill="#f2f2f2">
                                             <font>
@@ -472,19 +480,23 @@
                                         </Label>
                                         <Button id="button" layoutX="158.0" layoutY="475.0" mnemonicParsing="false"
                                                 prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                                stylesheets="@css/ooo.css" text="save" textFill="WHITE"
+                                                onAction="#savsAddEmployeeButtonClick">
                                             <font>
                                                 <Font size="13.0"/>
                                             </font>
                                         </Button>
                                         <TextField alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0"
                                                    prefWidth="56.0" promptText="City"
+                                                   fx:id="textfieldaddemployeecity"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0"
                                                    prefWidth="52.0" promptText="Street "
+                                                   fx:id="textfieldaddemployeestreet"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0"
                                                    prefWidth="37.0" promptText="Zip"
+                                                   fx:id="textfieldaddemployeezipcode"
                                                    style="-fx-background-radius: 20px;"/>
                                         <Label layoutX="26.0" layoutY="369.0" text="Salary" textFill="WHITE">
                                             <font>
@@ -492,8 +504,10 @@
                                             </font>
                                         </Label>
                                         <TextField layoutX="157.0" layoutY="366.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeesalary"
                                                    style="-fx-background-radius: 20px;"/>
                                         <TextField layoutX="158.0" layoutY="211.0" prefHeight="25.0" prefWidth="214.0"
+                                                   fx:id="textfieldaddemployeepassword"
                                                    style="-fx-background-radius: 20px;"/>
                                         <Label layoutX="24.0" layoutY="214.0" text="Password" textFill="WHITE">
                                             <font>
@@ -520,29 +534,30 @@
                                             </columns>
                                         </TableView>
                                         <TableView layoutX="32.0" layoutY="166.0" prefHeight="129.0" prefWidth="738.0"
-                                                   style="-fx-background-size: 4500;">
+                                                   fx:id="viewEmployeTable" style="-fx-background-size: 4500;">
                                             <columns>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Customer ID"/>
+                                                             fx:id="viewEmployeID" text="Employee ID"/>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Country"/>
+                                                             fx:id="viewEmployeCountry" text="Country"/>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="City"/>
+                                                             fx:id="viewEmployeCity" text="City"/>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Street"/>
+                                                             fx:id="viewEmployeStreet" text="Street"/>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Zip Code"/>
+                                                             fx:id="viewEmployeZipCode" text="Zip Code"/>
                                                 <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Phone"/>
+                                                             fx:id="viewEmployePhone" text="Phone"/>
                                                 <TableColumn prefWidth="156.0" style="-fx-background-color: #2364c5;"
-                                                             text="Email"/>
+                                                             fx:id="viewEmployeEmail" text="Email"/>
                                                 <TableColumn prefWidth="131.0" style="-fx-background-color: #2364c5;"
-                                                             text="Salary"/>
+                                                             fx:id="viewEmployeSalary" text="Salary"/>
                                             </columns>
                                         </TableView>
                                         <Label layoutX="15.0" layoutY="69.0" prefHeight="17.0" prefWidth="72.0"
                                                text="Employee ID" textFill="WHITE"/>
                                         <TextField layoutX="90.0" layoutY="65.0" prefHeight="25.0" prefWidth="160.0"
+                                                   fx:id="textfieldidviewemployee" alignment="CENTER"
                                                    style="-fx-background-radius: 15px;"/>
                                         <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0"
                                                text="VIEW EMPLOYEE" textFill="WHITE">
@@ -552,7 +567,8 @@
                                         </Label>
                                         <Button id="button" layoutX="217.0" layoutY="69.0" mnemonicParsing="false"
                                                 prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" textFill="WHITE">
+                                                stylesheets="@css/ooo.css" textFill="WHITE"
+                                                onAction="#IDviewEmployeeButtonClick">
                                             <font>
                                                 <Font name="Arial Bold" size="10.0"/>
                                             </font>
@@ -564,7 +580,8 @@
                                             <children>
                                                 <Label layoutX="27.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
                                                        text="First Name :" textFill="WHITE"/>
-                                                <Label layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE"/>
+                                                <Label layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE"
+                                                       fx:id="viewEmployeeFirstName"/>
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane id="2e" layoutX="187.0" layoutY="111.0" prefHeight="29.0"
@@ -574,7 +591,8 @@
                                             <children>
                                                 <Label layoutX="22.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
                                                        text="Mid Name :" textFill="WHITE"/>
-                                                <Label layoutX="104.0" layoutY="7.0" text="Label" textFill="WHITE"/>
+                                                <Label fx:id="viewEmployeeMidName" layoutX="104.0" layoutY="7.0"
+                                                       text="Label" textFill="WHITE"/>
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane id="2e" layoutX="363.0" layoutY="111.0" prefHeight="29.0"
@@ -582,9 +600,11 @@
                                                     style="-fx-background-color: #141e34; -fx-background-radius: 20;"
                                                     stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE"/>
+                                                <Label fx:id="viewEmployeeLastName" layoutX="99.0" layoutY="7.0"
+                                                       text="Label" textFill="WHITE"/>
                                                 <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
-                                                       text="Last Name :" textFill="WHITE"/>
+                                                       text="Last Name :"
+                                                       textFill="WHITE"/>
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane id="2e" layoutX="536.0" layoutY="111.0" prefHeight="29.0"
@@ -594,7 +614,8 @@
                                             <children>
                                                 <Label layoutX="27.0" layoutY="7.0" prefHeight="17.0" prefWidth="72.0"
                                                        text="Gender :" textFill="WHITE"/>
-                                                <Label layoutX="92.0" layoutY="6.0" text="Label" textFill="WHITE"/>
+                                                <Label fx:id="viewEmployeeGender" layoutX="92.0" layoutY="6.0"
+                                                       text="Label" textFill="WHITE"/>
                                             </children>
                                         </AnchorPane>
                                         <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="226.0" layoutY="72.0"

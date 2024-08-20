@@ -1,15 +1,13 @@
 package defualt.databaseproject;
 
+import ActiveRecordPattern.Employee;
+import ActiveRecordPattern.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.swing.JRViewer;
-import org.postgresql.ds.PGSimpleDataSource;
-import net.sf.jasperreports.view.JasperViewer;
+import defualt.databaseproject.LogInController;
 
 import javax.swing.*;
 import java.io.*;
@@ -17,6 +15,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+
+import static ActiveRecordPattern.Employee.findByID;
 
 
 public class AdminSiteController {
@@ -47,6 +49,8 @@ public class AdminSiteController {
     private Label NumberOfCustomersLable;
     @FXML
     private Label NumberOfProductsLable;
+    @FXML
+    private Label AdminNameDisplay;
 
 
     public static int numberOfEmployee() {
@@ -165,6 +169,62 @@ public class AdminSiteController {
     }
 
     @FXML
+    private TextField textfieldaddemployeefirstname;
+    @FXML
+    private TextField textfieldaddemployeelastname;
+    @FXML
+    private TextField textfieldaddemployeeemail;
+    @FXML
+    private TextField textfieldaddemployeephone;
+    @FXML
+    private TextField textfieldaddemployeemiddlename;
+    @FXML
+    private TextField textfieldaddemployeepassword;
+    @FXML
+    private TextField textfieldaddemployeecountry;
+    @FXML
+    private TextField textfieldaddemployeestreet;
+    @FXML
+    private TextField textfieldaddemployeecity;
+    @FXML
+    private TextField textfieldaddemployeezipcode;
+    @FXML
+    private DatePicker textfieldaddemployeedate;
+    @FXML
+    private TextField textfieldaddemployeesalary;
+    @FXML
+    private RadioButton textfieldaddemployeedategendermale;
+    @FXML
+    private RadioButton textfieldaddemployeedategenderfemale;
+    @FXML
+    ButtonGroup buttonGroupForGender = new ButtonGroup();
+
+    @FXML
+    public void savsAddEmployeeButtonClick(ActionEvent actionEvent) {
+
+        System.out.println("save employee");
+        String firstName = textfieldaddemployeefirstname.getText();
+        String middleName = textfieldaddemployeemiddlename.getText();
+        String lastName = textfieldaddemployeelastname.getText();
+        String email = textfieldaddemployeeemail.getText();
+        String phone = textfieldaddemployeephone.getText();
+        String password = textfieldaddemployeepassword.getText();
+        String country = textfieldaddemployeecountry.getText();
+        String street = textfieldaddemployeestreet.getText();
+        String city = textfieldaddemployeecity.getText();
+        String zip = textfieldaddemployeezipcode.getText();
+        int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
+        char genderMale = 'M';
+        char genderFemale = 'F';
+        // Date date=textfieldaddemployeedate
+        Employee employee = new Employee(99, firstName, middleName, lastName, salary, email, phone, country, city, street, zip, genderFemale);
+        employee.save();
+        Users user = new Users(firstName, "user", password);
+        user.save();
+    }
+
+
+    @FXML
     public void viewEmployeeButtonClick(ActionEvent actionEvent) {
         AdminMainPage.setVisible(false);
         AddEmployee.setVisible(false);
@@ -173,6 +233,49 @@ public class AdminSiteController {
         ViewSupplier.setVisible(false);
         AddComponent.setVisible(false);
         ViewComponent.setVisible(false);
+
+
+    }
+
+    @FXML
+    TextField textfieldidviewemployee;
+    @FXML
+    TableView<Employee> viewEmployeTable;
+    @FXML
+    TableColumn<Employee, String> viewEmployeID;
+    @FXML
+    TableColumn<Employee, String> viewEmployePhone;
+    @FXML
+    TableColumn<Employee, String> viewEmployeEmail;
+    @FXML
+    TableColumn<Employee, String> viewEmployeCountry;
+    @FXML
+    TableColumn<Employee, String> viewEmployeStreet;
+    @FXML
+    TableColumn<Employee, String> viewEmployeCity;
+    @FXML
+    TableColumn<Employee, String> viewEmployeZipCode;
+    @FXML
+    TableColumn<Employee, String> viewEmployeSalary;
+
+    @FXML
+    private Label viewEmployeeFirstName;
+    @FXML
+    private Label viewEmployeeLastName;
+    @FXML
+    private Label viewEmployeeMidName;
+    @FXML
+    private Label viewEmployeeGender;
+
+
+    @FXML
+    public void IDviewEmployeeButtonClick(ActionEvent actionEvent) {
+        Employee employee = findByID(Integer.parseInt(textfieldidviewemployee.getText()));
+        viewEmployeeFirstName.setText(employee.getFirstName());
+        viewEmployeeMidName.setText(employee.getSecondName());
+        viewEmployeeLastName.setText(employee.getLastNameS());
+        viewEmployeeGender.setText(String.valueOf(employee.getGender()));
+
 
     }
 
@@ -247,29 +350,30 @@ public class AdminSiteController {
         ViewSupplier.setVisible(false);
         AddComponent.setVisible(false);
         ViewComponent.setVisible(false);
-        Connection con;
-        InputStream input;
-        JasperDesign jasperDesign;
-        JasperReport jasperReport;
-        JasperPrint jasperPrint;
-        OutputStream output;
-        try {
-            Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection(
-                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
-                    "baraamoh",
-                    "baraamoh12345"
-            );
-
-            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
-            jasperReport = JasperCompileManager.compileReport(jasperDesign);
-            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
-            JasperViewer.viewReport(jasperPrint);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        Connection con;
+//        InputStream input;
+//        JasperDesign jasperDesign;
+//        JasperReport jasperReport;
+//        JasperPrint jasperPrint;
+//        OutputStream output;
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//            con = DriverManager.getConnection(
+//                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
+//                    "baraamoh",
+//                    "baraamoh12345"
+//            );
+//
+//            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
+//            jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+//            JasperViewer.viewReport(jasperPrint);
+//
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
 
     }
+
 
 }
