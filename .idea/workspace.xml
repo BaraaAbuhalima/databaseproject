@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +105,7 @@
       <workItem from="1724083329719" duration="23149000" />
       <workItem from="1724110621204" duration="2026000" />
       <workItem from="1724145371134" duration="7164000" />
+      <workItem from="1724165531820" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
