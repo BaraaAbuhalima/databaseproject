@@ -10,7 +10,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +107,8 @@
       <workItem from="1723913404207" duration="13320000" />
       <workItem from="1723995441114" duration="8800000" />
       <workItem from="1724083329719" duration="23149000" />
-      <workItem from="1724110621204" duration="1727000" />
+      <workItem from="1724110621204" duration="2026000" />
+      <workItem from="1724145371134" duration="7164000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -134,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724111258828</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="employee class is ready">
+      <option name="closed" value="true" />
+      <created>1724112639659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724112639659</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
