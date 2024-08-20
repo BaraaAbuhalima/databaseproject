@@ -12,6 +12,8 @@ module defualt.databaseproject {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires jasperreports;
+    requires java.desktop;
+    requires org.postgresql.jdbc;
 
     opens defualt.databaseproject to javafx.fxml;
     exports defualt.databaseproject;
