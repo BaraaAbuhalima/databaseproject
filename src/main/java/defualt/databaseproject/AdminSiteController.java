@@ -1,7 +1,6 @@
 package defualt.databaseproject;
 
 import ActiveRecordPattern.Employee;
-import ActiveRecordPattern.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -20,8 +19,10 @@ import java.util.Date;
 
 import static ActiveRecordPattern.Employee.findByID;
 
+import defualt.databaseproject.ActiveRecordPattern.*;
 
 public class AdminSiteController {
+    private static Users staticuser;
 
     @FXML
     private AnchorPane AdminMainPage;
@@ -54,6 +55,16 @@ public class AdminSiteController {
 
     public AdminSiteController() {
 //        this.NumberOfEmployeeLable.setText("dfsdfdsfdsfsd");
+    }
+
+    public static void setUser(Users user) {
+        staticuser = user;
+    }
+
+    @FXML
+    private void initialize() {
+        homeButtonClick(null);
+        AdminNameDisplay.setText(staticuser.getUserName());
     }
 
     public static int numberOfEmployee() {

@@ -44,6 +44,8 @@ public class LogInController {
 
             wrongUsernameOrPassword.setText("");
             if (userRole.equals("admin")) {
+                AdminSiteController.setUser(userList.get(0));
+                System.out.println(userList.get(0).getUserName());
                 StageManager.switchScene("admin.fxml");
             } else {
                 StageManager.switchScene("dash.fxml");
