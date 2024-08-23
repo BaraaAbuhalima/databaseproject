@@ -35,10 +35,7 @@ public final class DatabaseOperations {
             throw new RuntimeException(e);
         }
     }
-
-    static {
-        initilizeConnection();
-    }
+    
 
     public static void closeConnection() {
         try {

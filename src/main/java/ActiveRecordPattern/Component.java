@@ -1,11 +1,9 @@
 package ActiveRecordPattern;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 
-public class Component extends Try<Component> {
+public class Component extends ActiveRecordPattern<Component> {
     private String name;
     private int price;
     private String type;
@@ -68,19 +66,18 @@ public class Component extends Try<Component> {
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
-        Try.delete(criteria, entityName);
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 
     public static int size() {
-        System.out.println(findCount(entityName));
         return findCount(entityName);
     }
 
     public static Component findById(int id) {
-        return Try.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
     }
 
     public static ArrayList<Component> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
-        return Try.find(criteria, entityName);
+        return ActiveRecordPattern.find(criteria, entityName);
     }
 }

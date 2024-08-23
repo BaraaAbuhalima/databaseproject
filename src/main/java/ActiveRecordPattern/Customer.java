@@ -5,7 +5,7 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.AbstractMap.SimpleEntry;
 
-public class Customer extends Try<Customer> {
+public class Customer extends ActiveRecordPattern<Customer> {
 
     private static final String entityName = "Customer";
     private static final String primaryKey = "id";
@@ -144,7 +144,7 @@ public class Customer extends Try<Customer> {
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
-        Try.delete(criteria, entityName);
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 
     public static int size() {
@@ -153,10 +153,10 @@ public class Customer extends Try<Customer> {
     }
 
     public static Customer findById(int id) {
-        return Try.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
     }
 
     public static ArrayList<Customer> find(ArrayList<SimpleEntry<String, String>> criteria) {
-        return Try.find(criteria, entityName);
+        return ActiveRecordPattern.find(criteria, entityName);
     }
 }

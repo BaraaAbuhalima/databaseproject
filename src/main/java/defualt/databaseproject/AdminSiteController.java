@@ -27,7 +27,7 @@ public class AdminSiteController {
         textfieldaddemployeedategendermale.setToggleGroup(genderToggleGroup);
         textfieldaddemployeedategenderfemale.setToggleGroup(genderToggleGroup);
         homeButtonClick(null);
-        AdminNameDisplay.setText(staticuser.getUserName());
+        AdminNameDisplay.setText(staticuser.getName());
     }
 
     private void setView(int choice) {
@@ -209,13 +209,13 @@ public class AdminSiteController {
 
     @FXML
     public void saveSupplier() {
-        System.out.println(supplierName.getText());
-        System.out.println(supplierPhone.getText());
-        System.out.println(supplierEmail.getText());
-        System.out.println(supplierCountry.getText());
-        System.out.println(supplierStreet.getText());
-        System.out.println(supplierCity.getText());
-        System.out.println(supplierZipCode.getText());
+//        System.out.println(supplierName.getText());
+//        System.out.println(supplierPhone.getText());
+//        System.out.println(supplierEmail.getText());
+//        System.out.println(supplierCountry.getText());
+//        System.out.println(supplierStreet.getText());
+//        System.out.println(supplierCity.getText());
+//        System.out.println(supplierZipCode.getText());
 
         new Supplier(supplierName.getText(),
                 supplierCountry.getText(),
@@ -269,7 +269,7 @@ public class AdminSiteController {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
     public void printButtonClick(ActionEvent actionEvent) {
-        System.out.println("printing.......");
+//        System.out.println("printing.......");
 //        Connection con;
 //        InputStream input;
 //        JasperDesign jasperDesign;
@@ -307,7 +307,6 @@ public class AdminSiteController {
 
     @FXML
     public void saveComponent(ActionEvent actionEvent) {
-        System.out.println("save clicked");
         new Component(componentName.getText(), Integer.parseInt(componentPrice.getText()), componentType.getText(), Integer.parseInt(componentQuantity.getText())).save();
     }
 

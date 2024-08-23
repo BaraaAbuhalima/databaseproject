@@ -29,15 +29,14 @@ public class LogInController {
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
         ArrayList<SimpleEntry<String, String>> criterias = new ArrayList<>();
-        criterias.add(new SimpleEntry<>("user_name", userName));
+        criterias.add(new SimpleEntry<>("name", userName));
         ArrayList<Users> userList = Users.find(criterias);
         userList.forEach(user -> {
-            if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {
-                userId = user.getUserId();
-                userRole = user.getUserRole();
+            if (user.getName().equals(userName) && user.getPassword().equals(password)) {
+                userId = user.getId();
+                userRole = user.getRole();
             }
         });
-
         if (userId == -1) {
             System.out.println("Username or password are not correct");
             wrongUsernameOrPassword.setText("Username or password are not correct");

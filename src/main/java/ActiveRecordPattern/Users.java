@@ -1,140 +1,84 @@
 package ActiveRecordPattern;
 
+import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Users extends ActiveRecordPatternClass {
-    private int userId;
-    private String userName;
-    private String userRole;
-    private String userPassword;
-    private static String sqlStatement;
-    private static String entityName = "users";
+public class Users extends ActiveRecordPattern<Users> {
+    private String name;
+    private String role;
+    private String password;
+    private static String entityName = "Users";
+    private static String primaryKey = "id";
 
-    public Users(String userName, String userRole, String userPassword) {
-        super(entityName, -1, "user_id");
-        this.userId = userId;
-        this.userName = userName;
-        this.userRole = userRole;
-        this.userPassword = userPassword;
+    public Users(String name, String role, String password) {
+        super(entityName, primaryKey);
+        setObj(this);
+        this.name = name;
+        this.role = role;
+        this.password = password;
 
     }
 
     public Users() {
-
-        super(entityName, -1, "user_id");
-        this.userId = -1;
-        this.userName = null;
-        this.userRole = null;
-        this.userPassword = null;
+        super(entityName, primaryKey);
+        setObj(this);
+        this.name = null;
+        this.role = null;
+        this.password = null;
     }
 
     public Users(int userId) {
-        super(entityName, userId, "user_id");
-        this.userId = userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPassword() {
-        return this.userPassword;
+        super(entityName, primaryKey);
+        setObj(this);
+        this.id = userId;
     }
 
 
-    public String getUserName() {
-        return this.userName;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public String getUserRole() {
-        return this.userRole;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public int getUserId() {
-        return this.userId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static ArrayList<Users> find(ArrayList<SimpleEntry<String, String>> criteria) {
-
-        ArrayList<Users> usersList = new ArrayList<Users>();
-
-        sqlStatement = "select * from users where ";
-
-        for (int i = 0; i < criteria.size(); i++) {
-            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
-            if (i < criteria.size() - 1) {
-                sqlStatement += " AND";
-            }
-
-        }
-
-        ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-
-        try {
-
-            while (resultSet.next()) {
-                Users newUser = new Users();
-                newUser.setUserId(resultSet.getInt("user_id"));
-
-                newUser.setUserName(resultSet.getString("user_name"));
-                newUser.setUserRole(resultSet.getString("user_role"));
-                newUser.setUserPassword(resultSet.getString("user_password"));
-                usersList.add(newUser);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error while finding users");
-        }
-        return usersList;
-
-    }
-
-    public static Users findByID(int userID) {
-        sqlStatement = "select * from users where user_id='" + userID + "'";
-        ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-        Users newUser = null;
-        try {
-            while (resultSet.next()) {
-                newUser = new Users();
-                newUser.setUserId(resultSet.getInt("user_id"));
-                newUser.setUserName(resultSet.getString("user_name"));
-                newUser.setUserRole(resultSet.getString("user_role"));
-                newUser.setUserPassword(resultSet.getString("user_password"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Error while finding users");
-        }
-        return newUser;
+    public String getPassword() {
+        return this.password;
     }
 
 
-    public void save() {
+    public String getName() {
+        System.out.println(name);
+        return this.name;
+    }
 
-        String sqlStatment = "INSERT INTO users(\n" +
-                " user_name, user_role, user_password)" +
-                "VALUES ('" + this.userName + "','" + this.userRole + "','" + this.userPassword + "');";
-        DatabaseOperations.makeQuery(sqlStatment);
+    public String getRole() {
+        return this.role;
+    }
 
+    public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 
     public static int size() {
         return findCount(entityName);
     }
+
+    public static Users findById(int id) {
+        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+    }
+
+    public static ArrayList<Users> find(ArrayList<SimpleEntry<String, String>> criteria) {
+        return ActiveRecordPattern.find(criteria, entityName);
+    }
+
 
 }

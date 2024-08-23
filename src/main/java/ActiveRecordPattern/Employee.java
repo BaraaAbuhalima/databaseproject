@@ -4,11 +4,9 @@ import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Employee extends Try<Employee> {
+public class Employee extends ActiveRecordPattern<Employee> {
 
     private static String entityName = "Employee";
     private static final String primaryKey = "id";
@@ -161,20 +159,19 @@ public class Employee extends Try<Employee> {
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
-        Try.delete(criteria, entityName);
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 
     public static int size() {
-        System.out.println(findCount(entityName));
         return findCount(entityName);
     }
 
     public static Employee findById(int id) {
-        return Try.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
     }
 
     public static ArrayList<Employee> find(ArrayList<SimpleEntry<String, String>> criteria) {
-        return Try.find(criteria, entityName);
+        return ActiveRecordPattern.find(criteria, entityName);
     }
 
 

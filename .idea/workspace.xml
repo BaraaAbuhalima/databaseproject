@@ -5,25 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Try.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPatternClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPatternClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPatternClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/DatabaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/DatabaseOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Triplet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Try.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Types.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/ActiveRecordPattern/ActiveRecordPattern.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/ActiveRecordPattern/Users.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/DatabaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/DatabaseOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,7 @@
       <workItem from="1724110621204" duration="2026000" />
       <workItem from="1724145371134" duration="7164000" />
       <workItem from="1724234989569" duration="33480000" />
-      <workItem from="1724401806755" duration="3454000" />
+      <workItem from="1724401806755" duration="7150000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
