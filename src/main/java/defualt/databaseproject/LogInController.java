@@ -1,11 +1,12 @@
 package defualt.databaseproject;
 
-import defualt.databaseproject.ActiveRecordPattern.Users;
+import ActiveRecordPattern.*;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.sql.*;
+import java.util.AbstractMap.*;
 import java.util.ArrayList;
 
 public class LogInController {
@@ -27,8 +28,9 @@ public class LogInController {
 
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
-        ArrayList<Users> userList = Users.find("user_name", userName);
-
+        ArrayList<SimpleEntry<String, String>> criterias = new ArrayList<>();
+        criterias.add(new SimpleEntry<>("user_name", userName));
+        ArrayList<Users> userList = Users.find(criterias);
         userList.forEach(user -> {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(password)) {
                 userId = user.getUserId();
@@ -44,8 +46,8 @@ public class LogInController {
 
             wrongUsernameOrPassword.setText("");
             if (userRole.equals("admin")) {
+
                 AdminSiteController.setUser(userList.get(0));
-                System.out.println(userList.get(0).getUserName());
                 StageManager.switchScene("admin.fxml");
             } else {
                 StageManager.switchScene("dash.fxml");

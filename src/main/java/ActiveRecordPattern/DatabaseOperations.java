@@ -1,4 +1,4 @@
-package defualt.databaseproject;
+package ActiveRecordPattern;
 
 import java.sql.*;
 

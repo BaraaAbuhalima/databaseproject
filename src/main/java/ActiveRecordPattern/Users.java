@@ -2,20 +2,20 @@ package ActiveRecordPattern;
 
 import java.util.AbstractMap.SimpleEntry;
 
-import defualt.databaseproject.DatabaseOperations;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Users implements ActiveRecordPattern {
+public class Users extends ActiveRecordPatternClass {
     private int userId;
     private String userName;
     private String userRole;
     private String userPassword;
     private static String sqlStatement;
+    private static String entityName = "users";
 
     public Users(String userName, String userRole, String userPassword) {
+        super(entityName, -1, "user_id");
         this.userId = userId;
         this.userName = userName;
         this.userRole = userRole;
@@ -24,6 +24,8 @@ public class Users implements ActiveRecordPattern {
     }
 
     public Users() {
+
+        super(entityName, -1, "user_id");
         this.userId = -1;
         this.userName = null;
         this.userRole = null;
@@ -31,6 +33,7 @@ public class Users implements ActiveRecordPattern {
     }
 
     public Users(int userId) {
+        super(entityName, userId, "user_id");
         this.userId = userId;
     }
 
@@ -120,68 +123,18 @@ public class Users implements ActiveRecordPattern {
         return newUser;
     }
 
-    @Override
-    public boolean update(ArrayList<SimpleEntry<String, String>> criteria) {
-        if (Users.findByID(userId) == null) {
-            return false;
-        }
-        sqlStatement = "UPDATE users\n" +
-                "SET ";
 
-        for (int i = 0; i < criteria.size(); i++) {
-            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
-            if (i < criteria.size() - 1) {
-                sqlStatement += " ,";
-            }
+    public void save() {
 
-        }
-        sqlStatement += "WHERE user_id=" + this.userId + ";";
-        DatabaseOperations.makeQuery(sqlStatement);
-        return true;
+        String sqlStatment = "INSERT INTO users(\n" +
+                " user_name, user_role, user_password)" +
+                "VALUES ('" + this.userName + "','" + this.userRole + "','" + this.userPassword + "');";
+        DatabaseOperations.makeQuery(sqlStatment);
+
     }
 
-
-    @Override
-    public boolean save() {
-        if (userPassword != null && userRole != null && userName != null) {
-            String sqlStatment = "INSERT INTO users(\n" +
-                    " user_name, user_role, user_password)" +
-                    "VALUES ('" + this.userName + "','" + this.userRole + "','" + this.userPassword + "');";
-            DatabaseOperations.makeQuery(sqlStatment);
-
-            return true;
-        }
-        return false;
+    public static int size() {
+        return findCount(entityName);
     }
-
-    @Override
-    public boolean delete() {
-
-        if (Users.findByID(userId) != null) {
-
-            sqlStatement = "DELETE FROM users WHERE user_id='" + userId + "';";
-            DatabaseOperations.makeQuery(sqlStatement);
-
-            return true;
-        }
-        return false;
-    }
-
-
-    public static void delete(ArrayList<SimpleEntry<String, String>> criteria) {
-
-        sqlStatement = "DELETE FROM users WHERE\n";
-
-        for (int i = 0; i < criteria.size(); i++) {
-            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
-            if (i < criteria.size() - 1) {
-                sqlStatement += " AND ";
-            }
-
-        }
-        System.out.println(sqlStatement);
-        DatabaseOperations.makeQuery(sqlStatement);
-    }
-
 
 }

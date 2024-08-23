@@ -17,4 +17,6 @@ module defualt.databaseproject {
 
     opens defualt.databaseproject to javafx.fxml;
     exports defualt.databaseproject;
+    exports ActiveRecordPattern;
+    opens ActiveRecordPattern to javafx.fxml;
 }

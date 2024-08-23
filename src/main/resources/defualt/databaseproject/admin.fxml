@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -16,375 +17,271 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-            prefWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="defualt.databaseproject.AdminSiteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="defualt.databaseproject.AdminSiteController">
     <children>
         <BorderPane prefHeight="600.0" prefWidth="1100.0">
             <left>
-                <AnchorPane id="1e" prefHeight="538.0" prefWidth="212.0" style="-fx-background-color: #1f2a42;"
-                            stylesheets="@css/ooo.css" BorderPane.alignment="CENTER">
+                <AnchorPane id="1e" prefHeight="538.0" prefWidth="212.0" style="-fx-background-color: #1f2a42;" stylesheets="@css/ooo.css" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="74.0" layoutY="74.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-width: 64px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="74.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-width: 64px;">
                             <image>
-                                <Image url="@img/user (11).png"/>
+                                <Image url="@img/user (11).png" />
                             </image>
                         </ImageView>
-                        <Button id="button" fx:id="homeButton" layoutX="14.0" layoutY="264.0" mnemonicParsing="false"
-                                onAction="#homeButtonClick" prefHeight="23.0" prefWidth="184.0"
-                                style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Home"
-                                textFill="WHITE">
+                        <Button id="button" fx:id="homeButton" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#homeButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Home" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="268.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/home.png"/>
+                                <Image url="@img/home.png" />
                             </image>
                         </ImageView>
-                        <Button id="button" layoutX="14.0" layoutY="297.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Add Employee" textFill="WHITE" onAction="#addEmployeeButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="297.0" mnemonicParsing="false" onAction="#addEmployeeButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add Employee" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <Button id="button" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="View Employee" textFill="WHITE" onAction="#viewEmployeeButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" onAction="#viewEmployeeButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="View Employee" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <Button id="button" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Add Supplier" textFill="WHITE" onAction="#addSupplierButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#addSupplierButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add Supplier" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <Button id="button" layoutX="14.0" layoutY="394.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="View Supplier" textFill="WHITE" onAction="#viewSupplierButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="394.0" mnemonicParsing="false" onAction="#viewSupplierButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="View Supplier" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="301.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/add.png"/>
+                                <Image url="@img/add.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="334.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/target.png"/>
+                                <Image url="@img/target.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="366.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/add.png"/>
+                                <Image url="@img/add.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="398.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/target.png"/>
+                                <Image url="@img/target.png" />
                             </image>
                         </ImageView>
-                        <Button id="button" layoutX="14.0" layoutY="519.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Logout" textFill="WHITE" onAction="#logoutButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="519.0" mnemonicParsing="false" onAction="#logoutButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Logout" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="523.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/logout.png"/>
+                                <Image url="@img/logout.png" />
                             </image>
                         </ImageView>
                         <Label layoutX="69.0" layoutY="160.0" text="Welcome," textFill="WHITE">
                             <font>
-                                <Font name="Tahoma" size="17.0"/>
+                                <Font name="Tahoma" size="17.0" />
                             </font>
                         </Label>
-                        <Label contentDisplay="CENTER" layoutX="14.0" layoutY="191.0" prefHeight="23.0"
-                               prefWidth="198.0" text="mohammad bishawi" textFill="WHITE" fx:id="AdminNameDisplay">
+                        <Label fx:id="AdminNameDisplay" contentDisplay="CENTER" layoutX="14.0" layoutY="191.0" prefHeight="23.0" prefWidth="198.0" text="mohammad bishawi" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="20.0"/>
+                                <Font name="Arial Bold" size="20.0" />
                             </font>
                         </Label>
-                        <Line endX="65.0" layoutX="128.0" layoutY="223.0" startX="-110.0" stroke="WHITE"/>
-                        <Button id="button" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Add component" textFill="WHITE" onAction="#addComponentButtonClick">
+                        <Line endX="65.0" layoutX="128.0" layoutY="223.0" startX="-110.0" stroke="WHITE" />
+                        <Button id="button" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onAction="#addComponentButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add component" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="430.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/add.png"/>
+                                <Image url="@img/add.png" />
                             </image>
                         </ImageView>
-                        <Button id="button" layoutX="14.0" layoutY="458.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="View component" textFill="WHITE"
-                                onAction="#viewComponentButtonClick"
-                        >
+                        <Button id="button" layoutX="14.0" layoutY="458.0" mnemonicParsing="false" onAction="#viewComponentButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="View component" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="462.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/motherboard.png"/>
+                                <Image url="@img/motherboard.png" />
                             </image>
                         </ImageView>
-                        <Button id="button" layoutX="14.0" layoutY="488.0" mnemonicParsing="false" prefHeight="23.0"
-                                prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                text="Print report" textFill="WHITE"
-                                onAction="#printButtonClick">
+                        <Button id="button" layoutX="14.0" layoutY="488.0" mnemonicParsing="false" onAction="#printButtonClick" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Print report" textFill="WHITE">
                             <font>
-                                <Font name="Arial Bold" size="10.0"/>
+                                <Font name="Arial Bold" size="10.0" />
                             </font>
                         </Button>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="492.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/printing.png"/>
+                                <Image url="@img/printing.png" />
                             </image>
                         </ImageView>
                     </children>
                 </AnchorPane>
             </left>
             <top>
-                <AnchorPane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #1f2a42;"
-                            BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #1f2a42;" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="1105.0" layoutY="7.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 35px; -fx-fit-width: 1100px;">
+                        <ImageView fitHeight="46.0" fitWidth="1105.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 35px; -fx-fit-width: 1100px;">
                             <image>
-                                <Image url="@img/image.png"/>
+                                <Image url="@img/image.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="15.0" pickOnBounds="true"
-                                   preserveRatio="true" style="-fx-fit-height: 16px;">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                             <image>
-                                <Image url="@img/group.png"/>
+                                <Image url="@img/group.png" />
                             </image>
                         </ImageView>
                         <Label layoutX="49.0" layoutY="15.0" text="Administer Page ">
                             <font>
-                                <Font name="Tahoma" size="14.0"/>
+                                <Font name="Tahoma" size="14.0" />
                             </font>
                         </Label>
                     </children>
                 </AnchorPane>
             </top>
             <center>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #11192c;"
-                            BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #11192c;" BorderPane.alignment="CENTER">
                     <children>
-                        <AnchorPane fx:id="AdminMainPage" layoutX="311.0" layoutY="163.0" prefHeight="558.0"
-                                    prefWidth="888.0" style="-fx-background-color: #11192c;"
-                                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="AdminMainPage" layoutX="311.0" layoutY="163.0" prefHeight="558.0" prefWidth="888.0" style="-fx-background-color: #11192c;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="ee" layoutX="26.0" layoutY="24.0" prefHeight="194.0" prefWidth="837.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="ee" layoutX="26.0" layoutY="24.0" prefHeight="194.0" prefWidth="837.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <AnchorPane id="2e" layoutX="14.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="14.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0"
-                                                       layoutY="36.0" prefHeight="43.0" prefWidth="115.0"
-                                                       text="Number of orders " textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="36.0" prefHeight="43.0" prefWidth="115.0" text="Number of orders " textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0"
-                                                       layoutY="79.0" prefHeight="20.0" prefWidth="109.0" text="100"
-                                                       textFill="WHITE"
-                                                       fx:id="NumberOfOrdersLable"
-                                                >
+                                                <Label fx:id="NumberOfOrdersLable" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="79.0" prefHeight="20.0" prefWidth="109.0" text="100" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0"
-                                                           layoutY="37.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/clipboard.png"/>
+                                                        <Image url="@img/clipboard.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="315.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="315.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="46.0"
-                                                       layoutY="27.0" prefHeight="43.0" prefWidth="153.0"
-                                                       text="Number of products " textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="27.0" prefHeight="43.0" prefWidth="153.0" text="Number of products " textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0"
-                                                       layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99"
-                                                       textFill="WHITE" fx:id="NumberOfProductsLable">
+                                                <Label fx:id="NumberOfProductsLable" alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0"
-                                                           layoutY="32.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/box.png"/>
+                                                        <Image url="@img/box.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="603.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="603.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0"
-                                                       layoutY="22.0" prefHeight="43.0" prefWidth="139.0"
-                                                       text="Number of customer" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="22.0" prefHeight="43.0" prefWidth="139.0" text="Number of customer" textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label id="2e" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0"
-                                                       layoutY="83.0" prefHeight="20.0" prefWidth="109.0" text="1888"
-                                                       textFill="WHITE" fx:id="NumberOfCustomersLable">
+                                                <Label id="2e" fx:id="NumberOfCustomersLable" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="83.0" prefHeight="20.0" prefWidth="109.0" text="1888" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                     <stylesheets>
-                                                        <URL value="@css/ooo.css"/>
-                                                        <URL value="@css/ooo.css"/>
+                                                        <URL value="@css/ooo.css" />
+                                                        <URL value="@css/ooo.css" />
                                                     </stylesheets>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0"
-                                                           layoutY="28.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/customer (1).png"/>
+                                                        <Image url="@img/customer (1).png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane id="ee" layoutX="26.0" layoutY="279.0" prefHeight="194.0" prefWidth="837.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="ee" layoutX="26.0" layoutY="279.0" prefHeight="194.0" prefWidth="837.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <AnchorPane id="2e" layoutX="14.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="14.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0"
-                                                       layoutY="36.0" prefHeight="43.0" prefWidth="158.0"
-                                                       text="Number of Employees" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="36.0" prefHeight="43.0" prefWidth="158.0" text="Number of Employees" textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label fx:id="NumberOfEmployeeLable" alignment="CENTER"
-                                                       contentDisplay="CENTER" layoutX="56.0" layoutY="79.0"
-                                                       prefHeight="20.0" prefWidth="109.0" text="100" textFill="WHITE">
+                                                <Label fx:id="NumberOfEmployeeLable" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="79.0" prefHeight="20.0" prefWidth="109.0" text="100" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="8.0"
-                                                           layoutY="42.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="8.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/manager.png"/>
+                                                        <Image url="@img/manager.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="315.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="315.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0"
-                                                       layoutY="25.0" prefHeight="43.0" prefWidth="153.0"
-                                                       text="Number of Supplier " textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="25.0" prefHeight="43.0" prefWidth="153.0" text="Number of Supplier " textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0"
-                                                       layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99"
-                                                       textFill="WHITE" fx:id="NumberOfSuppliersLable">
+                                                <Label fx:id="NumberOfSuppliersLable" alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0"
-                                                           layoutY="32.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/handshake.png"/>
+                                                        <Image url="@img/handshake.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="603.0" layoutY="12.0" prefHeight="171.0"
-                                                    prefWidth="220.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="603.0" layoutY="12.0" prefHeight="171.0" prefWidth="220.0" style="-fx-background-color: #141e34; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0"
-                                                       layoutY="24.0" prefHeight="43.0" prefWidth="139.0"
-                                                       text="Number of compnent" textFill="WHITE"
-                                                >
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="24.0" prefHeight="43.0" prefWidth="139.0" text="Number of compnent" textFill="WHITE">
                                                     <font>
-                                                        <Font size="14.0"/>
+                                                        <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Label id="2e" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0"
-                                                       layoutY="83.0" prefHeight="20.0" prefWidth="109.0" text="1888"
-                                                       textFill="WHITE" fx:id="NumberOfComponentsLable">
+                                                <Label id="2e" fx:id="NumberOfComponentsLable" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="83.0" prefHeight="20.0" prefWidth="109.0" text="1888" textFill="WHITE">
                                                     <font>
-                                                        <Font size="36.0"/>
+                                                        <Font size="36.0" />
                                                     </font>
                                                     <stylesheets>
-                                                        <URL value="@css/ooo.css"/>
-                                                        <URL value="@css/ooo.css"/>
+                                                        <URL value="@css/ooo.css" />
+                                                        <URL value="@css/ooo.css" />
                                                     </stylesheets>
                                                 </Label>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0"
-                                                           layoutY="30.0" pickOnBounds="true" preserveRatio="true"
-                                                           style="-fx-fit-height: 32px;">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 32px;">
                                                     <image>
-                                                        <Image url="@img/motherboard.png"/>
+                                                        <Image url="@img/motherboard.png" />
                                                     </image>
                                                 </ImageView>
                                             </children>
@@ -392,539 +289,364 @@
                                     </children>
                                 </AnchorPane>
                             </children>
+                            <cursor>
+                                <Cursor fx:constant="MOVE" />
+                            </cursor>
                         </AnchorPane>
-                        <AnchorPane fx:id="AddEmployee" layoutX="334.0" layoutY="157.0" prefHeight="558.0"
-                                    prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0"
-                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="AddEmployee" layoutX="334.0" layoutY="157.0" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="1e" layoutX="260.0" layoutY="14.0" prefHeight="516.0" prefWidth="397.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="1e" layoutX="260.0" layoutY="14.0" prefHeight="516.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
                                     <children>
                                         <Label layoutX="141.0" layoutY="14.0" text="ADD EMPLOYEE" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <TextField layoutX="157.0" layoutY="52.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeefirstname"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="93.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeemiddlename"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="135.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeelastname"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <RadioButton layoutX="279.0" layoutY="415.0" mnemonicParsing="false" text="Male"
-                                                     fx:id="textfieldaddemployeedategendermale" textFill="WHITE"/>
-                                        <RadioButton layoutX="158.0" layoutY="415.0" mnemonicParsing="false"
-                                                     fx:id="textfieldaddemployeedategenderfemale" prefHeight="17.0"
-                                                     prefWidth="82.0" text="Female"
-                                                     textFill="#fffefe"/>
-                                        <DatePicker layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0"
-                                                    fx:id="textfieldaddemployeedate"
-                                                    style="-fx-padding: 0px; -fx-background-position: center;">
+                                        <TextField fx:id="textfieldaddemployeefirstname" layoutX="157.0" layoutY="52.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeemiddlename" layoutX="158.0" layoutY="93.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeelastname" layoutX="158.0" layoutY="135.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <RadioButton fx:id="textfieldaddemployeedategendermale" layoutX="279.0" layoutY="415.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
+                                        <RadioButton fx:id="textfieldaddemployeedategenderfemale" layoutX="158.0" layoutY="415.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Female" textFill="#fffefe" />
+                                        <DatePicker fx:id="textfieldaddemployeedate" layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0" style="-fx-padding: 0px; -fx-background-position: center;">
                                             <opaqueInsets>
-                                                <Insets/>
+                                                <Insets />
                                             </opaqueInsets>
                                         </DatePicker>
-                                        <TextField layoutX="158.0" layoutY="175.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeeemail"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeephone"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0"
-                                                   prefWidth="57.0" promptText="Country"
-                                                   fx:id="textfieldaddemployeecountry"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="textfieldaddemployeeemail" layoutX="158.0" layoutY="175.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeephone" layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeecountry" alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0" prefWidth="57.0" promptText="Country" style="-fx-background-radius: 20px;" />
                                         <Label layoutX="25.0" layoutY="53.0" text="First name" textFill="#f2f2f2">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="25.0" layoutY="94.0" text="Middle name" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="25.0" layoutY="138.0" text="Last name" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="28.0" layoutY="413.0" text="Gender" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="25.0" layoutY="178.0" text="Email" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="251.0" text="Phone" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="290.0" text="Address" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="327.0" text="Date" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="158.0" layoutY="475.0" mnemonicParsing="false"
-                                                prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="save" textFill="WHITE"
-                                                onAction="#savsAddEmployeeButtonClick">
+                                        <Button id="button" layoutX="158.0" layoutY="475.0" mnemonicParsing="false" onAction="#savsAddEmployeeButtonClick" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
                                             <font>
-                                                <Font size="13.0"/>
+                                                <Font size="13.0" />
                                             </font>
                                         </Button>
-                                        <TextField alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0"
-                                                   prefWidth="56.0" promptText="City"
-                                                   fx:id="textfieldaddemployeecity"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0"
-                                                   prefWidth="52.0" promptText="Street "
-                                                   fx:id="textfieldaddemployeestreet"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0"
-                                                   prefWidth="37.0" promptText="Zip"
-                                                   fx:id="textfieldaddemployeezipcode"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="textfieldaddemployeecity" alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0" prefWidth="56.0" promptText="City" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeestreet" alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0" prefWidth="52.0" promptText="Street " style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeezipcode" alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0" prefWidth="37.0" promptText="Zip" style="-fx-background-radius: 20px;" />
                                         <Label layoutX="26.0" layoutY="369.0" text="Salary" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
-                                        <TextField layoutX="157.0" layoutY="366.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeesalary"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="211.0" prefHeight="25.0" prefWidth="214.0"
-                                                   fx:id="textfieldaddemployeepassword"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="textfieldaddemployeesalary" layoutX="157.0" layoutY="366.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="textfieldaddemployeepassword" layoutX="158.0" layoutY="211.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
                                         <Label layoutX="24.0" layoutY="214.0" text="Password" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ViewEmployee" layoutX="317.0" layoutY="154.0" prefHeight="558.0"
-                                    prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0"
-                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ViewEmployee" layoutX="317.0" layoutY="154.0" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="2e" layoutX="33.0" layoutY="34.0" prefHeight="332.0" prefWidth="802.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="2e" layoutX="33.0" layoutY="34.0" prefHeight="332.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0"
-                                                   visible="false">
+                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0" visible="false">
                                             <columns>
-                                                <TableColumn prefWidth="75.0"/>
-                                                <TableColumn prefWidth="75.0"/>
+                                                <TableColumn prefWidth="75.0" />
+                                                <TableColumn prefWidth="75.0" />
                                             </columns>
                                         </TableView>
-                                        <TableView layoutX="32.0" layoutY="166.0" prefHeight="129.0" prefWidth="738.0"
-                                                   fx:id="viewEmployeTable" style="-fx-background-size: 4500;">
+                                        <TableView fx:id="viewEmployeTable" layoutX="32.0" layoutY="166.0" prefHeight="129.0" prefWidth="738.0" style="-fx-background-size: 4500;">
                                             <columns>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeID" text="Employee ID"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeCountry" text="Country"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeCity" text="City"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeStreet" text="Street"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeZipCode" text="Zip Code"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployePhone" text="Phone"/>
-                                                <TableColumn prefWidth="156.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeEmail" text="Email"/>
-                                                <TableColumn prefWidth="131.0" style="-fx-background-color: #2364c5;"
-                                                             fx:id="viewEmployeSalary" text="Salary"/>
+                                                <TableColumn fx:id="viewEmployeID" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Employee ID" />
+                                                <TableColumn fx:id="viewEmployeCountry" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Country" />
+                                                <TableColumn fx:id="viewEmployeCity" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="City" />
+                                                <TableColumn fx:id="viewEmployeStreet" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Street" />
+                                                <TableColumn fx:id="viewEmployeZipCode" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Zip Code" />
+                                                <TableColumn fx:id="viewEmployePhone" prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Phone" />
+                                                <TableColumn fx:id="viewEmployeEmail" prefWidth="156.0" style="-fx-background-color: #2364c5;" text="Email" />
+                                                <TableColumn fx:id="viewEmployeSalary" prefWidth="131.0" style="-fx-background-color: #2364c5;" text="Salary" />
                                             </columns>
                                         </TableView>
-                                        <Label layoutX="15.0" layoutY="69.0" prefHeight="17.0" prefWidth="72.0"
-                                               text="Employee ID" textFill="WHITE"/>
-                                        <TextField layoutX="90.0" layoutY="65.0" prefHeight="25.0" prefWidth="160.0"
-                                                   fx:id="textfieldidviewemployee" alignment="CENTER"
-                                                   style="-fx-background-radius: 15px;"/>
-                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0"
-                                               text="VIEW EMPLOYEE" textFill="WHITE">
+                                        <Label layoutX="15.0" layoutY="69.0" prefHeight="17.0" prefWidth="102.0" text="Employee Name" textFill="WHITE" />
+                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0" text="VIEW EMPLOYEE" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="217.0" layoutY="69.0" mnemonicParsing="false"
-                                                prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" textFill="WHITE"
-                                                onAction="#IDviewEmployeeButtonClick">
-                                            <font>
-                                                <Font name="Arial Bold" size="10.0"/>
-                                            </font>
-                                        </Button>
-                                        <AnchorPane id="2e" layoutX="15.0" layoutY="111.0" prefHeight="29.0"
-                                                    prefWidth="151.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 20;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="15.0" layoutY="111.0" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #141e34; -fx-background-radius: 20;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label layoutX="27.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
-                                                       text="First Name :" textFill="WHITE"/>
-                                                <Label layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE"
-                                                       fx:id="viewEmployeeFirstName"/>
+                                                <Label layoutX="27.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="First Name :" textFill="WHITE" />
+                                                <Label fx:id="viewEmployeeFirstName" layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="187.0" layoutY="111.0" prefHeight="29.0"
-                                                    prefWidth="151.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 20;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="187.0" layoutY="111.0" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #141e34; -fx-background-radius: 20;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label layoutX="22.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
-                                                       text="Mid Name :" textFill="WHITE"/>
-                                                <Label fx:id="viewEmployeeMidName" layoutX="104.0" layoutY="7.0"
-                                                       text="Label" textFill="WHITE"/>
+                                                <Label layoutX="22.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Mid Name :" textFill="WHITE" />
+                                                <Label fx:id="viewEmployeeMidName" layoutX="104.0" layoutY="7.0" text="Label" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="363.0" layoutY="111.0" prefHeight="29.0"
-                                                    prefWidth="151.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 20;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="363.0" layoutY="111.0" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #141e34; -fx-background-radius: 20;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label fx:id="viewEmployeeLastName" layoutX="99.0" layoutY="7.0"
-                                                       text="Label" textFill="WHITE"/>
-                                                <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0"
-                                                       text="Last Name :"
-                                                       textFill="WHITE"/>
+                                                <Label fx:id="viewEmployeeLastName" layoutX="99.0" layoutY="7.0" text="Label" textFill="WHITE" />
+                                                <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="72.0" text="Last Name :" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane id="2e" layoutX="536.0" layoutY="111.0" prefHeight="29.0"
-                                                    prefWidth="151.0"
-                                                    style="-fx-background-color: #141e34; -fx-background-radius: 20;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="536.0" layoutY="111.0" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #141e34; -fx-background-radius: 20;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Label layoutX="27.0" layoutY="7.0" prefHeight="17.0" prefWidth="72.0"
-                                                       text="Gender :" textFill="WHITE"/>
-                                                <Label fx:id="viewEmployeeGender" layoutX="92.0" layoutY="6.0"
-                                                       text="Label" textFill="WHITE"/>
+                                                <Label layoutX="27.0" layoutY="7.0" prefHeight="17.0" prefWidth="72.0" text="Gender :" textFill="WHITE" />
+                                                <Label fx:id="viewEmployeeGender" layoutX="92.0" layoutY="6.0" text="Label" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
-                                        <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="226.0" layoutY="72.0"
-                                                   pickOnBounds="true" preserveRatio="true"
-                                                   style="-fx-fit-height: 16px;">
-                                            <image>
-                                                <Image url="@img/magnifying-glass (1).png"/>
-                                            </image>
-                                        </ImageView>
+                              <Button id="button" layoutX="268.0" layoutY="65.0" mnemonicParsing="false" onAction="#searchOnEmployee" prefHeight="26.0" prefWidth="66.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Search" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="10.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="textfieldaddemployeefirstname1" layoutX="119.0" layoutY="65.0" prefHeight="17.0" prefWidth="139.0" style="-fx-background-radius: 20px;" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane id="2e" layoutX="33.0" layoutY="385.0" prefHeight="65.0" prefWidth="802.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="2e" layoutX="33.0" layoutY="385.0" prefHeight="65.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <Button id="button" layoutX="105.0" layoutY="21.0" mnemonicParsing="false"
-                                                prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="Update Employee" textFill="WHITE">
+                                        <Button id="button" layoutX="105.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Employee" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Bold" size="10.0"/>
+                                                <Font name="Arial Bold" size="10.0" />
                                             </font>
                                         </Button>
-                                        <Button id="button" layoutX="492.0" layoutY="21.0" mnemonicParsing="false"
-                                                prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="Delete Employee" textFill="WHITE">
+                                        <Button id="button" layoutX="492.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete Employee" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Bold" size="10.0"/>
+                                                <Font name="Arial Bold" size="10.0" />
                                             </font>
                                         </Button>
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="AddSupplier" layoutX="-8.0" prefHeight="558.0" prefWidth="888.0"
-                                    visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-8.0"
-                                    AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="AddSupplier" layoutX="-8.0" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="1e" layoutX="246.0" layoutY="89.0" prefHeight="343.0" prefWidth="397.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="1e" layoutX="246.0" layoutY="89.0" prefHeight="343.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
                                     <children>
                                         <Label layoutX="141.0" layoutY="14.0" text="ADD SUPPLIER" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="131.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="157.0" layoutY="177.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="158.0" layoutY="221.0" prefHeight="25.0"
-                                                   prefWidth="57.0" promptText="Country"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="supplierName" layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="supplierEmail" layoutX="158.0" layoutY="131.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="supplierPhone" layoutX="157.0" layoutY="177.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="supplierCountry" alignment="CENTER" layoutX="158.0" layoutY="221.0" prefHeight="25.0" prefWidth="57.0" promptText="Country" style="-fx-background-radius: 20px;" />
                                         <Label layoutX="25.0" layoutY="86.0" text="Supplier  name" textFill="#f2f2f2">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="134.0" text="Email" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="25.0" layoutY="180.0" text="Phone" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="224.0" text="Address" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="95.0" layoutY="307.0" mnemonicParsing="false"
-                                                prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                        <Button id="button" layoutX="95.0" layoutY="307.0" mnemonicParsing="false" onAction="#saveSupplier" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
                                             <font>
-                                                <Font size="13.0"/>
+                                                <Font size="13.0" />
                                             </font>
                                         </Button>
-                                        <TextField alignment="CENTER" layoutX="218.0" layoutY="221.0" prefHeight="25.0"
-                                                   prefWidth="56.0" promptText="City"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="277.0" layoutY="221.0" prefHeight="25.0"
-                                                   prefWidth="52.0" promptText="Street "
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField alignment="CENTER" layoutX="332.0" layoutY="221.0" prefHeight="25.0"
-                                                   prefWidth="37.0" promptText="Zip"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="supplierCity" alignment="CENTER" layoutX="218.0" layoutY="221.0" prefHeight="25.0" prefWidth="56.0" promptText="City" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="supplierStreet" alignment="CENTER" layoutX="277.0" layoutY="221.0" prefHeight="25.0" prefWidth="52.0" promptText="Street " style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="supplierZipCode" alignment="CENTER" layoutX="332.0" layoutY="221.0" prefHeight="25.0" prefWidth="37.0" promptText="Zip" style="-fx-background-radius: 20px;" />
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ViewSupplier" layoutX="344.0" layoutY="179.0" prefHeight="558.0"
-                                    prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0"
-                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ViewSupplier" layoutX="344.0" layoutY="179.0" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="2e" layoutX="16.0" layoutY="56.0" prefHeight="276.0" prefWidth="802.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="2e" layoutX="16.0" layoutY="56.0" prefHeight="276.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0"
-                                                   visible="false">
+                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0" visible="false">
                                             <columns>
-                                                <TableColumn prefWidth="75.0"/>
-                                                <TableColumn prefWidth="75.0"/>
+                                                <TableColumn prefWidth="75.0" />
+                                                <TableColumn prefWidth="75.0" />
                                             </columns>
                                         </TableView>
-                                        <TableView layoutX="32.0" layoutY="87.0" prefHeight="70.0" prefWidth="738.0"
-                                                   style="-fx-background-size: 4500;">
+                                        <TableView layoutX="32.0" layoutY="87.0" prefHeight="70.0" prefWidth="738.0" style="-fx-background-size: 4500;">
                                             <columns>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Supplier ID"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Country"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="City"/>
-                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;"
-                                                             text="Street"/>
-                                                <TableColumn prefWidth="74.0" style="-fx-background-color: #2364c5;"
-                                                             text="Zip Code"/>
-                                                <TableColumn prefWidth="76.0" style="-fx-background-color: #2364c5;"
-                                                             text="Phone"/>
-                                                <TableColumn prefWidth="156.0" style="-fx-background-color: #2364c5;"
-                                                             text="Email"/>
-                                                <TableColumn prefWidth="131.0" style="-fx-background-color: #2364c5;"
-                                                             text="Supplier Name"/>
+                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Supplier ID" />
+                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Country" />
+                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;" text="City" />
+                                                <TableColumn prefWidth="75.0" style="-fx-background-color: #2364c5;" text="Street" />
+                                                <TableColumn prefWidth="74.0" style="-fx-background-color: #2364c5;" text="Zip Code" />
+                                                <TableColumn prefWidth="76.0" style="-fx-background-color: #2364c5;" text="Phone" />
+                                                <TableColumn prefWidth="156.0" style="-fx-background-color: #2364c5;" text="Email" />
+                                                <TableColumn prefWidth="131.0" style="-fx-background-color: #2364c5;" text="Supplier Name" />
                                             </columns>
                                         </TableView>
-                                        <Label layoutX="14.0" layoutY="54.0" prefHeight="17.0" prefWidth="72.0"
-                                               text="Supplier ID" textFill="WHITE"/>
-                                        <TextField layoutX="98.0" layoutY="50.0" prefHeight="25.0" prefWidth="160.0"
-                                                   style="-fx-background-radius: 15px;"/>
-                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0"
-                                               text="VIEW SUPPLIER" textFill="WHITE">
+                                        <Label layoutX="14.0" layoutY="54.0" prefHeight="17.0" prefWidth="72.0" text="Supplier ID" textFill="WHITE" />
+                                        <TextField layoutX="98.0" layoutY="50.0" prefHeight="25.0" prefWidth="160.0" style="-fx-background-radius: 15px;" />
+                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0" text="VIEW SUPPLIER" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="219.0" layoutY="54.0" mnemonicParsing="false"
-                                                prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" textFill="WHITE">
+                                        <Button id="button" layoutX="219.0" layoutY="54.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Bold" size="10.0"/>
+                                                <Font name="Arial Bold" size="10.0" />
                                             </font>
                                         </Button>
-                                        <AnchorPane id="2e" layoutX="27.0" layoutY="217.0" prefHeight="65.0"
-                                                    prefWidth="749.0"
-                                                    style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="27.0" layoutY="217.0" prefHeight="65.0" prefWidth="749.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Button id="button" layoutX="60.0" layoutY="21.0"
-                                                        mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0"
-                                                        style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                                        text="Update Supplier" textFill="WHITE">
+                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Supplier" textFill="WHITE">
                                                     <font>
-                                                        <Font name="Arial Bold" size="10.0"/>
+                                                        <Font name="Arial Bold" size="10.0" />
                                                     </font>
                                                 </Button>
-                                                <Button id="button" layoutX="469.0" layoutY="21.0"
-                                                        mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0"
-                                                        style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                                        text="Delete Supplier" textFill="WHITE">
+                                                <Button id="button" layoutX="469.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete Supplier" textFill="WHITE">
                                                     <font>
-                                                        <Font name="Arial Bold" size="10.0"/>
+                                                        <Font name="Arial Bold" size="10.0" />
                                                     </font>
                                                 </Button>
                                             </children>
                                         </AnchorPane>
-                                        <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="227.0" layoutY="57.0"
-                                                   pickOnBounds="true" preserveRatio="true"
-                                                   style="-fx-fit-height: 16px;">
+                                        <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="227.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                                             <image>
-                                                <Image url="@img/magnifying-glass (1).png"/>
+                                                <Image url="@img/magnifying-glass (1).png" />
                                             </image>
                                         </ImageView>
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="AddComponent" layoutX="344.0" layoutY="155.0" prefHeight="558.0"
-                                    prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0"
-                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="AddComponent" layoutX="344.0" layoutY="155.0" prefHeight="558.0" prefWidth="888.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="1e" layoutX="246.0" layoutY="83.0" prefHeight="343.0" prefWidth="397.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="1e" layoutX="246.0" layoutY="83.0" prefHeight="343.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
                                     <children>
                                         <Label layoutX="126.0" layoutY="14.0" text="ADD COMPONENT" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="158.0" layoutY="131.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
-                                        <TextField layoutX="157.0" layoutY="177.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="componentName" layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="componentType" layoutX="158.0" layoutY="131.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                        <TextField fx:id="componentPrice" layoutX="157.0" layoutY="177.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
                                         <Label layoutX="25.0" layoutY="86.0" text="Component Name" textFill="#f2f2f2">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="134.0" text="Compnent type" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="25.0" layoutY="180.0" text="Price " textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="26.0" layoutY="224.0" text="Quantity" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="95.0" layoutY="307.0" mnemonicParsing="false"
-                                                prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                        <Button id="button" layoutX="95.0" layoutY="307.0" mnemonicParsing="false" onAction="#saveComponent" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
                                             <font>
-                                                <Font size="13.0"/>
+                                                <Font size="13.0" />
                                             </font>
                                         </Button>
-                                        <TextField layoutX="157.0" layoutY="222.0" prefHeight="25.0" prefWidth="214.0"
-                                                   style="-fx-background-radius: 20px;"/>
+                                        <TextField fx:id="componentQuantity" layoutX="157.0" layoutY="222.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
                                     </children>
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ViewComponent" prefHeight="558.0" prefWidth="888.0" visible="false"
-                                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ViewComponent" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <AnchorPane id="2e" layoutX="51.0" layoutY="102.0" prefHeight="276.0" prefWidth="802.0"
-                                            style="-fx-background-color: #1f2a42; -fx-background-radius: 30;"
-                                            stylesheets="@css/ooo.css">
+                                <AnchorPane id="2e" layoutX="51.0" layoutY="102.0" prefHeight="276.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0"
-                                                   visible="false">
+                                        <TableView layoutX="14.0" layoutY="56.0" prefHeight="246.0" prefWidth="522.0" visible="false">
                                             <columns>
-                                                <TableColumn prefWidth="75.0"/>
-                                                <TableColumn prefWidth="75.0"/>
+                                                <TableColumn prefWidth="75.0" />
+                                                <TableColumn prefWidth="75.0" />
                                             </columns>
                                         </TableView>
-                                        <TableView layoutX="32.0" layoutY="87.0" prefHeight="70.0" prefWidth="725.0"
-                                                   style="-fx-background-size: 4500;">
+                                        <TableView layoutX="32.0" layoutY="87.0" prefHeight="70.0" prefWidth="725.0" style="-fx-background-size: 4500;">
                                             <columns>
-                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;"
-                                                             text="Component ID "/>
-                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;"
-                                                             text="Component name"/>
-                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;"
-                                                             text="Price"/>
-                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;"
-                                                             text="Component Type "/>
-                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;"
-                                                             text="Quantity"/>
+                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;" text="Component ID " />
+                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;" text="Component name" />
+                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;" text="Price" />
+                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;" text="Component Type " />
+                                                <TableColumn prefWidth="145.0" style="-fx-background-color: #2364c5;" text="Quantity" />
                                             </columns>
                                         </TableView>
-                                        <Label layoutX="27.0" layoutY="55.0" prefHeight="17.0" prefWidth="89.0"
-                                               text="Component Id" textFill="WHITE"/>
-                                        <TextField layoutX="123.0" layoutY="50.0" prefHeight="25.0" prefWidth="160.0"
-                                                   style="-fx-background-radius: 15px;"/>
-                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0"
-                                               text="VIEW COMPONENT" textFill="WHITE">
+                                        <Label layoutX="27.0" layoutY="55.0" prefHeight="17.0" prefWidth="89.0" text="Component Id" textFill="WHITE" />
+                                        <TextField layoutX="123.0" layoutY="50.0" prefHeight="25.0" prefWidth="160.0" style="-fx-background-radius: 15px;" />
+                                        <Label layoutX="323.0" layoutY="14.0" prefHeight="23.0" prefWidth="156.0" text="VIEW COMPONENT" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Narrow" size="20.0"/>
+                                                <Font name="Arial Narrow" size="20.0" />
                                             </font>
                                         </Label>
-                                        <Button id="button" layoutX="244.0" layoutY="54.0" mnemonicParsing="false"
-                                                prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;"
-                                                stylesheets="@css/ooo.css" textFill="WHITE">
+                                        <Button id="button" layoutX="244.0" layoutY="54.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="29.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Bold" size="10.0"/>
+                                                <Font name="Arial Bold" size="10.0" />
                                             </font>
                                         </Button>
-                                        <AnchorPane id="2e" layoutX="27.0" layoutY="217.0" prefHeight="65.0"
-                                                    prefWidth="749.0"
-                                                    style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;"
-                                                    stylesheets="@css/ooo.css">
+                                        <AnchorPane id="2e" layoutX="27.0" layoutY="217.0" prefHeight="65.0" prefWidth="749.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Button id="button" layoutX="60.0" layoutY="21.0"
-                                                        mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0"
-                                                        style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                                        text="Update Component" textFill="WHITE">
+                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Component" textFill="WHITE">
                                                     <font>
-                                                        <Font name="Arial Bold" size="10.0"/>
+                                                        <Font name="Arial Bold" size="10.0" />
                                                     </font>
                                                 </Button>
-                                                <Button id="button" layoutX="469.0" layoutY="21.0"
-                                                        mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0"
-                                                        style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css"
-                                                        text="Delete Component" textFill="WHITE">
+                                                <Button id="button" layoutX="469.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete Component" textFill="WHITE">
                                                     <font>
-                                                        <Font name="Arial Bold" size="10.0"/>
+                                                        <Font name="Arial Bold" size="10.0" />
                                                     </font>
                                                 </Button>
                                             </children>
                                         </AnchorPane>
-                                        <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="252.0" layoutY="57.0"
-                                                   pickOnBounds="true" preserveRatio="true"
-                                                   style="-fx-fit-height: 16px;">
+                                        <ImageView fitHeight="10.0" fitWidth="12.0" layoutX="252.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
                                             <image>
-                                                <Image url="@img/magnifying-glass (1).png"/>
+                                                <Image url="@img/magnifying-glass (1).png" />
                                             </image>
                                         </ImageView>
                                     </children>

@@ -4,26 +4,58 @@ import ActiveRecordPattern.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import defualt.databaseproject.LogInController;
 
-import javax.swing.*;
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 
-import static ActiveRecordPattern.Employee.findByID;
+import ActiveRecordPattern.*;
 
-import defualt.databaseproject.ActiveRecordPattern.*;
 
 public class AdminSiteController {
+
     private static Users staticuser;
 
+    public static void setUser(Users user) {
+        staticuser = user;
+    }
+
+    @FXML
+    private void initialize() {
+        genderToggleGroup = new ToggleGroup();
+        textfieldaddemployeedategendermale.setToggleGroup(genderToggleGroup);
+        textfieldaddemployeedategenderfemale.setToggleGroup(genderToggleGroup);
+        homeButtonClick(null);
+        AdminNameDisplay.setText(staticuser.getUserName());
+    }
+
+    private void setView(int choice) {
+        AdminMainPage.setVisible(false);
+        AddEmployee.setVisible(false);
+        ViewEmployee.setVisible(false);
+        AddSupplier.setVisible(false);
+        ViewSupplier.setVisible(false);
+        AddComponent.setVisible(false);
+        ViewComponent.setVisible(false);
+        if (choice == 1) {
+            AdminMainPage.setVisible(true);
+        } else if (choice == 2) {
+            AddEmployee.setVisible(true);
+        } else if (choice == 3) {
+            ViewEmployee.setVisible(true);
+        } else if (choice == 4) {
+            AddSupplier.setVisible(true);
+        } else if (choice == 5) {
+            ViewSupplier.setVisible(true);
+        } else if (choice == 6) {
+            AddComponent.setVisible(true);
+        } else if (choice == 7) {
+            ViewComponent.setVisible(true);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////
     @FXML
     private AnchorPane AdminMainPage;
     @FXML
@@ -52,34 +84,234 @@ public class AdminSiteController {
     private Label NumberOfProductsLable;
     @FXML
     private Label AdminNameDisplay;
+    @FXML
+    private ToggleGroup genderToggleGroup;
 
-    public AdminSiteController() {
-//        this.NumberOfEmployeeLable.setText("dfsdfdsfdsfsd");
-    }
 
-    public static void setUser(Users user) {
-        staticuser = user;
+    @FXML
+    public void homeButtonClick(ActionEvent actionEvent) {
+        setView(1);
+
+
+        NumberOfEmployeeLable.setText("" + Employee.size());
+        NumberOfOrdersLable.setText(String.valueOf(numberOfOrders()));
+        NumberOfProductsLable.setText(String.valueOf(numberOfProducts()));
+        NumberOfCustomersLable.setText(String.valueOf(numberOfCustomers()));
+        NumberOfSuppliersLable.setText("" + Supplier.size());
+        NumberOfComponentsLable.setText("" + Component.size());
+
     }
 
     @FXML
-    private void initialize() {
-        homeButtonClick(null);
-        AdminNameDisplay.setText(staticuser.getUserName());
+    public void addEmployeeButtonClick(ActionEvent actionEvent) {
+        setView(2);
     }
 
-    public static int numberOfEmployee() {
-        int Count = 0;
-        try {
-            ResultSet numberOfEmployee = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM employee;");
-            if (numberOfEmployee.next()) {
-                Count = numberOfEmployee.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
+    @FXML
+    public void viewEmployeeButtonClick(ActionEvent actionEvent) {
+        setView(3);
     }
 
+    @FXML
+    public void addSupplierButtonClick(ActionEvent actionEvent) {
+        setView(4);
+    }
+
+    @FXML
+    public void viewSupplierButtonClick(ActionEvent actionEvent) {
+        setView(5);
+
+    }
+
+    @FXML
+    public void addComponentButtonClick(ActionEvent actionEvent) {
+        setView(6);
+
+    }
+
+    @FXML
+    public void viewComponentButtonClick(ActionEvent actionEvent) {
+        setView(7);
+
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @FXML
+    private TextField textfieldaddemployeefirstname;
+    @FXML
+    private TextField textfieldaddemployeelastname;
+    @FXML
+    private TextField textfieldaddemployeeemail;
+    @FXML
+    private TextField textfieldaddemployeephone;
+    @FXML
+    private TextField textfieldaddemployeemiddlename;
+    @FXML
+    private TextField textfieldaddemployeepassword;
+    @FXML
+    private TextField textfieldaddemployeecountry;
+    @FXML
+    private TextField textfieldaddemployeestreet;
+    @FXML
+    private TextField textfieldaddemployeecity;
+    @FXML
+    private TextField textfieldaddemployeezipcode;
+    @FXML
+    private DatePicker textfieldaddemployeedate;
+    @FXML
+    private TextField textfieldaddemployeesalary;
+    @FXML
+    private RadioButton textfieldaddemployeedategendermale;
+    @FXML
+    private RadioButton textfieldaddemployeedategenderfemale;
+
+    @FXML
+    public void savsAddEmployeeButtonClick(ActionEvent actionEvent) {
+
+        RadioButton selectedRadioButton = (RadioButton) genderToggleGroup.getSelectedToggle();
+        LocalDate birthDate = textfieldaddemployeedate.getValue();
+        String firstName = textfieldaddemployeefirstname.getText();
+        String middleName = textfieldaddemployeemiddlename.getText();
+        String lastName = textfieldaddemployeelastname.getText();
+        String email = textfieldaddemployeeemail.getText();
+        String phone = textfieldaddemployeephone.getText();
+        String password = textfieldaddemployeepassword.getText();
+        String country = textfieldaddemployeecountry.getText();
+        String street = textfieldaddemployeestreet.getText();
+        String city = textfieldaddemployeecity.getText();
+        String zip = textfieldaddemployeezipcode.getText();
+        int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
+        char gender = selectedRadioButton != null ? selectedRadioButton.getText().charAt(0) : null;
+        Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street, zip, gender, birthDate);
+        employee.save();
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private TextField supplierName;
+    @FXML
+    private TextField supplierPhone;
+    @FXML
+    private TextField supplierEmail;
+    @FXML
+    private TextField supplierCountry;
+    @FXML
+    private TextField supplierStreet;
+    @FXML
+    private TextField supplierCity;
+    @FXML
+    private TextField supplierZipCode;
+
+
+    @FXML
+    public void saveSupplier() {
+        System.out.println(supplierName.getText());
+        System.out.println(supplierPhone.getText());
+        System.out.println(supplierEmail.getText());
+        System.out.println(supplierCountry.getText());
+        System.out.println(supplierStreet.getText());
+        System.out.println(supplierCity.getText());
+        System.out.println(supplierZipCode.getText());
+
+        new Supplier(supplierName.getText(),
+                supplierCountry.getText(),
+                supplierCity.getText(),
+                supplierStreet.getText(),
+                supplierZipCode.getText(),
+                supplierPhone.getText(),
+                supplierEmail.getText()
+        ).save();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @FXML
+    TextField textfieldidviewemployee;
+    @FXML
+    TableView<Employee> viewEmployeTable;
+    @FXML
+    TableColumn<Employee, String> viewEmployeID;
+    @FXML
+    TableColumn<Employee, String> viewEmployePhone;
+    @FXML
+    TableColumn<Employee, String> viewEmployeEmail;
+    @FXML
+    TableColumn<Employee, String> viewEmployeCountry;
+    @FXML
+    TableColumn<Employee, String> viewEmployeStreet;
+    @FXML
+    TableColumn<Employee, String> viewEmployeCity;
+    @FXML
+    TableColumn<Employee, String> viewEmployeZipCode;
+    @FXML
+    TableColumn<Employee, String> viewEmployeSalary;
+
+    @FXML
+    public void searchOnEmployee() {
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    public void logoutButtonClick(ActionEvent actionEvent) {
+
+        StageManager.switchScene("LogIn.fxml");
+
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    public void printButtonClick(ActionEvent actionEvent) {
+        System.out.println("printing.......");
+//        Connection con;
+//        InputStream input;
+//        JasperDesign jasperDesign;
+//        JasperReport jasperReport;
+//        JasperPrint jasperPrint;
+//        OutputStream output;
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//            con = DriverManager.getConnection(
+//                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
+//                    "baraamoh",
+//                    "baraamoh12345"
+//            );
+//
+//            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
+//            jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+//            JasperViewer.viewReport(jasperPrint);
+//
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    TextField componentName;
+    @FXML
+    TextField componentType;
+    @FXML
+    TextField componentPrice;
+    @FXML
+    TextField componentQuantity;
+
+    @FXML
+    public void saveComponent(ActionEvent actionEvent) {
+        System.out.println("save clicked");
+        new Component(componentName.getText(), Integer.parseInt(componentPrice.getText()), componentType.getText(), Integer.parseInt(componentQuantity.getText())).save();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     public static int numberOfOrders() {
         int Count = 0;
         try {
@@ -118,280 +350,5 @@ public class AdminSiteController {
         }
         return Count;
     }
-
-    public static int numberOfSuppliers() {
-        int Count = 0;
-        try {
-            ResultSet numberOfSuppliers = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM supplier;");
-            if (numberOfSuppliers.next()) {
-                Count = numberOfSuppliers.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
-    }
-
-    public static int numberOfComponents() {
-        int Count = 0;
-        try {
-            ResultSet numberOfComponents = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM component;");
-            if (numberOfComponents.next()) {
-                Count = numberOfComponents.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
-    }
-
-    @FXML
-    public void homeButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(true);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-        String Number_Of_Employee = String.valueOf(numberOfEmployee());
-        String Number_Of_Orders = String.valueOf(numberOfOrders());
-        String Number_Of_Products = String.valueOf(numberOfProducts());
-        String Number_Of_Customers = String.valueOf(numberOfCustomers());
-        String Number_Of_Suppliers = String.valueOf(numberOfSuppliers());
-        String Number_Of_Components = String.valueOf(numberOfComponents());
-        NumberOfEmployeeLable.setText(String.valueOf(numberOfEmployee()));
-        NumberOfOrdersLable.setText(String.valueOf(numberOfOrders()));
-        NumberOfProductsLable.setText(String.valueOf(numberOfProducts()));
-        NumberOfCustomersLable.setText(String.valueOf(numberOfCustomers()));
-        NumberOfSuppliersLable.setText(String.valueOf(numberOfCustomers()));
-        NumberOfComponentsLable.setText(String.valueOf(numberOfComponents()));
-
-
-    }
-
-    @FXML
-    public void addEmployeeButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(true);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-
-    }
-
-    @FXML
-    private TextField textfieldaddemployeefirstname;
-    @FXML
-    private TextField textfieldaddemployeelastname;
-    @FXML
-    private TextField textfieldaddemployeeemail;
-    @FXML
-    private TextField textfieldaddemployeephone;
-    @FXML
-    private TextField textfieldaddemployeemiddlename;
-    @FXML
-    private TextField textfieldaddemployeepassword;
-    @FXML
-    private TextField textfieldaddemployeecountry;
-    @FXML
-    private TextField textfieldaddemployeestreet;
-    @FXML
-    private TextField textfieldaddemployeecity;
-    @FXML
-    private TextField textfieldaddemployeezipcode;
-    @FXML
-    private DatePicker textfieldaddemployeedate;
-    @FXML
-    private TextField textfieldaddemployeesalary;
-    @FXML
-    private RadioButton textfieldaddemployeedategendermale;
-    @FXML
-    private RadioButton textfieldaddemployeedategenderfemale;
-
-
-    @FXML
-    public void savsAddEmployeeButtonClick(ActionEvent actionEvent) {
-        ToggleGroup toggleGroup = new ToggleGroup();
-        textfieldaddemployeedategenderfemale.setToggleGroup(toggleGroup);
-        textfieldaddemployeedategendermale.setToggleGroup(toggleGroup);
-
-        System.out.println("save employee");
-        String firstName = textfieldaddemployeefirstname.getText();
-        String middleName = textfieldaddemployeemiddlename.getText();
-        String lastName = textfieldaddemployeelastname.getText();
-        String email = textfieldaddemployeeemail.getText();
-        String phone = textfieldaddemployeephone.getText();
-        String password = textfieldaddemployeepassword.getText();
-        String country = textfieldaddemployeecountry.getText();
-        String street = textfieldaddemployeestreet.getText();
-        String city = textfieldaddemployeecity.getText();
-        String zip = textfieldaddemployeezipcode.getText();
-        int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
-
-        char gender = toggleGroup.getToggles().equals(textfieldaddemployeedategendermale) ? 'M' : 'F';
-
-//        DatePicker date = textfieldaddemployeedate;
-        Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street, zip, gender);
-        System.out.println(employee.save());
-//        Users user = new Users(firstName, "user", password);
-//        user.save();
-    }
-
-
-    @FXML
-    public void viewEmployeeButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(true);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-
-
-    }
-
-    @FXML
-    TextField textfieldidviewemployee;
-    @FXML
-    TableView<Employee> viewEmployeTable;
-    @FXML
-    TableColumn<Employee, String> viewEmployeID;
-    @FXML
-    TableColumn<Employee, String> viewEmployePhone;
-    @FXML
-    TableColumn<Employee, String> viewEmployeEmail;
-    @FXML
-    TableColumn<Employee, String> viewEmployeCountry;
-    @FXML
-    TableColumn<Employee, String> viewEmployeStreet;
-    @FXML
-    TableColumn<Employee, String> viewEmployeCity;
-    @FXML
-    TableColumn<Employee, String> viewEmployeZipCode;
-    @FXML
-    TableColumn<Employee, String> viewEmployeSalary;
-
-    @FXML
-    private Label viewEmployeeFirstName;
-    @FXML
-    private Label viewEmployeeLastName;
-    @FXML
-    private Label viewEmployeeMidName;
-    @FXML
-    private Label viewEmployeeGender;
-
-
-    @FXML
-    public void IDviewEmployeeButtonClick(ActionEvent actionEvent) {
-        Employee employee = Employee.findByID(Integer.parseInt(textfieldidviewemployee.getText()));
-        System.out.println(employee.getFirstName());
-        viewEmployeeFirstName.setText(employee.getFirstName());
-        viewEmployeeMidName.setText(employee.getSecondName());
-        viewEmployeeLastName.setText(employee.getLastNameS());
-        viewEmployeeGender.setText(String.valueOf(employee.getGender()));
-
-
-    }
-
-    @FXML
-    public void addSupplierButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(true);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-
-    }
-
-    @FXML
-    public void viewSupplierButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(true);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-
-    }
-
-    @FXML
-    public void addComponentButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(true);
-        ViewComponent.setVisible(false);
-
-    }
-
-    @FXML
-    public void viewComponentButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(true);
-
-    }
-
-    @FXML
-    public void logoutButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-        StageManager.switchScene("LogIn.fxml");
-
-    }
-
-
-    @FXML
-    public void printButtonClick(ActionEvent actionEvent) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-//        Connection con;
-//        InputStream input;
-//        JasperDesign jasperDesign;
-//        JasperReport jasperReport;
-//        JasperPrint jasperPrint;
-//        OutputStream output;
-//        try {
-//            Class.forName("org.postgresql.Driver");
-//            con = DriverManager.getConnection(
-//                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
-//                    "baraamoh",
-//                    "baraamoh12345"
-//            );
-//
-//            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
-//            jasperReport = JasperCompileManager.compileReport(jasperDesign);
-//            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
-//            JasperViewer.viewReport(jasperPrint);
-//
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-
-    }
-
 
 }

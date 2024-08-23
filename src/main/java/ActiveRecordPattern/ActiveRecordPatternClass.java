@@ -1,100 +1,90 @@
 package ActiveRecordPattern;
 
-import defualt.databaseproject.DatabaseOperations;
-
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 
 
-public class ActiveRecordPatternClass {
-
-    private ArrayList<Triplet> attributes;
+public abstract class ActiveRecordPatternClass {
     private String entityName;
+    private int id;
     private String sqlStatement;
+    private String primaryKey;
 
-    public ActiveRecordPatternClass(ArrayList<Triplet> attributes, String entityName) {
-        this.attributes = attributes;
+    public abstract void save();
+
+
+    public ActiveRecordPatternClass(String entityName, int id, String primaryKey) {
+        this.entityName = entityName;
+        this.id = id;
+        this.primaryKey = primaryKey;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEntityName() {
+        return entityName;
+    }
+
+    public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
 
+    public int getId() {
+        return id;
+    }
 
-//    public static <T> ArrayList<T> findAll(ArrayList<Triplet> attributes, Class<T> clazz, ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
-//
-//        String sqlStatement;
-//
-//        ArrayList<T> arrayListList = new ArrayList<T>();
-//
-//        sqlStatement = "select * from " + entityName + " where ";
-//        for (int i = 0; i < criteria.size(); i++) {
-//            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
-//            if (i < criteria.size() - 1) {
-//                sqlStatement += " AND";
-//            }
-//
-//        }
-//
-//        System.out.println(sqlStatement);
-//        ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
-//        ArrayList<T> rowsList = new ArrayList<T>();
-//        try {
-//
-//            while (resultSet.next()) {
-//                try {
-//                    T tuple = clazz.getDeclaredConstructor().newInstance();
-//                    attributes.forEach(attribute -> {
-//                        try {
-//                            if (attribute.getType().equals(Types.STRING)) {
-//                                Method method = clazz.getMethod(attribute.getMethodeName(), String.class);
-//                                String temp = resultSet.getString(attribute.getColumnName());
-//                                method.invoke(tuple, temp);
-//                            } else if (attribute.getType().equals(Types.INT)) {
-//                                int temp = resultSet.getInt(attribute.getColumnName());
-//                                Method method = clazz.getMethod(attribute.getMethodeName(), int.class);
-//                                method.invoke(tuple, temp);
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-////                            throw new RuntimeException(e);
-//                        }
-//                    });
-//                    rowsList.add(tuple);
-//                } catch (Exception e) {
-//                    throw new RuntimeException(e);
-//                }
-//
-//            }
-//
-//        } catch (SQLException e) {
-//            System.out.println("Error while finding users");
-//        }
-//
-//
-//        return rowsList;
-//
-//    }
+    public void setSqlStatement(String sqlStatement) {
+        this.sqlStatement = sqlStatement;
+    }
 
-    public void save() {
-        sqlStatement = "INSERT * from " + entityName + " (\n";
-        for (int i = 0; i < attributes.size(); i++) {
-            sqlStatement += attributes.get(i).getColumnName();
-            if (i < attributes.size() - 1) {
-                sqlStatement += " , ";
-            } else {
-                sqlStatement += ")";
+    public String getSqlStatement() {
+        return sqlStatement;
+    }
+
+
+    public boolean update(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
+        sqlStatement = "UPDATE " + entityName + "\n" +
+                "SET ";
+
+        for (int i = 0; i < criteria.size(); i++) {
+            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
+            if (i < criteria.size() - 1) {
+                sqlStatement += " ,";
             }
 
         }
-        sqlStatement += "VALUES ( ";
-        for (int i = 0; i < attributes.size(); i++) {
-            sqlStatement += "'" + attributes.get(i).getValue() + "'";
-            if (i < attributes.size() - 1) {
-                sqlStatement += " , ";
-            } else {
-                sqlStatement += ")";
+        sqlStatement += "WHERE " + primaryKey + " =+" + this.id + ";";
+        DatabaseOperations.makeQuery(sqlStatement);
+        return true;
+    }
+
+    public void delete() {
+
+
+        sqlStatement = "DELETE FROM " + entityName + " WHERE " + primaryKey + " ='" + this.id + "';";
+        DatabaseOperations.makeQuery(sqlStatement);
+
+    }
+
+
+    public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria, String entityName) {
+        String sqlStatement;
+        sqlStatement = "DELETE FROM " + entityName + " WHERE\n";
+
+        for (int i = 0; i < criteria.size(); i++) {
+            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
+            if (i < criteria.size() - 1) {
+                sqlStatement += " AND ";
             }
 
         }
         DatabaseOperations.makeQuery(sqlStatement);
     }
+
 
 }
