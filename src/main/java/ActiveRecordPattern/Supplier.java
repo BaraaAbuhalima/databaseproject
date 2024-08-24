@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Supplier extends ActiveRecordPattern<Supplier> {
     private String name;
     private String country;
+    private int id;
     private String city;
     private String street;
     private String zipCode;
@@ -23,6 +24,7 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
         super(entityName, primaryKey);
         setObj(this);
         this.id = supplierId;
+        super.setId(id);
     }
 
     public Supplier(String name, String country, String city, String street, String zipCode, String phone, String email) {
@@ -38,69 +40,75 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
 
     }
 
-    public int getSupplierId() {
-        return getId();
+    public int getEmployeeId() {
+        return this.id;
     }
 
-    public void setSupplierId(int supplierId) {
-        this.setId(supplierId);
+    public void setId(int id) {
+        this.id = id;
+        super.setId(id);
     }
 
-    public String getname() {
-        return name;
+    public int getId() {
+        return this.id;
     }
 
-    public void setname(String name) {
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getcountry() {
+
+    public String getCountry() {
         return country;
     }
 
-    public void setcountry(String country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 
-    public String getcity() {
+    public String getCity() {
         return city;
     }
 
-    public void setcity(String city) {
+    public void setCity(String city) {
         this.city = city;
 
     }
 
-    public String getstreet() {
+    public String getStreet() {
         return street;
     }
 
-    public void setstreet(String street) {
+    public void setStreet(String street) {
         this.street = street;
     }
 
-    public String getzipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setzipCode(String zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
 
     }
 
-    public String getphone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setphone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

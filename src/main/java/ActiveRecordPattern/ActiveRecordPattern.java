@@ -1,5 +1,8 @@
 package ActiveRecordPattern;
 
+import javassist.*;
+import javassist.Modifier;
+
 import java.lang.reflect.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,15 +12,17 @@ import java.util.ArrayList;
 public abstract class ActiveRecordPattern<T> {
     private String entityName;
     private String primaryKey;
-    protected int id;
+    private int id;
     private T obj;
     private Class<T> clazz;
 
     private ArrayList<Field> filteredFields;
 
     private void setFilteredFields() {
+
         try {
             filteredFields = new ArrayList<>();
+
             Class c = Class.forName("ActiveRecordPattern." + this.entityName);
             Field[] fields = c.getDeclaredFields();
             for (Field field : fields) {
@@ -34,21 +39,37 @@ public abstract class ActiveRecordPattern<T> {
 
     }
 
+//    private void createMethods() {
+//        try {
+//            ClassPool pool = ClassPool.getDefault();
+//            CtClass cc = null;
+//            cc = pool.get(entityName);
+//            for (Field field : filteredFields) {
+//                System.out.println(field.getName());
+//                CtMethod m = new CtMethod(CtClass.voidType, "set" + field.getName(), new CtClass[]{}, cc);
+//                m.setModifiers(Modifier.PUBLIC);
+//                m.setBody("{ this." + field + " = " + field + ";}");
+//                cc.addMethod(m);
+//
+//            }
+//            cc.toClass();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//    }
+
     public ActiveRecordPattern(String entityName, String primaryKey) {
 
         this.entityName = entityName;
         this.primaryKey = primaryKey;
         setFilteredFields();
+//        createMethods();
     }
 
     protected void setObj(T obj) {
         this.obj = obj;
-    }
-
-
-    public int getId() {
-
-        return id;
     }
 
     public void setId(int id) {
@@ -62,6 +83,9 @@ public abstract class ActiveRecordPattern<T> {
             String sqlStatement = "INSERT INTO " + entityName + "(\n";
 
             for (int i = 0; i < filteredFields.size(); i++) {
+                if (filteredFields.get(i).getName().equals("id")) {
+                    continue;
+                }
                 Field field = filteredFields.get(i);
 
                 field.setAccessible(true);
@@ -72,10 +96,15 @@ public abstract class ActiveRecordPattern<T> {
                     sqlStatement += ",";
                 }
             }
-
+            if (sqlStatement.charAt(sqlStatement.length() - 1) == ',') {
+                sqlStatement = sqlStatement.substring(0, sqlStatement.length() - 1) + ')';
+            }
             sqlStatement += "VALUES ('";
 
             for (int i = 0; i < filteredFields.size(); i++) {
+                if (filteredFields.get(i).getName().equals("id")) {
+                    continue;
+                }
                 Field field = filteredFields.get(i);
 
                 sqlStatement += field.get(obj);
@@ -85,6 +114,9 @@ public abstract class ActiveRecordPattern<T> {
                 } else {
                     sqlStatement += "','";
                 }
+            }
+            if (sqlStatement.charAt(sqlStatement.length() - 1) == ',') {
+                sqlStatement = sqlStatement.substring(0, sqlStatement.length() - 1) + ')';
             }
             ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
 
@@ -154,13 +186,16 @@ public abstract class ActiveRecordPattern<T> {
 
 
         String sqlStatement;
-        sqlStatement = "select * from " + entityName + " where ";
-        for (int i = 0; i < criteria.size(); i++) {
-            sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
-            if (i < criteria.size() - 1) {
-                sqlStatement += " AND ";
-            }
+        sqlStatement = "select * from " + entityName;
+        if (criteria != null) {
 
+            for (int i = 0; i < criteria.size(); i++) {
+                if (i == 0) sqlStatement += " where ";
+                sqlStatement += criteria.get(i).getKey() + " = '" + criteria.get(i).getValue() + "'";
+                if (i < criteria.size() - 1) {
+                    sqlStatement += " AND ";
+                }
+            }
         }
 
         ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
@@ -197,16 +232,17 @@ public abstract class ActiveRecordPattern<T> {
                                 method.invoke(newRow, resultSet.getInt(field.getName()));
 
                             } else if (field.getType().getName().contains("String")) {
-
-                                method.invoke(newRow, resultSet.getString(field.getName()));
+                                if (resultSet.getString(field.getName()) != null)
+                                    method.invoke(newRow, resultSet.getString(field.getName()));
                             } else if (field.getType().getName().contains("LocalDate")) {
-
-                                method.invoke(newRow, resultSet.getDate(field.getName()).toLocalDate());
+                                if (resultSet.getDate(field.getName()) != null)
+                                    method.invoke(newRow, resultSet.getDate(field.getName()).toLocalDate());
                             }
                         }
                     }
 
                 }
+
                 list.add(newRow);
             }
         } catch (Exception e) {

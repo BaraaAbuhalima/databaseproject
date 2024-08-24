@@ -49,3 +49,13 @@
 #2e {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1.5), 40, 0, 0, 0);
 }
+#e3 {
+   
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-cursor: hand;
+    -fx-text-alignment: center;
+    -fx-background-radius: 15px;
+ 
+ 
+}

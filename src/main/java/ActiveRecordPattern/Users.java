@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Users extends ActiveRecordPattern<Users> {
     private String name;
     private String role;
+    private int id;
     private String password;
     private static String entityName = "Users";
     private static String primaryKey = "id";
@@ -35,6 +36,7 @@ public class Users extends ActiveRecordPattern<Users> {
         super(entityName, primaryKey);
         setObj(this);
         this.id = userId;
+        super.setId(id);
     }
 
 
@@ -44,6 +46,16 @@ public class Users extends ActiveRecordPattern<Users> {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId() {
+
+        return id;
+    }
+
+    public void setId(int id) {
+        super.setId(id);
+        this.id = id;
     }
 
     public void setName(String name) {

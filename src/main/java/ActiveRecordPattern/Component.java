@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Component extends ActiveRecordPattern<Component> {
     private String name;
     private int price;
+    private int id;
     private String type;
     private int quantity;
     private static String entityName = "Component";
@@ -24,6 +25,7 @@ public class Component extends ActiveRecordPattern<Component> {
         super(entityName, primaryKey);
         setObj(this);
         this.id = ComponentID;
+        super.setId(this.id);
     }
 
     public Component() {
@@ -31,19 +33,28 @@ public class Component extends ActiveRecordPattern<Component> {
         setObj(this);
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setId(int id) {
+        this.id = id;
+        super.setId(this.id);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getprice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setprice(int price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -52,16 +63,16 @@ public class Component extends ActiveRecordPattern<Component> {
 
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public int getquantity() {
+    public int getQuantity() {
         return quantity;
 
     }
 
-    public void setquantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

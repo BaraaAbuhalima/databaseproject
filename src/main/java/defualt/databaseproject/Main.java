@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         DatabaseOperations.initilizeConnection();
-
+        System.out.println(Employee.findById(1).getlastName());
 //        Employee employee = Employee.findByID(1);
 //        System.out.println(employee.getFirstName());
 //        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();

@@ -1,15 +1,21 @@
 package defualt.databaseproject;
 
 import ActiveRecordPattern.Employee;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 
+import TableView.*;
 import ActiveRecordPattern.*;
 
 
@@ -96,7 +102,7 @@ public class AdminSiteController {
         NumberOfEmployeeLable.setText("" + Employee.size());
         NumberOfOrdersLable.setText(String.valueOf(numberOfOrders()));
         NumberOfProductsLable.setText(String.valueOf(numberOfProducts()));
-        NumberOfCustomersLable.setText(String.valueOf(numberOfCustomers()));
+        NumberOfCustomersLable.setText(Customer.size() + "");
         NumberOfSuppliersLable.setText("" + Supplier.size());
         NumberOfComponentsLable.setText("" + Component.size());
 
@@ -109,6 +115,9 @@ public class AdminSiteController {
 
     @FXML
     public void viewEmployeeButtonClick(ActionEvent actionEvent) {
+        employeeSearchList.getItems().clear();
+        employeeSearchList.getItems().addAll("Id", "First name", "Second Name", "Last name", "Id", "Salary", "Email", "Phone", "City", "Country", "Street", "Zipcode", "Gender");
+        employeeSearchList.getSelectionModel().select("Id");
         setView(3);
     }
 
@@ -119,6 +128,9 @@ public class AdminSiteController {
 
     @FXML
     public void viewSupplierButtonClick(ActionEvent actionEvent) {
+        supplierSearchLIst.getItems().clear();
+        supplierSearchLIst.getItems().addAll("Id", "Name", "Country", "City", "Street", "Zip Code", "phone", "Eamil");
+        supplierSearchLIst.getSelectionModel().select("Id");
         setView(5);
 
     }
@@ -131,6 +143,9 @@ public class AdminSiteController {
 
     @FXML
     public void viewComponentButtonClick(ActionEvent actionEvent) {
+        componentSearchList.getItems().clear();
+        componentSearchList.getItems().addAll("Id", "Name", "Price", "Type", "Quantity");
+        componentSearchList.getSelectionModel().select("Id");
         setView(7);
 
     }
@@ -184,7 +199,7 @@ public class AdminSiteController {
         String city = textfieldaddemployeecity.getText();
         String zip = textfieldaddemployeezipcode.getText();
         int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
-        char gender = selectedRadioButton != null ? selectedRadioButton.getText().charAt(0) : null;
+        String gender = selectedRadioButton != null ? selectedRadioButton.getText() : null;
         Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street, zip, gender, birthDate);
         employee.save();
     }
@@ -337,17 +352,258 @@ public class AdminSiteController {
         return Count;
     }
 
-    public static int numberOfCustomers() {
-        int Count = 0;
-        try {
-            ResultSet numberOfCustomers = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM customer;");
-            if (numberOfCustomers.next()) {
-                Count = numberOfCustomers.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
+
+    ////////////////////////////////
+    @FXML
+    public void SelectComponentButton() {
+
     }
 
+    //////////////////////////
+    @FXML
+    private ComboBox<String> employeeSearchList;
+    @FXML
+    private TextField employeeSearch;
+
+    @FXML
+    private void employeeSearchMethod() {
+        // Handle the ComboBox action event
+
+
+    }
+
+    @FXML
+    private TableView<EmployeeTableView> employeeTable;
+
+    @FXML
+    private TableColumn<EmployeeTableView, Integer> employeeIdColumn;
+
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeFirstNameColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeSecondNameColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeFinalNameColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeCountryColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeCityColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeStreetColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeZipCodeColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeePhoneColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeEmailColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, Integer> employeeSalaryColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeGenderColumn;
+    @FXML
+    private TableColumn<EmployeeTableView, String> employeeBirthDateColumn;
+
+    @FXML
+    public void SearchEmpoyeeButton() {
+        String selectedItem = employeeSearchList.getValue();
+        String searchValue = employeeSearch.getText();
+
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
+        displayOnEmployeeTable(Employee.find(criteria));
+
+        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
+    }
+
+    @FXML
+    public void viewAllEmployeesButton() {
+        displayOnEmployeeTable(Employee.find(null));
+
+    }
+
+    public void displayOnEmployeeTable(ArrayList<Employee> employeeArrayList) {
+        employeeTable.setEditable(true);
+        employeeIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        employeeFirstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        employeeSecondNameColumn.setCellValueFactory(new PropertyValueFactory<>("secondName"));
+        employeeFinalNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        employeeCountryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
+        employeeCityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
+        employeeStreetColumn.setCellValueFactory(new PropertyValueFactory<>("street"));
+        employeeZipCodeColumn.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
+        employeePhoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        employeeEmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        employeeSalaryColumn.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        employeeGenderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        employeeBirthDateColumn.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        ObservableList<EmployeeTableView> data = FXCollections.observableArrayList(
+
+        );
+        employeeArrayList.forEach(employee -> {
+            System.out.println(employee.getFirstName() + "   " + employee.getGender());
+            data.add(new EmployeeTableView(employee.getId(),
+                    employee.getFirstName(),
+                    employee.getSecondName(),
+                    employee.getlastName(),
+                    employee.getCountry(),
+                    employee.getCity(),
+                    employee.getStreet(),
+                    employee.getZipCode(),
+                    employee.getPhone(),
+                    employee.getEmail(),
+                    employee.getSalary(),
+                    employee.getGender(),
+                    employee.getBirthDate() != null ? employee.getBirthDate().toString() : "null"
+            ));
+        });
+
+        employeeTable.setItems(data);
+
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private TableView<SupplierTableView> supplierTable;
+
+    @FXML
+    private ComboBox<String> supplierSearchLIst;
+    @FXML
+    private TextField supplierSearch;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierIdColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierNameColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierCountryColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierCityColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierStreetColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierZipCodeColumn;
+
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierEmailColumn;
+    @FXML
+    private TableColumn<SupplierTableView, String> viewSupplierPhoneColumn;
+
+    @FXML
+    public void SupplierSearchButton() {
+        String selectedItem = supplierSearchLIst.getValue();
+        String searchValue = supplierSearch.getText();
+
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
+        displayOnSuppliersTable(Supplier.find(criteria));
+
+        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
+    }
+
+    @FXML
+    public void supplierViewAllButton() {
+        displayOnSuppliersTable(Supplier.find(null));
+
+    }
+
+    public void displayOnSuppliersTable(ArrayList<Supplier> supplierArrayList) {
+        viewSupplierIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        viewSupplierNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        viewSupplierCountryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
+        viewSupplierCityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
+        viewSupplierStreetColumn.setCellValueFactory(new PropertyValueFactory<>("street"));
+        viewSupplierZipCodeColumn.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
+        viewSupplierPhoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        viewSupplierEmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+        ObservableList<SupplierTableView> data = FXCollections.observableArrayList(
+
+        );
+        supplierArrayList.forEach(supplier -> {
+            System.out.println(supplier.getName() + "   " + supplier.getId());
+            data.add(new SupplierTableView(supplier.getId(),
+                    supplier.getName(),
+                    supplier.getCountry(),
+                    supplier.getCity(),
+                    supplier.getStreet(),
+                    supplier.getZipCode(),
+                    supplier.getPhone(),
+                    supplier.getEmail()
+
+            ));
+        });
+
+        supplierTable.setItems(data);
+
+
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private TableView<ComponentTableView> componentTable;
+
+    @FXML
+    private ComboBox<String> componentSearchList;
+    @FXML
+    private TextField somponentSearch;
+    @FXML
+    private TableColumn<ComponentTableView, String> viewComponentId;
+    @FXML
+    private TableColumn<ComponentTableView, String> ViewComponentName;
+    @FXML
+    private TableColumn<ComponentTableView, String> viewComponentPrice;
+    @FXML
+    private TableColumn<ComponentTableView, String> viewComponentType;
+    @FXML
+    private TableColumn<ComponentTableView, String> viewComponentQuantity;
+    @FXML
+    private TextField componentSearch;
+
+    @FXML
+    public void ComponentSearchButton() {
+        System.out.println("fdfsfdsfsdfdsfsdf");
+        String selectedItem = componentSearchList.getValue();
+        String searchValue = componentSearch.getText();
+
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
+        displayOnComponentsTable(Component.find(criteria));
+
+        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
+    }
+
+    @FXML
+    public void ComponentViewAllButton() {
+        displayOnComponentsTable(Component.find(null));
+
+    }
+
+    public void displayOnComponentsTable(ArrayList<Component> componentArrayList) {
+        viewComponentId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ViewComponentName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        viewComponentPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        viewComponentType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        viewComponentQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+
+        ObservableList<ComponentTableView> data = FXCollections.observableArrayList(
+
+        );
+        componentArrayList.forEach(component -> {
+            System.out.println(component.getName() + "   " + component.getId());
+            data.add(new ComponentTableView(
+                    component.getId(),
+                    component.getName(),
+                    component.getPrice(),
+                    component.gettype(),
+                    component.getQuantity()
+
+
+            ));
+        });
+
+        componentTable.setItems(data);
+
+
+    }
 }

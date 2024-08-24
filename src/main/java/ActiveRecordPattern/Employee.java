@@ -11,8 +11,9 @@ public class Employee extends ActiveRecordPattern<Employee> {
     private static String entityName = "Employee";
     private static final String primaryKey = "id";
     private String firstName;
+    private int id;
     private String secondName;
-    private String finalName;
+    private String lastName;
     private int salary;
     private String email;
     private String phone;
@@ -20,16 +21,16 @@ public class Employee extends ActiveRecordPattern<Employee> {
     private String street;
     private String zipCode;
     private String country;
-    private char gender;
+    private String gender;
     private LocalDate birthDate;
 
-    public Employee(String firstName, String secondName, String finalName, int salary,
-                    String email, String phone, String country, String city, String street, String zipCode, char gender, LocalDate birthDate) {
+    public Employee(String firstName, String secondName, String lastName, int salary,
+                    String email, String phone, String country, String city, String street, String zipCode, String gender, LocalDate birthDate) {
         super(entityName, primaryKey);
         setObj(this);
         this.firstName = firstName;
         this.secondName = secondName;
-        this.finalName = finalName;
+        this.lastName = lastName;
         this.salary = salary;
         this.email = email;
         this.phone = phone;
@@ -51,6 +52,7 @@ public class Employee extends ActiveRecordPattern<Employee> {
         super(entityName, primaryKey);
         setObj(this);
         this.id = employeeId;
+        super.setId(this.id);
     }
 
 
@@ -62,9 +64,16 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return birthDate;
     }
 
-    public int getEmployeeId() {
-        return this.id;
+    public int getId() {
+
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+        super.setId(id);
+    }
+
 
     public String getCountry() {
         return country;
@@ -78,8 +87,8 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return secondName;
     }
 
-    public String getLastNameS() {
-        return finalName;
+    public String getlastName() {
+        return lastName;
     }
 
     public int getSalary() {
@@ -106,7 +115,7 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return zipCode;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -122,8 +131,8 @@ public class Employee extends ActiveRecordPattern<Employee> {
         this.secondName = secondName;
     }
 
-    public void setLastNameS(String finalName) {
-        this.finalName = finalName;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setSalary(int salary) {
@@ -150,7 +159,7 @@ public class Employee extends ActiveRecordPattern<Employee> {
         this.zipCode = zipCode;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

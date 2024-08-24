@@ -9,6 +9,7 @@ public class Customer extends ActiveRecordPattern<Customer> {
 
     private static final String entityName = "Customer";
     private static final String primaryKey = "id";
+    private int id;
     private String firstName;
     private String lastName;
     private String middleName;
@@ -31,6 +32,7 @@ public class Customer extends ActiveRecordPattern<Customer> {
     public Customer(int customerId) {
         super(entityName, primaryKey);
         this.id = customerId;
+        super.setId(this.id);
         setObj(this);
     }
 
@@ -52,6 +54,15 @@ public class Customer extends ActiveRecordPattern<Customer> {
         this.city = city;
         this.street = street;
         this.zipCode = zipCode;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+        super.setId(this.id);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {

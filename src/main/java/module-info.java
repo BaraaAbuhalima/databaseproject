@@ -14,9 +14,13 @@ module defualt.databaseproject {
     requires jasperreports;
     requires java.desktop;
     requires org.postgresql.jdbc;
+    requires org.objectweb.asm;
+    requires org.javassist;
 
     opens defualt.databaseproject to javafx.fxml;
     exports defualt.databaseproject;
     exports ActiveRecordPattern;
     opens ActiveRecordPattern to javafx.fxml;
+    exports TableView;
+    opens TableView to javafx.fxml;
 }
