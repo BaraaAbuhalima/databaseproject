@@ -35,9 +35,10 @@ public class OrderDetails extends ActiveRecordPattern<OrderDetails> {
 
     }
 
-    public void setId(int id) {
+    public OrderDetails setId(int id) {
         this.id = id;
         super.setId(id);
+        return this;
     }
 
     public int getId() {
@@ -49,32 +50,36 @@ public class OrderDetails extends ActiveRecordPattern<OrderDetails> {
 
     }
 
-    public void setQuantity(int quantity) {
+    public OrderDetails setQuantity(int quantity) {
         this.quantity = quantity;
+        return this;
     }
 
     public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public OrderDetails setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+        return this;
     }
 
     public int getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public OrderDetails setProductId(int productId) {
         this.productId = productId;
+        return this;
     }
 
     public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public OrderDetails setOrderId(int orderId) {
         this.orderId = orderId;
+        return this;
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

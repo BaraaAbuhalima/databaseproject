@@ -69,9 +69,10 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return id;
     }
 
-    public void setId(int id) {
+    public Employee setId(int id) {
         this.id = id;
         super.setId(id);
+        return this;
     }
 
 
@@ -119,52 +120,67 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return gender;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public Employee setEmployeeId(int employeeId) {
         setId(employeeId);
+        return this;
     }
 
-    public void setFirstName(String firstName) {
+    public Employee setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
-    public void setSecondName(String secondName) {
+    public Employee setSecondName(String secondName) {
         this.secondName = secondName;
+        return this;
     }
 
-    public void setlastName(String lastName) {
+    public Employee setlastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
-    public void setSalary(int salary) {
+    public Employee setSalary(int salary) {
         this.salary = salary;
+        return this;
     }
 
-    public void setEmail(String email) {
+    public Employee setEmail(String email) {
         this.email = email;
+        return this;
     }
 
-    public void setPhone(String phone) {
+    public Employee setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
-    public void setCity(String city) {
+    public Employee setCity(String city) {
         this.city = city;
+        return this;
     }
 
-    public void setStreet(String street) {
+    public Employee setStreet(String street) {
         this.street = street;
+        return this;
+
     }
 
-    public void setZipCode(String zipCode) {
+    public Employee setZipCode(String zipCode) {
         this.zipCode = zipCode;
+        return this;
+
     }
 
-    public void setGender(String gender) {
+    public Employee setGender(String gender) {
         this.gender = gender;
+        return this;
+
     }
 
-    public void setCountry(String country) {
+    public Employee setCountry(String country) {
         this.country = country;
+        return this;
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

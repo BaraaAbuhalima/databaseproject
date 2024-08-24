@@ -426,7 +426,7 @@
                                                         <Font name="Tahoma" size="19.0" />
                                                     </font>
                                                 </Label>
-                                                <Button id="button" alignment="CENTER" layoutX="561.0" layoutY="53.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Print Order " textFill="WHITE">
+                                                <Button id="button" alignment="CENTER" layoutX="561.0" layoutY="53.0" mnemonicParsing="false" onAction="#PrintOrder" prefHeight="23.0" prefWidth="117.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Print Order " textFill="WHITE">
                                                     <font>
                                                         <Font name="Arial Bold" size="10.0" />
                                                     </font>
@@ -674,6 +674,327 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
+                        <AnchorPane fx:id="UpdateCustomer" layoutX="302.0" layoutY="132.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" layoutX="231.0" layoutY="14.0" prefHeight="516.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="124.0" layoutY="14.0" text="UPDATE CUSTOMER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <RadioButton layoutX="274.0" layoutY="376.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
+                                    <RadioButton layoutX="158.0" layoutY="375.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Female" textFill="#fffefe" />
+                                    <DatePicker layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0" style="-fx-padding: 0px; -fx-background-position: center;">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </DatePicker>
+                                    <TextField layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0" prefWidth="57.0" promptText="Country" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="25.0" layoutY="86.0" text="First name" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="126.0" text="Middle name" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="170.0" text="Last name" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="364.0" text="Gender" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="210.0" text="Email" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="26.0" layoutY="251.0" text="Phone" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="26.0" layoutY="290.0" text="Address" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="26.0" layoutY="327.0" text="Date" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="92.0" layoutY="423.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="search" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0" prefWidth="56.0" promptText="City" style="-fx-background-radius: 20px;" />
+                                    <TextField alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0" prefWidth="52.0" promptText="Street " style="-fx-background-radius: 20px;" />
+                                    <TextField alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0" prefWidth="37.0" promptText="Zip" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="157.0" layoutY="48.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="25.0" layoutY="50.0" text="Customer ID" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="92.0" layoutY="463.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="UpdateOrder" layoutX="310.0" layoutY="150.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" layoutX="246.0" layoutY="39.0" prefHeight="420.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="124.0" layoutY="14.0" text="UPDATE ORDER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <DatePicker layoutX="158.0" layoutY="288.0" prefHeight="25.0" prefWidth="214.0" style="-fx-padding: 0px; -fx-background-position: center;">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </DatePicker>
+                                    <TextField layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="24.0" layoutY="87.0" text="Total Price" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="27.0" layoutY="128.0" text="Discount" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="27.0" layoutY="170.0" text="Cusromer ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="27.0" layoutY="210.0" text="Employee ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="26.0" layoutY="289.0" text="Created Date" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="92.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="search" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField layoutX="157.0" layoutY="48.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="25.0" layoutY="50.0" text="Order  ID" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="92.0" layoutY="368.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="27.0" layoutY="251.0" text="Sup Total" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="DeleteCustomer" layoutX="345.0" layoutY="142.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" layoutX="246.0" layoutY="161.0" prefHeight="169.0" prefWidth="333.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="92.0" layoutY="20.0" text="DELETE CUSTOMER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="99.0" layoutY="72.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="14.0" layoutY="75.0" text="Customer ID" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="21.0" layoutY="117.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="292.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete " textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="DeleteOrder" layoutX="256.0" layoutY="137.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" fx:id="DeleteCustomer1" layoutX="250.0" layoutY="160.0" prefHeight="169.0" prefWidth="331.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="124.0" layoutY="14.0" text="DELETE ORDER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="82.0" layoutY="60.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="14.0" layoutY="62.0" text="Order ID" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="82.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete " textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="DeleteOrderDeails" layoutX="357.0" layoutY="144.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" fx:id="DeleteCustomer11" layoutX="198.0" layoutY="152.0" prefHeight="169.0" prefWidth="408.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="96.0" layoutY="14.0" prefHeight="23.0" prefWidth="270.0" text="DELETE ORDER DETAILS" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="124.0" layoutY="60.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="14.0" layoutY="62.0" text="Order Deails  ID" textFill="#f2f2f2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="124.0" layoutY="115.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Delete " textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="AddOrderDetails" layoutX="345.0" layoutY="124.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" layoutX="229.0" layoutY="64.0" prefHeight="345.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="113.0" layoutY="14.0" text="ADD ORDER DETAILS" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="33.0" layoutY="87.0" text="Product ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="33.0" layoutY="128.0" text="Order ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="34.0" layoutY="170.0" text="Total Price" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="33.0" layoutY="210.0" text="Quantity" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="92.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="UpdateOrderDetails" layoutX="331.0" layoutY="157.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="1e" layoutX="246.0" layoutY="102.0" prefHeight="306.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
+                                 <children>
+                                    <Label layoutX="113.0" layoutY="14.0" text="UPDATE ORDER DETAILS" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial Narrow" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="157.0" layoutY="87.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <TextField layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="33.0" layoutY="90.0" text="Product ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="33.0" layoutY="128.0" text="Order ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="34.0" layoutY="170.0" text="Total Price" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="33.0" layoutY="210.0" text="Quantity" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="201.0" layoutY="253.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField layoutX="157.0" layoutY="51.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                    <Label layoutX="33.0" layoutY="54.0" text="Order Details ID" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button id="button" layoutX="48.0" layoutY="253.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="143.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="search" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
                             </children>
                         </AnchorPane>
                     </center>

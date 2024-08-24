@@ -56,9 +56,10 @@ public class Customer extends ActiveRecordPattern<Customer> {
         this.zipCode = zipCode;
     }
 
-    public void setId(int id) {
+    public Customer setId(int id) {
         this.id = id;
         super.setId(this.id);
+        return this;
     }
 
     public int getId() {
@@ -69,88 +70,99 @@ public class Customer extends ActiveRecordPattern<Customer> {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public Customer setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public Customer setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
     public String getMiddleName() {
         return middleName;
     }
 
-    public void setMiddleName(String middleName) {
+    public Customer setMiddleName(String middleName) {
         this.middleName = middleName;
+        return this;
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public Customer setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+        return this;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public Customer setGender(String gender) {
         this.gender = gender;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Customer setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public Customer setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public Customer setCountry(String country) {
         this.country = country;
+        return this;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public Customer setCity(String city) {
         this.city = city;
+        return this;
     }
 
     public String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    public Customer setStreet(String street) {
         this.street = street;
+        return this;
     }
 
     public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public Customer setZipCode(String zipCode) {
         this.zipCode = zipCode;
+        return this;
 
     }
 

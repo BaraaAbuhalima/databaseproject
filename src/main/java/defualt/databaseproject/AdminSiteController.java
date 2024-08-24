@@ -44,6 +44,9 @@ public class AdminSiteController {
         ViewSupplier.setVisible(false);
         AddComponent.setVisible(false);
         ViewComponent.setVisible(false);
+        SelectComponent.setVisible(false);
+        ResetPassword.setVisible(false);
+        DeleteEmployeeView.setVisible(false);
         if (choice == 1) {
             AdminMainPage.setVisible(true);
         } else if (choice == 2) {
@@ -58,6 +61,12 @@ public class AdminSiteController {
             AddComponent.setVisible(true);
         } else if (choice == 7) {
             ViewComponent.setVisible(true);
+        } else if (choice == 8) {
+            SelectComponent.setVisible(true);
+        } else if (choice == 9) {
+            ResetPassword.setVisible(true);
+        } else if (choice == 10) {
+            DeleteEmployeeView.setVisible(true);
         }
     }
 
@@ -76,6 +85,8 @@ public class AdminSiteController {
     private AnchorPane AddComponent;
     @FXML
     private AnchorPane ViewComponent;
+    @FXML
+    private AnchorPane SelectComponent;
     @FXML
     private Label NumberOfEmployeeLable;
     @FXML
@@ -354,10 +365,7 @@ public class AdminSiteController {
 
 
     ////////////////////////////////
-    @FXML
-    public void SelectComponentButton() {
 
-    }
 
     //////////////////////////
     @FXML
@@ -606,4 +614,83 @@ public class AdminSiteController {
 
 
     }
+
+    ///////////////////////////////////
+    @FXML
+    private ComboBox<String> chooseSupplierNameComponent;
+    @FXML
+    private ComboBox<String> chooseComponentNameComponent;
+
+    @FXML
+    public void SelectComponentButton() {
+        setView(8);
+        Supplier.find(null).forEach(supplier -> {
+            chooseSupplierNameComponent.getItems().add(supplier.getName());
+
+        });
+        Component.find(null).forEach(component -> {
+            chooseComponentNameComponent.getItems().add(component.getName());
+        });
+
+    }
+
+    @FXML
+    public void saveComponentSupplierRelation() {
+        String selectedSupplierName = chooseSupplierNameComponent.getValue();
+        String selectedComponentName = chooseComponentNameComponent.getValue();
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<>("name", selectedComponentName));
+        int componentId = Component.find(criteria).get(0).getId();
+        criteria.clear();
+        criteria.add(new AbstractMap.SimpleEntry<>("name", selectedSupplierName));
+        int supplierId = Supplier.find(criteria).get(0).getId();
+        criteria.add(new AbstractMap.SimpleEntry<>("name", selectedSupplierName));
+        new SupplierComponent(componentId, supplierId).save();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    public void ResetUserPassword() {
+        setView(9);
+    }
+
+    @FXML
+    private AnchorPane ResetPassword;
+    @FXML
+    private TextField userNameReset;
+    @FXML
+    private TextField userNewPasswordReset;
+
+    @FXML
+    public void ResetPasswordButton() {
+        String userName = userNameReset.getText();
+        String userNewPassword = userNewPasswordReset.getText();
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<>("name", userName));
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria2 = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria2.add(new AbstractMap.SimpleEntry<>("password", userNewPassword));
+        Users.find(criteria).get(0).update(criteria2);
+
+
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    @FXML
+    private TextField deleteEmployeeIdSearch;
+    @FXML
+    private AnchorPane DeleteEmployeeView;
+
+    @FXML
+    public void DeleteEmployee() {
+        setView(10);
+    }
+
+    @FXML
+    public void deleteEmployeeButton() {
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<>("id", deleteEmployeeIdSearch.getText()));
+        Employee.delete(criteria);
+    }
+
+
 }

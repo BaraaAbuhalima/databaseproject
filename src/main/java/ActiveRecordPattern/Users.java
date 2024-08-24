@@ -40,12 +40,14 @@ public class Users extends ActiveRecordPattern<Users> {
     }
 
 
-    public void setRole(String role) {
+    public Users setRole(String role) {
         this.role = role;
+        return this;
     }
 
-    public void setPassword(String password) {
+    public Users setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public int getId() {
@@ -53,13 +55,15 @@ public class Users extends ActiveRecordPattern<Users> {
         return id;
     }
 
-    public void setId(int id) {
+    public Users setId(int id) {
         super.setId(id);
         this.id = id;
+        return this;
     }
 
-    public void setName(String name) {
+    public Users setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getPassword() {

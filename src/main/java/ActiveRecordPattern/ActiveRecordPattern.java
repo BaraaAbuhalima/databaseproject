@@ -68,12 +68,14 @@ public abstract class ActiveRecordPattern<T> {
 //        createMethods();
     }
 
-    protected void setObj(T obj) {
+    protected T setObj(T obj) {
         this.obj = obj;
+        return obj;
     }
 
-    public void setId(int id) {
+    public T setId(int id) {
         this.id = id;
+        return obj;
     }
 
     public void save() {
@@ -136,7 +138,7 @@ public abstract class ActiveRecordPattern<T> {
             }
 
         }
-        sqlStatement += "WHERE " + primaryKey + " =+" + this.id + ";";
+        sqlStatement += "WHERE " + primaryKey + " =" + this.id + ";";
         DatabaseOperations.makeQuery(sqlStatement);
     }
 

@@ -44,9 +44,10 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
         return this.id;
     }
 
-    public void setId(int id) {
+    public Supplier setId(int id) {
         this.id = id;
         super.setId(id);
+        return this;
     }
 
     public int getId() {
@@ -57,8 +58,9 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
         return this.name;
     }
 
-    public void setName(String name) {
+    public Supplier setName(String name) {
         this.name = name;
+        return this;
     }
 
 
@@ -66,33 +68,36 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
         return country;
     }
 
-    public void setCountry(String country) {
+    public Supplier setCountry(String country) {
         this.country = country;
+        return this;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public Supplier setCity(String city) {
         this.city = city;
-
+        return this;
     }
 
     public String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    public Supplier setStreet(String street) {
         this.street = street;
+        return this;
     }
 
     public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public Supplier setZipCode(String zipCode) {
         this.zipCode = zipCode;
+        return this;
 
     }
 
@@ -100,16 +105,18 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public Supplier setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Supplier setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

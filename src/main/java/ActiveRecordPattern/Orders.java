@@ -7,8 +7,8 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 
 public class Orders extends ActiveRecordPattern<Orders> {
-    private static String entityName = "Orders";
-    private static String primaryKey = "id";
+    private final static String entityName = "Orders";
+    private final static String primaryKey = "id";
     private LocalDate createdAt;
     private int id;
     private int totalPrice;
@@ -42,9 +42,10 @@ public class Orders extends ActiveRecordPattern<Orders> {
         super.setId(orderId);
     }
 
-    public void setId(int id) {
+    public Orders setId(int id) {
         this.id = id;
         super.setId(id);
+        return this;
     }
 
     public int getId() {
@@ -55,48 +56,54 @@ public class Orders extends ActiveRecordPattern<Orders> {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public Orders setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+        return this;
     }
 
     public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public Orders setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+        return this;
     }
 
     public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public Orders setDiscount(int discount) {
         this.discount = discount;
+        return this;
     }
 
     public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public Orders setCustomerId(int customerId) {
         this.customerId = customerId;
+        return this;
     }
 
     public int getOrdersId() {
         return OrdersId;
     }
 
-    public void setOrdersId(int OrdersId) {
+    public Orders setOrdersId(int OrdersId) {
         this.OrdersId = OrdersId;
+        return this;
     }
 
     public int getSubTotal() {
         return subTotal;
     }
 
-    public void setSubTotal(int subTotal) {
+    public Orders setSubTotal(int subTotal) {
         this.subTotal = subTotal;
+        return this;
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

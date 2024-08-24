@@ -2,6 +2,7 @@ package defualt.databaseproject;
 
 import ActiveRecordPattern.*;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -17,7 +18,15 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         DatabaseOperations.initilizeConnection();
-        System.out.println(Employee.findById(1).getlastName());
+//        System.out.println(Employee.findById(1).getlastName());
+//        SupplierComponent.find(null).forEach(supplierComponent -> {
+//            System.out.println(supplierComponent.getComponentId() + " " + supplierComponent.getSupplierId());
+//            supplierComponent.delete();
+//        });
+//        SupplierComponent.find(null).forEach(supplierComponent -> {
+//            System.out.println(supplierComponent.getComponentId() + " " + supplierComponent.getSupplierId());
+//        });
+//        new SupplierComponent(1, 17).save();
 //        Employee employee = Employee.findByID(1);
 //        System.out.println(employee.getFirstName());
 //        ArrayList<SimpleEntry<String, String>> criteria = new ArrayList<>();
@@ -92,4 +101,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Main.launch();
     }
+
+    ///////////////////////////////////////////////chooseSupplierNameComponent
+
 }

@@ -37,25 +37,28 @@ public class Component extends ActiveRecordPattern<Component> {
         return name;
     }
 
-    public void setId(int id) {
+    public Component setId(int id) {
         this.id = id;
         super.setId(this.id);
+        return this;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setName(String name) {
+    public Component setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public Component setPrice(int price) {
         this.price = price;
+        return this;
     }
 
     public String gettype() {
@@ -63,8 +66,9 @@ public class Component extends ActiveRecordPattern<Component> {
 
     }
 
-    public void setType(String type) {
+    public Component setType(String type) {
         this.type = type;
+        return this;
     }
 
     public int getQuantity() {
@@ -72,8 +76,9 @@ public class Component extends ActiveRecordPattern<Component> {
 
     }
 
-    public void setQuantity(int quantity) {
+    public Component setQuantity(int quantity) {
         this.quantity = quantity;
+        return this;
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
