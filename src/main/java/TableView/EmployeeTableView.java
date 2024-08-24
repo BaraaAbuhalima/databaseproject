@@ -47,7 +47,6 @@ public class EmployeeTableView {
         return id;
     }
 
-    // First Name Property Methods
     public String getFirstName() {
         return firstName.get();
     }
@@ -60,7 +59,6 @@ public class EmployeeTableView {
         return firstName;
     }
 
-    // Second Name Property Methods
     public String getSecondName() {
         return secondName.get();
     }
@@ -73,7 +71,6 @@ public class EmployeeTableView {
         return secondName;
     }
 
-    // Last Name Property Methods
     public String getLastName() {
         return lastName.get();
     }
@@ -86,7 +83,6 @@ public class EmployeeTableView {
         return lastName;
     }
 
-    // Country Property Methods
     public String getCountry() {
         return country.get();
     }
@@ -99,7 +95,6 @@ public class EmployeeTableView {
         return country;
     }
 
-    // City Property Methods
     public String getCity() {
         return city.get();
     }
@@ -112,7 +107,6 @@ public class EmployeeTableView {
         return city;
     }
 
-    // Street Property Methods
     public String getStreet() {
         return street.get();
     }
@@ -125,7 +119,6 @@ public class EmployeeTableView {
         return street;
     }
 
-    // Zip Code Property Methods
     public String getZipCode() {
         return zipCode.get();
     }
@@ -138,7 +131,6 @@ public class EmployeeTableView {
         return zipCode;
     }
 
-    // Phone Property Methods
     public String getPhone() {
         return phone.get();
     }
@@ -151,7 +143,6 @@ public class EmployeeTableView {
         return phone;
     }
 
-    // Email Property Methods
     public String getEmail() {
         return email.get();
     }
@@ -164,7 +155,6 @@ public class EmployeeTableView {
         return email;
     }
 
-    // Salary Property Methods
     public int getSalary() {
         return salary.get();
     }
@@ -177,7 +167,6 @@ public class EmployeeTableView {
         return salary;
     }
 
-    // Birth Date Property Methods
     public String getBirthDate() {
         return birthDate.get();
     }
