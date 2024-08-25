@@ -1,7 +1,8 @@
+
 package defualt.databaseproject;
 
-import ActiveRecordPattern.Employee;
 import javafx.beans.property.*;
+import ActiveRecordPattern.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +26,6 @@ import javafx.util.converter.DefaultStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
 import static TableView.TableViewEditor.*;
-
 
 public class AdminSiteController {
 
@@ -238,19 +238,12 @@ public class AdminSiteController {
     private TextField supplierStreet;
     @FXML
     private TextField supplierCity;
+
     @FXML
     private TextField supplierZipCode;
 
-
     @FXML
     public void saveSupplier() {
-//        System.out.println(supplierName.getText());
-//        System.out.println(supplierPhone.getText());
-//        System.out.println(supplierEmail.getText());
-//        System.out.println(supplierCountry.getText());
-//        System.out.println(supplierStreet.getText());
-//        System.out.println(supplierCity.getText());
-//        System.out.println(supplierZipCode.getText());
 
         new Supplier(supplierName.getText(),
                 supplierCountry.getText(),
@@ -261,37 +254,10 @@ public class AdminSiteController {
                 supplierEmail.getText()
         ).save();
     }
-
     /////////////////////////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-    @FXML
-    TextField textfieldidviewemployee;
-    @FXML
-    TableView<Employee> viewEmployeTable;
-    @FXML
-    TableColumn<Employee, String> viewEmployeID;
-    @FXML
-    TableColumn<Employee, String> viewEmployePhone;
-    @FXML
-    TableColumn<Employee, String> viewEmployeEmail;
-    @FXML
-    TableColumn<Employee, String> viewEmployeCountry;
-    @FXML
-    TableColumn<Employee, String> viewEmployeStreet;
-    @FXML
-    TableColumn<Employee, String> viewEmployeCity;
-    @FXML
-    TableColumn<Employee, String> viewEmployeZipCode;
-    @FXML
-    TableColumn<Employee, String> viewEmployeSalary;
-
-    @FXML
-    public void searchOnEmployee() {
-
-    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
@@ -304,29 +270,6 @@ public class AdminSiteController {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
     public void printButtonClick(ActionEvent actionEvent) {
-//        System.out.println("printing.......");
-//        Connection con;
-//        InputStream input;
-//        JasperDesign jasperDesign;
-//        JasperReport jasperReport;
-//        JasperPrint jasperPrint;
-//        OutputStream output;
-//        try {
-//            Class.forName("org.postgresql.Driver");
-//            con = DriverManager.getConnection(
-//                    "jdbc:postgresql://194.164.76.4:5432/baraamoh",
-//                    "baraamoh",
-//                    "baraamoh12345"
-//            );
-//
-//            jasperDesign = JRXmlLoader.load("src/main/resources/defualt/databaseproject/companyreport.jrxml");
-//            jasperReport = JasperCompileManager.compileReport(jasperDesign);
-//            jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
-//            JasperViewer.viewReport(jasperPrint);
-//
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
 
     }
 
