@@ -14,29 +14,8 @@ public abstract class ActiveRecordPattern<T> {
     private final String primaryKey;
     private int id;
     private T obj;
-    private Class<T> clazz;
 
     private ArrayList<Field> filteredFields;
-
-
-    private void setFilteredFields() {
-
-        try {
-            filteredFields = new ArrayList<>();
-
-            Class<?> c = Class.forName("ActiveRecordPattern." + this.entityName);
-            Field[] fields = c.getDeclaredFields();
-            for (Field field : fields) {
-                if (!(field.getName().equals("entityName") || field.getName().equals("primaryKey"))) {
-                    filteredFields.add(field);
-                }
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace(System.err);
-        }
-
-
-    }
 
 
     public ActiveRecordPattern(String entityName, String primaryKey) {
@@ -59,6 +38,25 @@ public abstract class ActiveRecordPattern<T> {
     public T setId(int id) {
         this.id = id;
         return obj;
+    }
+
+    private void setFilteredFields() {
+
+        try {
+            filteredFields = new ArrayList<>();
+
+            Class<?> c = Class.forName("ActiveRecordPattern." + this.entityName);
+            Field[] fields = c.getDeclaredFields();
+            for (Field field : fields) {
+                if (!(field.getName().equals("entityName") || field.getName().equals("primaryKey"))) {
+                    filteredFields.add(field);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace(System.err);
+        }
+
+
     }
 
     public void save() {
@@ -106,7 +104,7 @@ public abstract class ActiveRecordPattern<T> {
             ResultSet resultSet = DatabaseOperations.makeQuery(sqlStatement);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
     }
 
@@ -232,7 +230,7 @@ public abstract class ActiveRecordPattern<T> {
                 list.add(newRow);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
         return list;
 
