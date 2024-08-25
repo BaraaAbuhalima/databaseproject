@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/SupplierComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TableView/TableViewEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TableView/TableViewPattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/OrderDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TableView/ComponentTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableView/ComponentTableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TableView/EmployeeTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableView/EmployeeTableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TableView/SupplierTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableView/SupplierTableView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" afterDir="false" />
     </list>
@@ -123,7 +123,8 @@
       <workItem from="1724401806755" duration="9898000" />
       <workItem from="1724417550212" duration="17480000" />
       <workItem from="1724478837419" duration="430000" />
-      <workItem from="1724518386412" duration="10437000" />
+      <workItem from="1724518386412" duration="11920000" />
+      <workItem from="1724579576748" duration="10944000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

@@ -2,8 +2,7 @@ package TableView;
 
 import javafx.beans.property.*;
 
-public class ComponentTableView {
-    private final IntegerProperty id;
+public class ComponentTableView extends TableViewPattern {
     private final StringProperty name;
     private final IntegerProperty price;
     private final StringProperty type;
@@ -17,17 +16,6 @@ public class ComponentTableView {
         this.quantity = new SimpleIntegerProperty(quantity);
     }
 
-    public int getId() {
-        return id.get();
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public IntegerProperty idProperty() {
-        return id;
-    }
 
     public String getName() {
         return name.get();
@@ -76,5 +64,4 @@ public class ComponentTableView {
     public IntegerProperty quantityProperty() {
         return quantity;
     }
-
 }

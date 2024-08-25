@@ -199,5 +199,11 @@ public class Employee extends ActiveRecordPattern<Employee> {
         return ActiveRecordPattern.find(criteria, entityName);
     }
 
+    public static void delete(int id) {
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<String, String>("id", "" + id));
+        ActiveRecordPattern.delete(criteria, entityName);
+    }
+
 
 }

@@ -2,8 +2,7 @@ package TableView;
 
 import javafx.beans.property.*;
 
-public class SupplierTableView {
-    private final IntegerProperty id;
+public class SupplierTableView extends TableViewPattern {
     private final StringProperty name;
     private final StringProperty country;
     private final StringProperty city;
@@ -24,17 +23,6 @@ public class SupplierTableView {
         this.email = new SimpleStringProperty(email);
     }
 
-    public int getId() {
-        return id.get();
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public IntegerProperty idProperty() {
-        return id;
-    }
 
     public String getName() {
         return name.get();

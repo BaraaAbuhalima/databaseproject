@@ -18,6 +18,11 @@ public abstract class ActiveRecordPattern<T> {
 
     private ArrayList<Field> filteredFields;
 
+    public int getId() {
+
+        return id;
+    }
+
     private void setFilteredFields() {
 
         try {
@@ -162,6 +167,7 @@ public abstract class ActiveRecordPattern<T> {
         }
         DatabaseOperations.makeQuery(sqlStatement);
     }
+
 
     public static int findCount(String entityName) {
         String sqlStatement = "SELECT COUNT(*) FROM " + entityName + ";";

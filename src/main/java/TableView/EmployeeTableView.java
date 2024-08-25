@@ -2,8 +2,7 @@ package TableView;
 
 import javafx.beans.property.*;
 
-public class EmployeeTableView {
-    private final IntegerProperty id;
+public class EmployeeTableView extends TableViewPattern {
     private final StringProperty firstName;
     private final StringProperty secondName;
     private final StringProperty lastName;
@@ -35,17 +34,6 @@ public class EmployeeTableView {
         this.gender = new SimpleStringProperty(gender);
     }
 
-    public int getId() {
-        return id.get();
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public IntegerProperty idProperty() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName.get();

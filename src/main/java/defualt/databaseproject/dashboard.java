@@ -104,6 +104,11 @@ public class dashboard {
         StageManager.switchScene("LogIn.fxml");
     }
 
+    @FXML
+    public void PrintOrder() {
+
+    }
+
 
 }
 

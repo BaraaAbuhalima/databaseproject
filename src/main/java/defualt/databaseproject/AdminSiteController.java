@@ -1,14 +1,18 @@
 package defualt.databaseproject;
 
 import ActiveRecordPattern.Employee;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +21,10 @@ import java.util.ArrayList;
 
 import TableView.*;
 import ActiveRecordPattern.*;
+import javafx.util.converter.DefaultStringConverter;
+import javafx.util.converter.IntegerStringConverter;
+
+import static TableView.TableViewEditor.*;
 
 
 public class AdminSiteController {
@@ -69,6 +77,7 @@ public class AdminSiteController {
             DeleteEmployeeView.setVisible(true);
         }
     }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////
     @FXML
@@ -385,7 +394,8 @@ public class AdminSiteController {
 
     @FXML
     private TableColumn<EmployeeTableView, Integer> employeeIdColumn;
-
+    @FXML
+    private TableColumn<EmployeeTableView, Boolean> selectEmployeeComlumn;
     @FXML
     private TableColumn<EmployeeTableView, String> employeeFirstNameColumn;
     @FXML
@@ -429,6 +439,15 @@ public class AdminSiteController {
 
     }
 
+    @FXML
+    public void deleteEmployeeButton() {
+        ObservableList<EmployeeTableView> selectedItems = employeeTable.getItems().filtered(EmployeeTableView::isSelected);
+        selectedItems.forEach(selectedItem -> {
+            Employee.delete(selectedItem.getId());
+        });
+        employeeTable.getItems().removeAll(selectedItems);
+    }
+
     public void displayOnEmployeeTable(ArrayList<Employee> employeeArrayList) {
         employeeTable.setEditable(true);
         employeeIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -444,6 +463,81 @@ public class AdminSiteController {
         employeeSalaryColumn.setCellValueFactory(new PropertyValueFactory<>("salary"));
         employeeGenderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
         employeeBirthDateColumn.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        selectEmployeeComlumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectEmployeeComlumn));
+        selectEmployeeComlumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        configureIntegerColumn(
+                employeeIdColumn,
+                EmployeeTableView::idProperty,
+                EmployeeTableView::setId
+        );
+        configureStringColumn(
+                employeeFirstNameColumn,
+                EmployeeTableView::firstNameProperty,
+                EmployeeTableView::setFirstName
+        );
+
+        configureStringColumn(
+                employeeSecondNameColumn,
+                EmployeeTableView::secondNameProperty,
+                EmployeeTableView::setSecondName
+        );
+
+        configureStringColumn(
+                employeeFinalNameColumn,
+                EmployeeTableView::lastNameProperty,
+                EmployeeTableView::setLastName
+        );
+
+        configureStringColumn(
+                employeeCountryColumn,
+                EmployeeTableView::countryProperty,
+                EmployeeTableView::setCountry
+        );
+
+        configureStringColumn(
+                employeeCityColumn,
+                EmployeeTableView::cityProperty,
+                EmployeeTableView::setCity
+        );
+
+        configureStringColumn(
+                employeeStreetColumn,
+                EmployeeTableView::streetProperty,
+                EmployeeTableView::setStreet
+        );
+
+        configureStringColumn(
+                employeeZipCodeColumn,
+                EmployeeTableView::zipCodeProperty,
+                EmployeeTableView::setZipCode
+        );
+
+        configureStringColumn(
+                employeePhoneColumn,
+                EmployeeTableView::phoneProperty,
+                EmployeeTableView::setPhone
+        );
+
+        configureStringColumn(
+                employeeEmailColumn,
+                EmployeeTableView::emailProperty,
+                EmployeeTableView::setEmail
+        );
+        configureStringColumn(
+                employeeGenderColumn,
+                EmployeeTableView::genderProperty,
+                EmployeeTableView::setGender
+        );
+        configureIntegerColumn(
+                employeeSalaryColumn,
+                EmployeeTableView::salaryProperty,
+                EmployeeTableView::setSalary
+        );
+        configureStringColumn(
+                employeeBirthDateColumn,
+                EmployeeTableView::birthDateProperty,
+                EmployeeTableView::setBirthDate
+        );
         ObservableList<EmployeeTableView> data = FXCollections.observableArrayList(
 
         );
@@ -464,7 +558,8 @@ public class AdminSiteController {
                     employee.getBirthDate() != null ? employee.getBirthDate().toString() : "null"
             ));
         });
-
+        TableViewEditor util = new TableViewEditor();
+        data.forEach(util::addPropertyChangeListeners);
         employeeTable.setItems(data);
 
 
@@ -479,7 +574,7 @@ public class AdminSiteController {
     @FXML
     private TextField supplierSearch;
     @FXML
-    private TableColumn<SupplierTableView, String> viewSupplierIdColumn;
+    private TableColumn<SupplierTableView, Integer> viewSupplierIdColumn;
     @FXML
     private TableColumn<SupplierTableView, String> viewSupplierNameColumn;
     @FXML
@@ -495,6 +590,22 @@ public class AdminSiteController {
     private TableColumn<SupplierTableView, String> viewSupplierEmailColumn;
     @FXML
     private TableColumn<SupplierTableView, String> viewSupplierPhoneColumn;
+    @FXML
+    private TableColumn<SupplierTableView, Boolean> selectSupplierColumn;
+
+    //    private <T> void deleteSelectedRows(TableView<T> tableView) {
+//        ObservableList<T> selectedItems = tableView.getItems().filtered(T::isSelected);
+//        tableView.getItems().removeAll(selectedItems);
+//    }
+    @FXML
+    public void deleteSupplier() {
+        ObservableList<SupplierTableView> selectedItems = supplierTable.getItems().filtered(SupplierTableView::isSelected);
+        selectedItems.forEach(selectedItem -> {
+            System.out.println(selectedItem.getId());
+            Supplier.delete(selectedItem.getId());
+        });
+        supplierTable.getItems().removeAll(selectedItems);
+    }
 
     @FXML
     public void SupplierSearchButton() {
@@ -514,7 +625,9 @@ public class AdminSiteController {
 
     }
 
+
     public void displayOnSuppliersTable(ArrayList<Supplier> supplierArrayList) {
+        supplierTable.setEditable(true);
         viewSupplierIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         viewSupplierNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         viewSupplierCountryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
@@ -522,8 +635,21 @@ public class AdminSiteController {
         viewSupplierStreetColumn.setCellValueFactory(new PropertyValueFactory<>("street"));
         viewSupplierZipCodeColumn.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
         viewSupplierPhoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        viewSupplierEmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        selectSupplierColumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectSupplierColumn));
+        selectSupplierColumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        configureStringColumn(viewSupplierNameColumn, SupplierTableView::nameProperty, SupplierTableView::setName);
+        configureStringColumn(viewSupplierCountryColumn, SupplierTableView::countryProperty, SupplierTableView::setCountry);
+        configureStringColumn(viewSupplierCityColumn, SupplierTableView::cityProperty, SupplierTableView::setCity);
+        configureStringColumn(viewSupplierStreetColumn, SupplierTableView::streetProperty, SupplierTableView::setStreet);
+        configureStringColumn(viewSupplierZipCodeColumn, SupplierTableView::zipCodeProperty, SupplierTableView::setZipCode);
+        configureStringColumn(viewSupplierPhoneColumn, SupplierTableView::phoneProperty, SupplierTableView::setPhone);
+        configureStringColumn(viewSupplierEmailColumn, SupplierTableView::emailProperty, SupplierTableView::setEmail);
 
+        configureIntegerColumn(
+                employeeIdColumn,
+                EmployeeTableView::idProperty,
+                EmployeeTableView::setId
+        );
         ObservableList<SupplierTableView> data = FXCollections.observableArrayList(
 
         );
@@ -540,7 +666,8 @@ public class AdminSiteController {
 
             ));
         });
-
+        TableViewEditor util = new TableViewEditor();
+        data.forEach(util::addPropertyChangeListeners);
         supplierTable.setItems(data);
 
 
@@ -549,21 +676,22 @@ public class AdminSiteController {
     //////////////////////////////////////////////////////////////////////////////
     @FXML
     private TableView<ComponentTableView> componentTable;
-
+    @FXML
+    private TableColumn<ComponentTableView, Boolean> selectComponentComlumn;
     @FXML
     private ComboBox<String> componentSearchList;
     @FXML
     private TextField somponentSearch;
     @FXML
-    private TableColumn<ComponentTableView, String> viewComponentId;
+    private TableColumn<ComponentTableView, Integer> viewComponentId;
     @FXML
     private TableColumn<ComponentTableView, String> ViewComponentName;
     @FXML
-    private TableColumn<ComponentTableView, String> viewComponentPrice;
+    private TableColumn<ComponentTableView, Integer> viewComponentPrice;
     @FXML
     private TableColumn<ComponentTableView, String> viewComponentType;
     @FXML
-    private TableColumn<ComponentTableView, String> viewComponentQuantity;
+    private TableColumn<ComponentTableView, Integer> viewComponentQuantity;
     @FXML
     private TextField componentSearch;
 
@@ -586,17 +714,32 @@ public class AdminSiteController {
 
     }
 
+
     public void displayOnComponentsTable(ArrayList<Component> componentArrayList) {
+        componentTable.setEditable(true);
         viewComponentId.setCellValueFactory(new PropertyValueFactory<>("id"));
         ViewComponentName.setCellValueFactory(new PropertyValueFactory<>("name"));
         viewComponentPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         viewComponentType.setCellValueFactory(new PropertyValueFactory<>("type"));
         viewComponentQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        selectComponentComlumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        selectComponentComlumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectComponentComlumn));
 
-
-        ObservableList<ComponentTableView> data = FXCollections.observableArrayList(
-
+        configureIntegerColumn(viewComponentId, ComponentTableView::idProperty, ComponentTableView::setId);
+        configureIntegerColumn(viewComponentPrice, ComponentTableView::priceProperty, ComponentTableView::setPrice);
+        configureIntegerColumn(viewComponentQuantity, ComponentTableView::quantityProperty, ComponentTableView::setQuantity);
+        configureStringColumn(
+                ViewComponentName,
+                ComponentTableView::nameProperty,
+                ComponentTableView::setName
         );
+        configureStringColumn(
+                viewComponentType,
+                ComponentTableView::typeProperty,
+                ComponentTableView::setType
+        );
+
+        ObservableList<ComponentTableView> data = FXCollections.observableArrayList();
         componentArrayList.forEach(component -> {
             System.out.println(component.getName() + "   " + component.getId());
             data.add(new ComponentTableView(
@@ -610,10 +753,13 @@ public class AdminSiteController {
             ));
         });
 
+        TableViewEditor util = new TableViewEditor();
+        data.forEach(util::addPropertyChangeListeners);
         componentTable.setItems(data);
 
 
     }
+
 
     ///////////////////////////////////
     @FXML
@@ -686,11 +832,13 @@ public class AdminSiteController {
     }
 
     @FXML
-    public void deleteEmployeeButton() {
-        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
-        criteria.add(new AbstractMap.SimpleEntry<>("id", deleteEmployeeIdSearch.getText()));
-        Employee.delete(criteria);
-    }
+    public void deleteComponentButton() {
+        ObservableList<ComponentTableView> selectedItems = componentTable.getItems().filtered(ComponentTableView::isSelected);
+        selectedItems.forEach(selectedItem -> {
+            Component.delete(selectedItem.getId());
+        });
+        componentTable.getItems().removeAll(selectedItems);
 
+    }
 
 }
