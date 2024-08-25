@@ -10,67 +10,45 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 
 public abstract class ActiveRecordPattern<T> {
-    private String entityName;
-    private String primaryKey;
+    private final String entityName;
+    private final String primaryKey;
     private int id;
     private T obj;
     private Class<T> clazz;
 
     private ArrayList<Field> filteredFields;
 
-    public int getId() {
-
-        return id;
-    }
 
     private void setFilteredFields() {
 
         try {
             filteredFields = new ArrayList<>();
 
-            Class c = Class.forName("ActiveRecordPattern." + this.entityName);
+            Class<?> c = Class.forName("ActiveRecordPattern." + this.entityName);
             Field[] fields = c.getDeclaredFields();
             for (Field field : fields) {
-//                System.out.println(field.getName());
                 if (!(field.getName().equals("entityName") || field.getName().equals("primaryKey"))) {
                     filteredFields.add(field);
                 }
             }
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.err);
         }
-//        System.out.println(filteredFields.size());
 
 
     }
 
-//    private void createMethods() {
-//        try {
-//            ClassPool pool = ClassPool.getDefault();
-//            CtClass cc = null;
-//            cc = pool.get(entityName);
-//            for (Field field : filteredFields) {
-//                System.out.println(field.getName());
-//                CtMethod m = new CtMethod(CtClass.voidType, "set" + field.getName(), new CtClass[]{}, cc);
-//                m.setModifiers(Modifier.PUBLIC);
-//                m.setBody("{ this." + field + " = " + field + ";}");
-//                cc.addMethod(m);
-//
-//            }
-//            cc.toClass();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
 
     public ActiveRecordPattern(String entityName, String primaryKey) {
 
         this.entityName = entityName;
         this.primaryKey = primaryKey;
         setFilteredFields();
-//        createMethods();
+    }
+
+    public int getId() {
+
+        return id;
     }
 
     protected T setObj(T obj) {

@@ -400,7 +400,7 @@
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ViewEmployee" layoutX="317.0" layoutY="154.0" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ViewEmployee" layoutX="317.0" layoutY="154.0" prefHeight="558.0" prefWidth="888.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <AnchorPane id="2e" layoutX="43.0" layoutY="31.0" prefHeight="384.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30;" stylesheets="@css/ooo.css">
                                     <children>
@@ -454,7 +454,7 @@
                                 </AnchorPane>
                                 <AnchorPane id="2e" layoutX="33.0" layoutY="436.0" prefHeight="65.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                     <children>
-                                        <Button id="button" layoutX="105.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Employee" textFill="WHITE">
+                                        <Button id="button" layoutX="105.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add Employee" textFill="WHITE">
                                             <font>
                                                 <Font name="Arial Bold" size="10.0" />
                                             </font>
@@ -549,7 +549,7 @@
                                         </Button>
                                         <AnchorPane id="2e" layoutX="27.0" layoutY="367.0" prefHeight="65.0" prefWidth="749.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Supplier" textFill="WHITE">
+                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add Supplier" textFill="WHITE">
                                                     <font>
                                                         <Font name="Arial Bold" size="10.0" />
                                                     </font>
@@ -618,7 +618,7 @@
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ViewComponent" prefHeight="558.0" prefWidth="888.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ViewComponent" prefHeight="558.0" prefWidth="888.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <AnchorPane id="2e" layoutX="51.0" layoutY="64.0" prefHeight="451.0" prefWidth="802.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30;" stylesheets="@css/ooo.css">
                                     <children>
@@ -645,7 +645,7 @@
                                         </Label>
                                         <AnchorPane id="2e" layoutX="27.0" layoutY="364.0" prefHeight="65.0" prefWidth="749.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
-                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Update Component" textFill="WHITE">
+                                                <Button id="button" layoutX="60.0" layoutY="21.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="184.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Add Component" textFill="WHITE">
                                                     <font>
                                                         <Font name="Arial Bold" size="10.0" />
                                                     </font>
