@@ -9,7 +9,7 @@ public class Component extends ActiveRecordPattern<Component> {
     private int id;
     private String type;
     private int quantity;
-    private static String entityName = "Component";
+    private final static String entityName = "Component";
     private static final String primaryKey = "id";
 
     public Component(String name, int price, String type, int quantity) {
@@ -90,7 +90,7 @@ public class Component extends ActiveRecordPattern<Component> {
     }
 
     public static Component findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Component> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

@@ -159,7 +159,7 @@ public abstract class ActiveRecordPattern<T> {
         return count;
     }
 
-    public static <T> T findByID(int id, String entityName, String primaryKey) {
+    public static <T> T findById(int id, String entityName, String primaryKey) {
         ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
         criteria.add(new AbstractMap.SimpleEntry<String, String>(primaryKey, id + ""));
         return find(criteria, entityName).size() != 0 ? (T) find(criteria, entityName).get(0) : null;

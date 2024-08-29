@@ -4,16 +4,16 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 
 public class Supplier extends ActiveRecordPattern<Supplier> {
+    private static final String entityName = "Supplier";
+    private static final String primaryKey = "id";
+    private int id;
     private String name;
     private String country;
-    private int id;
     private String city;
     private String street;
     private String zipCode;
     private String phone;
     private String email;
-    private static final String entityName = "Supplier";
-    private static final String primaryKey = "id";
 
     public Supplier() {
         super(entityName, primaryKey);
@@ -129,7 +129,7 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
     }
 
     public static Supplier findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Supplier> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
@@ -137,7 +137,7 @@ public class Supplier extends ActiveRecordPattern<Supplier> {
     }
 
     public static void delete(int id) {
-        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
         criteria.add(new AbstractMap.SimpleEntry<String, String>("id", "" + id));
         ActiveRecordPattern.delete(criteria, entityName);
     }

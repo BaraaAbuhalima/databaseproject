@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/ActiveRecordPattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/DatabaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/DatabaseOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/EmployeeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/EmployeeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/OrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/SupplierComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/SupplierComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TableView/TableViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableView/TableViewEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +86,13 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bk1ba/.scenebuilder/logs/scenebuilder-22.0.0.log.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bk1ba/CE NNU/2YsS/Data_Base/Project/databaseproject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -113,7 +133,11 @@
       <workItem from="1724518386412" duration="11920000" />
       <workItem from="1724579576748" duration="11444000" />
       <workItem from="1724591131976" duration="873000" />
-      <workItem from="1724607737551" duration="2261000" />
+      <workItem from="1724607737551" duration="6673000" />
+      <workItem from="1724661936238" duration="731000" />
+      <workItem from="1724775147086" duration="88000" />
+      <workItem from="1724886897963" duration="958000" />
+      <workItem from="1724887874005" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

@@ -87,7 +87,7 @@ public class TableViewEditor {
                 }
                 // Add other property types as needed
             } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                e.printStackTrace(System.out);
             }
         }
     }

@@ -176,7 +176,7 @@ public class Customer extends ActiveRecordPattern<Customer> {
     }
 
     public static Customer findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Customer> find(ArrayList<SimpleEntry<String, String>> criteria) {

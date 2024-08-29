@@ -1,6 +1,5 @@
 package ActiveRecordPattern;
 
-import javax.print.attribute.standard.OrientationRequested;
 import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
@@ -115,7 +114,7 @@ public class Orders extends ActiveRecordPattern<Orders> {
     }
 
     public static Orders findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Orders> find(ArrayList<SimpleEntry<String, String>> criteria) {

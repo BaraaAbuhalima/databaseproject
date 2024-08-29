@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class SupplierComponent extends ActiveRecordPattern<SupplierComponent> {
 
+    private final static String entityName = "SupplierComponent";
     private int componentId;
     private int supplierId;
-    private final static String entityName = "SupplierComponent";
 
 
     public SupplierComponent(int componentId, int supplierId) {
@@ -50,7 +50,7 @@ public class SupplierComponent extends ActiveRecordPattern<SupplierComponent> {
     }
 
     public static SupplierComponent findById(int id, String primaryKey) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static void delete(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

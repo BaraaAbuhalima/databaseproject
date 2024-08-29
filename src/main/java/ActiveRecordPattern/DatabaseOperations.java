@@ -35,7 +35,7 @@ public final class DatabaseOperations {
             throw new RuntimeException(e);
         }
     }
-    
+
 
     public static void closeConnection() {
         try {
@@ -54,6 +54,7 @@ public final class DatabaseOperations {
 
         ResultSet resultSet = null;
         try {
+            
             if (query.toLowerCase().startsWith("select")) {
                 resultSet = statement.executeQuery(query);
             } else {
@@ -64,7 +65,7 @@ public final class DatabaseOperations {
 
         } catch (SQLException e) {
             System.out.println("Error executing query" + query);
-            e.printStackTrace();
+            e.printStackTrace(System.err);
 
         }
         return resultSet;

@@ -4,8 +4,8 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 
 public class OrderDetails extends ActiveRecordPattern<OrderDetails> {
-    private static String entityName = "OrderDetails";
-    private static String primaryKey = "id";
+    private final static String entityName = "OrderDetails";
+    private final static String primaryKey = "id";
     private int id;
     private int quantity;
     private int totalPrice;
@@ -91,7 +91,7 @@ public class OrderDetails extends ActiveRecordPattern<OrderDetails> {
     }
 
     public static OrderDetails findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<OrderDetails> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {

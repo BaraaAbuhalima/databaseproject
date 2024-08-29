@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Employee extends ActiveRecordPattern<Employee> {
 
-    private static String entityName = "Employee";
+    private final static String entityName = "Employee";
     private static final String primaryKey = "id";
     private String firstName;
     private int id;
@@ -192,7 +192,7 @@ public class Employee extends ActiveRecordPattern<Employee> {
     }
 
     public static Employee findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Employee> find(ArrayList<SimpleEntry<String, String>> criteria) {

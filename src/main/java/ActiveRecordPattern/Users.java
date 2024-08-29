@@ -3,8 +3,7 @@ package ActiveRecordPattern;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 public class Users extends ActiveRecordPattern<Users> {
@@ -12,8 +11,8 @@ public class Users extends ActiveRecordPattern<Users> {
     private String role;
     private int id;
     private String password;
-    private static String entityName = "Users";
-    private static String primaryKey = "id";
+    private final static String entityName = "Users";
+    private final static String primaryKey = "id";
 
     public Users(String name, String role, String password) {
         super(entityName, primaryKey);
@@ -89,7 +88,7 @@ public class Users extends ActiveRecordPattern<Users> {
     }
 
     public static Users findById(int id) {
-        return ActiveRecordPattern.findByID(id, entityName, primaryKey);
+        return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
     public static ArrayList<Users> find(ArrayList<SimpleEntry<String, String>> criteria) {

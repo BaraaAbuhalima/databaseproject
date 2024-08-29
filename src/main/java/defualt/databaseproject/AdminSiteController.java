@@ -1,7 +1,6 @@
 
 package defualt.databaseproject;
 
-import javafx.beans.property.*;
 import ActiveRecordPattern.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,10 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
-import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,8 +19,6 @@ import java.util.ArrayList;
 
 import TableView.*;
 import ActiveRecordPattern.*;
-import javafx.util.converter.DefaultStringConverter;
-import javafx.util.converter.IntegerStringConverter;
 
 import static TableView.TableViewEditor.*;
 
@@ -45,37 +40,16 @@ public class AdminSiteController {
     }
 
     private void setView(int choice) {
-        AdminMainPage.setVisible(false);
-        AddEmployee.setVisible(false);
-        ViewEmployee.setVisible(false);
-        AddSupplier.setVisible(false);
-        ViewSupplier.setVisible(false);
-        AddComponent.setVisible(false);
-        ViewComponent.setVisible(false);
-        SelectComponent.setVisible(false);
-        ResetPassword.setVisible(false);
-        DeleteEmployeeView.setVisible(false);
-        if (choice == 1) {
-            AdminMainPage.setVisible(true);
-        } else if (choice == 2) {
-            AddEmployee.setVisible(true);
-        } else if (choice == 3) {
-            ViewEmployee.setVisible(true);
-        } else if (choice == 4) {
-            AddSupplier.setVisible(true);
-        } else if (choice == 5) {
-            ViewSupplier.setVisible(true);
-        } else if (choice == 6) {
-            AddComponent.setVisible(true);
-        } else if (choice == 7) {
-            ViewComponent.setVisible(true);
-        } else if (choice == 8) {
-            SelectComponent.setVisible(true);
-        } else if (choice == 9) {
-            ResetPassword.setVisible(true);
-        } else if (choice == 10) {
-            DeleteEmployeeView.setVisible(true);
-        }
+        AdminMainPage.setVisible(choice == 1);
+        AddEmployee.setVisible(choice == 2);
+        ViewEmployee.setVisible(choice == 3);
+        AddSupplier.setVisible(choice == 4);
+        ViewSupplier.setVisible(choice == 5);
+        AddComponent.setVisible(choice == 6);
+        ViewComponent.setVisible(choice == 7);
+        SelectComponent.setVisible(choice == 8);
+        ResetPassword.setVisible(choice == 9);
+        DeleteEmployeeView.setVisible(choice == 10);
     }
 
 
@@ -120,9 +94,9 @@ public class AdminSiteController {
 
 
         NumberOfEmployeeLable.setText("" + Employee.size());
-        NumberOfOrdersLable.setText(String.valueOf(numberOfOrders()));
-        NumberOfProductsLable.setText(String.valueOf(numberOfProducts()));
-        NumberOfCustomersLable.setText(Customer.size() + "");
+        NumberOfOrdersLable.setText("" + Orders.size());
+        NumberOfProductsLable.setText("" + Product.size());
+        NumberOfCustomersLable.setText("" + Customer.size());
         NumberOfSuppliersLable.setText("" + Supplier.size());
         NumberOfComponentsLable.setText("" + Component.size());
 
@@ -136,7 +110,9 @@ public class AdminSiteController {
     @FXML
     public void viewEmployeeButtonClick(ActionEvent actionEvent) {
         employeeSearchList.getItems().clear();
-        employeeSearchList.getItems().addAll("Id", "First name", "Second Name", "Last name", "Id", "Salary", "Email", "Phone", "City", "Country", "Street", "Zipcode", "Gender");
+        employeeSearchList.getItems()
+                .addAll("Id", "First name", "Second Name", "Last name", "Id", "Salary", "Email", "Phone", "City",
+                        "Country", "Street", "Zipcode", "Gender");
         employeeSearchList.getSelectionModel().select("Id");
         setView(3);
     }
@@ -220,7 +196,9 @@ public class AdminSiteController {
         String zip = textfieldaddemployeezipcode.getText();
         int salary = Integer.parseInt(textfieldaddemployeesalary.getText());
         String gender = selectedRadioButton != null ? selectedRadioButton.getText() : null;
-        Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street, zip, gender, birthDate);
+        Employee employee = new Employee(firstName, middleName, lastName, salary, email, phone, country, city, street,
+                zip, gender, birthDate);
+
         employee.save();
     }
 
@@ -285,35 +263,11 @@ public class AdminSiteController {
 
     @FXML
     public void saveComponent(ActionEvent actionEvent) {
-        new Component(componentName.getText(), Integer.parseInt(componentPrice.getText()), componentType.getText(), Integer.parseInt(componentQuantity.getText())).save();
+        new Component(componentName.getText(), Integer.parseInt(componentPrice.getText()), componentType.getText(),
+                Integer.parseInt(componentQuantity.getText())).save();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    public static int numberOfOrders() {
-        int Count = 0;
-        try {
-            ResultSet numberOfOrders = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM orders;");
-            if (numberOfOrders.next()) {
-                Count = numberOfOrders.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
-    }
-
-    public static int numberOfProducts() {
-        int Count = 0;
-        try {
-            ResultSet numberOfProducts = DatabaseOperations.makeQuery("SELECT COUNT(*) FROM product;");
-            if (numberOfProducts.next()) {
-                Count = numberOfProducts.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Count;
-    }
 
 
     ////////////////////////////////
@@ -373,7 +327,6 @@ public class AdminSiteController {
         criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
         displayOnEmployeeTable(Employee.find(criteria));
 
-        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
     }
 
     @FXML
@@ -384,7 +337,8 @@ public class AdminSiteController {
 
     @FXML
     public void deleteEmployeeButton() {
-        ObservableList<EmployeeTableView> selectedItems = employeeTable.getItems().filtered(EmployeeTableView::isSelected);
+        ObservableList<EmployeeTableView> selectedItems = employeeTable.getItems()
+                .filtered(EmployeeTableView::isSelected);
         selectedItems.forEach(selectedItem -> {
             Employee.delete(selectedItem.getId());
         });
@@ -485,7 +439,6 @@ public class AdminSiteController {
 
         );
         employeeArrayList.forEach(employee -> {
-            System.out.println(employee.getFirstName() + "   " + employee.getGender());
             data.add(new EmployeeTableView(employee.getId(),
                     employee.getFirstName(),
                     employee.getSecondName(),
@@ -542,9 +495,9 @@ public class AdminSiteController {
 //    }
     @FXML
     public void deleteSupplier() {
-        ObservableList<SupplierTableView> selectedItems = supplierTable.getItems().filtered(SupplierTableView::isSelected);
+        ObservableList<SupplierTableView> selectedItems = supplierTable.getItems()
+                .filtered(SupplierTableView::isSelected);
         selectedItems.forEach(selectedItem -> {
-            System.out.println(selectedItem.getId());
             Supplier.delete(selectedItem.getId());
         });
         supplierTable.getItems().removeAll(selectedItems);
@@ -559,7 +512,6 @@ public class AdminSiteController {
         criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
         displayOnSuppliersTable(Supplier.find(criteria));
 
-        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
     }
 
     @FXML
@@ -581,10 +533,13 @@ public class AdminSiteController {
         selectSupplierColumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectSupplierColumn));
         selectSupplierColumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
         configureStringColumn(viewSupplierNameColumn, SupplierTableView::nameProperty, SupplierTableView::setName);
-        configureStringColumn(viewSupplierCountryColumn, SupplierTableView::countryProperty, SupplierTableView::setCountry);
+        configureStringColumn(viewSupplierCountryColumn, SupplierTableView::countryProperty,
+                SupplierTableView::setCountry);
         configureStringColumn(viewSupplierCityColumn, SupplierTableView::cityProperty, SupplierTableView::setCity);
-        configureStringColumn(viewSupplierStreetColumn, SupplierTableView::streetProperty, SupplierTableView::setStreet);
-        configureStringColumn(viewSupplierZipCodeColumn, SupplierTableView::zipCodeProperty, SupplierTableView::setZipCode);
+        configureStringColumn(viewSupplierStreetColumn, SupplierTableView::streetProperty,
+                SupplierTableView::setStreet);
+        configureStringColumn(viewSupplierZipCodeColumn, SupplierTableView::zipCodeProperty,
+                SupplierTableView::setZipCode);
         configureStringColumn(viewSupplierPhoneColumn, SupplierTableView::phoneProperty, SupplierTableView::setPhone);
         configureStringColumn(viewSupplierEmailColumn, SupplierTableView::emailProperty, SupplierTableView::setEmail);
 
@@ -597,7 +552,6 @@ public class AdminSiteController {
 
         );
         supplierArrayList.forEach(supplier -> {
-            System.out.println(supplier.getName() + "   " + supplier.getId());
             data.add(new SupplierTableView(supplier.getId(),
                     supplier.getName(),
                     supplier.getCountry(),
@@ -640,7 +594,6 @@ public class AdminSiteController {
 
     @FXML
     public void ComponentSearchButton() {
-        System.out.println("fdfsfdsfsdfdsfsdf");
         String selectedItem = componentSearchList.getValue();
         String searchValue = componentSearch.getText();
 
@@ -648,7 +601,6 @@ public class AdminSiteController {
         criteria.add(new AbstractMap.SimpleEntry<>(selectedItem.replace(" ", ""), searchValue));
         displayOnComponentsTable(Component.find(criteria));
 
-        System.out.println("Selected item: " + selectedItem + "   , Search Value" + searchValue);
     }
 
     @FXML
@@ -670,7 +622,8 @@ public class AdminSiteController {
 
         configureIntegerColumn(viewComponentId, ComponentTableView::idProperty, ComponentTableView::setId);
         configureIntegerColumn(viewComponentPrice, ComponentTableView::priceProperty, ComponentTableView::setPrice);
-        configureIntegerColumn(viewComponentQuantity, ComponentTableView::quantityProperty, ComponentTableView::setQuantity);
+        configureIntegerColumn(viewComponentQuantity, ComponentTableView::quantityProperty,
+                ComponentTableView::setQuantity);
         configureStringColumn(
                 ViewComponentName,
                 ComponentTableView::nameProperty,
@@ -684,7 +637,6 @@ public class AdminSiteController {
 
         ObservableList<ComponentTableView> data = FXCollections.observableArrayList();
         componentArrayList.forEach(component -> {
-            System.out.println(component.getName() + "   " + component.getId());
             data.add(new ComponentTableView(
                     component.getId(),
                     component.getName(),
@@ -729,10 +681,10 @@ public class AdminSiteController {
         String selectedComponentName = chooseComponentNameComponent.getValue();
         ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
         criteria.add(new AbstractMap.SimpleEntry<>("name", selectedComponentName));
-        int componentId = Component.find(criteria).get(0).getId();
+        int componentId = Component.find(criteria).getFirst().getId();
         criteria.clear();
         criteria.add(new AbstractMap.SimpleEntry<>("name", selectedSupplierName));
-        int supplierId = Supplier.find(criteria).get(0).getId();
+        int supplierId = Supplier.find(criteria).getFirst().getId();
         criteria.add(new AbstractMap.SimpleEntry<>("name", selectedSupplierName));
         new SupplierComponent(componentId, supplierId).save();
     }
@@ -758,25 +710,21 @@ public class AdminSiteController {
         criteria.add(new AbstractMap.SimpleEntry<>("name", userName));
         ArrayList<AbstractMap.SimpleEntry<String, String>> criteria2 = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
         criteria2.add(new AbstractMap.SimpleEntry<>("password", userNewPassword));
-        Users.find(criteria).get(0).update(criteria2);
+        Users.find(criteria).getFirst().update(criteria2);
 
 
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    @FXML
-    private TextField deleteEmployeeIdSearch;
+
     @FXML
     private AnchorPane DeleteEmployeeView;
 
     @FXML
-    public void DeleteEmployee() {
-        setView(10);
-    }
 
-    @FXML
     public void deleteComponentButton() {
-        ObservableList<ComponentTableView> selectedItems = componentTable.getItems().filtered(ComponentTableView::isSelected);
+        ObservableList<ComponentTableView> selectedItems = componentTable.getItems()
+                .filtered(ComponentTableView::isSelected);
         selectedItems.forEach(selectedItem -> {
             Component.delete(selectedItem.getId());
         });

@@ -1,22 +1,11 @@
+
 package defualt.databaseproject;
 
-import ActiveRecordPattern.Employee;
-import ActiveRecordPattern.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import defualt.databaseproject.LogInController;
 
-import javax.swing.*;
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
+import javafx.scene.layout.AnchorPane;
+
 
 public class dashboard {
     @FXML
