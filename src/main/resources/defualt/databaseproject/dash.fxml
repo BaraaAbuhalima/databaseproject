@@ -166,7 +166,7 @@
                                                                 <Font size="14.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="79.0" prefHeight="20.0" prefWidth="109.0" text="100" textFill="WHITE">
+                                                        <Label fx:id="numberOfOrdersLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="79.0" prefHeight="20.0" prefWidth="109.0" text="100" textFill="WHITE">
                                                             <font>
                                                                 <Font size="36.0" />
                                                             </font>
@@ -185,7 +185,7 @@
                                                                 <Font size="14.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99" textFill="WHITE">
+                                                        <Label fx:id="numberOfProductsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="77.0" prefHeight="20.0" prefWidth="109.0" text="99" textFill="WHITE">
                                                             <font>
                                                                 <Font size="36.0" />
                                                             </font>
@@ -204,7 +204,7 @@
                                                                 <Font size="14.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label id="2e" alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="83.0" prefHeight="20.0" prefWidth="109.0" text="1888" textFill="WHITE">
+                                                        <Label id="2e" fx:id="numberOfCustomersLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="95.0" prefHeight="20.0" prefWidth="109.0" text="1888" textFill="WHITE">
                                                             <font>
                                                                 <Font size="36.0" />
                                                             </font>
@@ -232,7 +232,7 @@
                                         </BarChart>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="AddCustomerPage" prefHeight="551.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="AddCustomerPage" prefHeight="551.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane id="1e" layoutX="234.0" layoutY="27.0" prefHeight="516.0" prefWidth="397.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
                                             <children>
@@ -241,19 +241,19 @@
                                                         <Font name="Arial Narrow" size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
-                                                <TextField layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
-                                                <TextField layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
-                                                <RadioButton layoutX="274.0" layoutY="376.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
-                                                <RadioButton layoutX="158.0" layoutY="375.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Female" textFill="#fffefe" />
-                                                <DatePicker layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0" style="-fx-padding: 0px; -fx-background-position: center;">
+                                                <TextField fx:id="customerFirstNameField" layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerMiddleNameField" layoutX="158.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerLastNameField" layoutX="158.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                                <RadioButton fx:id="customerGenderRadioButtonM" layoutX="274.0" layoutY="376.0" mnemonicParsing="false" text="Male" textFill="WHITE" />
+                                                <RadioButton fx:id="CustomerGenderRadioButtonF" layoutX="158.0" layoutY="375.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Female" textFill="#fffefe" />
+                                                <DatePicker fx:id="customerBirthDateField" layoutX="158.0" layoutY="326.0" prefHeight="25.0" prefWidth="214.0" style="-fx-padding: 0px; -fx-background-position: center;">
                                                     <opaqueInsets>
                                                         <Insets />
                                                     </opaqueInsets>
                                                 </DatePicker>
-                                                <TextField layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
-                                                <TextField layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
-                                                <TextField alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0" prefWidth="57.0" promptText="Country" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerEmailField" layoutX="158.0" layoutY="207.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerPhoneField" layoutX="158.0" layoutY="248.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerCountryField" alignment="CENTER" layoutX="158.0" layoutY="287.0" prefHeight="25.0" prefWidth="57.0" promptText="Country" style="-fx-background-radius: 20px;" />
                                                 <Label layoutX="25.0" layoutY="86.0" text="First name" textFill="#f2f2f2">
                                                     <font>
                                                         <Font size="14.0" />
@@ -294,14 +294,14 @@
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Label>
-                                                <Button id="button" layoutX="155.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
+                                                <Button id="button" layoutX="155.0" layoutY="419.0" mnemonicParsing="false" onAction="#addEmployeeButton" prefHeight="25.0" prefWidth="214.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="save" textFill="WHITE">
                                                     <font>
                                                         <Font size="13.0" />
                                                     </font>
                                                 </Button>
-                                                <TextField alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0" prefWidth="56.0" promptText="City" style="-fx-background-radius: 20px;" />
-                                                <TextField alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0" prefWidth="52.0" promptText="Street " style="-fx-background-radius: 20px;" />
-                                                <TextField alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0" prefWidth="37.0" promptText="Zip" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerCityField" alignment="CENTER" layoutX="218.0" layoutY="287.0" prefHeight="25.0" prefWidth="56.0" promptText="City" style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerStreetField" alignment="CENTER" layoutX="277.0" layoutY="287.0" prefHeight="25.0" prefWidth="52.0" promptText="Street " style="-fx-background-radius: 20px;" />
+                                                <TextField fx:id="customerZipCodeField" alignment="CENTER" layoutX="332.0" layoutY="287.0" prefHeight="25.0" prefWidth="37.0" promptText="Zip" style="-fx-background-radius: 20px;" />
                                             </children>
                                         </AnchorPane>
                                     </children>
@@ -392,7 +392,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane id="1e" layoutX="69.0" layoutY="15.0" prefHeight="181.0" prefWidth="751.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>

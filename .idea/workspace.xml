@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableView/ProductTableView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ActiveRecordPattern/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TableView/TableViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableView/TableViewEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/AdminSiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/Blank_A4.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/printorder.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/printorder.jrxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +120,7 @@
       <workItem from="1724775147086" duration="88000" />
       <workItem from="1724886897963" duration="958000" />
       <workItem from="1724887874005" duration="21000" />
-      <workItem from="1724924765039" duration="5720000" />
+      <workItem from="1724924765039" duration="12589000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
