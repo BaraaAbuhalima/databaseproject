@@ -80,11 +80,17 @@ public class Product extends ActiveRecordPattern<Product> {
         return findCount(entityName);
     }
 
-    public static Orders findById(int id) {
+    public static Product findById(int id) {
         return ActiveRecordPattern.findById(id, entityName, primaryKey);
     }
 
-    public static ArrayList<Orders> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
+    public static ArrayList<Product> find(ArrayList<AbstractMap.SimpleEntry<String, String>> criteria) {
         return ActiveRecordPattern.find(criteria, entityName);
+    }
+
+    public static void delete(int id) {
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<String, String>("id", "" + id));
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 }

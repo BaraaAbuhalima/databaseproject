@@ -59,6 +59,9 @@ public class TableViewEditor {
         } else if (object.getClass().getName().toLowerCase().contains("supplier")) {
             Supplier supplier = new Supplier(object.getId());
             supplier.update(criteria);
+        } else if (object.getClass().getName().toLowerCase().contains("product")) {
+            Product product = new Product(object.getId());
+            product.update(criteria);
         }
     }
 

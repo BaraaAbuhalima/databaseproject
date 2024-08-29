@@ -50,6 +50,8 @@ public class AdminSiteController {
         SelectComponent.setVisible(choice == 8);
         ResetPassword.setVisible(choice == 9);
         DeleteEmployeeView.setVisible(choice == 10);
+        AddProdcutView.setVisible(choice == 11);
+        ViewProduct.setVisible(choice == 12);
     }
 
 
@@ -70,6 +72,10 @@ public class AdminSiteController {
     private AnchorPane ViewComponent;
     @FXML
     private AnchorPane SelectComponent;
+    @FXML
+    private AnchorPane AddProdcutView;
+    @FXML
+    private AnchorPane ViewProduct;
     @FXML
     private Label NumberOfEmployeeLable;
     @FXML
@@ -533,6 +539,7 @@ public class AdminSiteController {
         selectSupplierColumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectSupplierColumn));
         selectSupplierColumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
         configureStringColumn(viewSupplierNameColumn, SupplierTableView::nameProperty, SupplierTableView::setName);
+        configureIntegerColumn(viewSupplierIdColumn, SupplierTableView::idProperty, SupplierTableView::setId);
         configureStringColumn(viewSupplierCountryColumn, SupplierTableView::countryProperty,
                 SupplierTableView::setCountry);
         configureStringColumn(viewSupplierCityColumn, SupplierTableView::cityProperty, SupplierTableView::setCity);
@@ -577,8 +584,7 @@ public class AdminSiteController {
     private TableColumn<ComponentTableView, Boolean> selectComponentComlumn;
     @FXML
     private ComboBox<String> componentSearchList;
-    @FXML
-    private TextField somponentSearch;
+
     @FXML
     private TableColumn<ComponentTableView, Integer> viewComponentId;
     @FXML
@@ -731,5 +737,118 @@ public class AdminSiteController {
         componentTable.getItems().removeAll(selectedItems);
 
     }
+
+    ////////////////////////////////////////
+    @FXML
+    private TextField productName;
+    @FXML
+    private TextField productItemDetails;
+    @FXML
+    private TextField productPrice;
+
+    @FXML
+    public void addProductButton() {
+        setView(11);
+
+    }
+
+    public void saveProduct() {
+        String name = productName.getText();
+        String price = productPrice.getText();
+        String itemDetails = productItemDetails.getText();
+        try {
+            new Product(Integer.parseInt(price), name, itemDetails).save();
+
+        } catch (NumberFormatException e) {
+            e.printStackTrace(System.err);
+        }
+
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private TableView<ProductTableView> productTable;
+    @FXML
+    private TableColumn<ProductTableView, Boolean> selectProductColumn;
+    @FXML
+    private ComboBox<String> productSearchList;
+    @FXML
+    private TableColumn<ProductTableView, Integer> viewProductId;
+    @FXML
+    private TableColumn<ProductTableView, String> ViewProductName;
+    @FXML
+    private TableColumn<ProductTableView, Integer> viewProductPrice;
+    @FXML
+    private TableColumn<ProductTableView, String> viewProductItemDetails;
+
+    @FXML
+    private TextField productSearchBar;
+
+    @FXML
+    private void viewProductButton() {
+        setView(12);
+        productSearchList.getItems().clear();
+        productSearchList.getItems().addAll("id", "name", "price", "itemDetails");
+    }
+
+    @FXML
+    private void searchProductButton() {
+        String value = productSearchBar.getText();
+        String key = productSearchList.getValue();
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new AbstractMap.SimpleEntry<>(key, value));
+        ArrayList<Product> products = Product.find(criteria);
+        displayProductsOnTable(products);
+    }
+
+    @FXML
+    private void viewAllProductsButton() {
+        displayProductsOnTable(Product.find(null));
+    }
+
+    private void displayProductsOnTable(ArrayList<Product> productArrayList) {
+        productTable.setEditable(true);
+//        viewProductId.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        ViewProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+//        viewProductPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+//        viewProductItemDetails.setCellValueFactory(new PropertyValueFactory<>("itemDetails"));
+        selectProductColumn.setCellFactory(CheckBoxTableCell.forTableColumn(selectProductColumn));
+        selectProductColumn.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        configureIntegerColumn(viewProductId, ProductTableView::idProperty, ProductTableView::setId);
+        configureStringColumn(ViewProductName, ProductTableView::nameProperty, ProductTableView::setName);
+        configureIntegerColumn(viewProductPrice, ProductTableView::priceProperty, ProductTableView::setPrice);
+        configureStringColumn(viewProductItemDetails, ProductTableView::itemDetailsProperty,
+                ProductTableView::setItemDetails);
+
+
+        ObservableList<ProductTableView> data = FXCollections.observableArrayList();
+        productArrayList.forEach(product -> {
+            data.add(new ProductTableView(
+                    product.getId(),
+                    product.getName(),
+                    product.getPrice(),
+                    product.getItemDetails()
+
+
+            ));
+        });
+
+        TableViewEditor util = new TableViewEditor();
+        data.forEach(util::addPropertyChangeListeners);
+        productTable.setItems(data);
+
+
+    }
+
+    @FXML
+    private void deleteProductButton() {
+        System.out.println("deleteProductButton");
+        ObservableList<ProductTableView> selectedItems = productTable.getItems().filtered(ProductTableView::isSelected);
+        selectedItems.forEach(selectedItem -> {
+            Product.delete(selectedItem.getId());
+        });
+        productTable.getItems().removeAll(selectedItems);
+    }
+
 
 }

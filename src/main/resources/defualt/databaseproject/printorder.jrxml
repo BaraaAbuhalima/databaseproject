@@ -153,10 +153,7 @@ FROM orderdetails
 	</variable>
 	<background splitType="Stretch"/>
 	<title height="70" splitType="Stretch">
-		<element kind="image" uuid="475e8796-ae46-4c7f-b94a-44fee21dc3f6" x="-640" y="0" width="1610" height="50">
-			<expression><![CDATA["C:/Users/m1234/Desktop/New folder (6)/databaseproject.git/src/main/resources/defualt/databaseproject/img/image.png"]]></expression>
-		</element>
-		<element kind="staticText" uuid="7d02c8be-d114-4b4c-9400-df9e2ad6d956" x="180" y="10" width="210" height="30" fontName="Berlin Sans FB Demi" fontSize="18.0" bold="true" italic="false" hTextAlign="Center">
+		<element kind="staticText" uuid="7d02c8be-d114-4b4c-9400-df9e2ad6d956" x="180" y="10" width="210" height="30" fontName="Berlin Sans FB Demi" fontSize="18.0" italic="false" bold="true" hTextAlign="Center">
 			<text><![CDATA[Your Order Details]]></text>
 		</element>
 		<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -174,7 +171,7 @@ FROM orderdetails
 		<element kind="textField" uuid="7b2bbdfd-32a7-4857-a710-3130f35bcbd1" x="110" y="60" width="71" height="20" fontName="Arial Black" bold="true" hTextAlign="Center">
 			<expression><![CDATA[$F{COLUMN_22}]]></expression>
 		</element>
-		<element kind="staticText" uuid="dc002410-f5f1-4fa5-9064-44d3ced18a1a" x="10" y="20" width="100" height="20" fontName="Arial Black" bold="true" italic="false" hTextAlign="Left">
+		<element kind="staticText" uuid="dc002410-f5f1-4fa5-9064-44d3ced18a1a" x="10" y="20" width="100" height="20" fontName="Arial Black" italic="false" bold="true" hTextAlign="Left">
 			<text><![CDATA[Customer Name:]]></text>
 		</element>
 		<element kind="textField" uuid="db6fcc04-5655-451b-ab65-ad3ae4604b45" x="110" y="20" width="60" height="20" fontName="Arial Black" fontSize="10.0" bold="true" hTextAlign="Center">
@@ -183,13 +180,13 @@ FROM orderdetails
 		<element kind="textField" uuid="2bc7ed41-321c-494c-9946-afa03821bbfa" x="160" y="20" width="80" height="20" fontName="Arial Black" fontSize="10.0" bold="true" hTextAlign="Center">
 			<expression><![CDATA[$F{lastname}]]></expression>
 		</element>
-		<element kind="staticText" uuid="7c7d1c4d-fd7c-4f40-a7f2-913c71ecf6ba" x="305" y="20" width="130" height="20" fontName="Arial Black" bold="true" italic="false" hTextAlign="Center">
+		<element kind="staticText" uuid="7c7d1c4d-fd7c-4f40-a7f2-913c71ecf6ba" x="305" y="20" width="130" height="20" fontName="Arial Black" italic="false" bold="true" hTextAlign="Center">
 			<text><![CDATA[Employee Id:]]></text>
 		</element>
-		<element kind="staticText" uuid="b4de5e85-5daa-4c5f-9b2a-c43f342e090f" x="305" y="40" width="130" height="20" fontName="Arial Black" bold="true" italic="false" hTextAlign="Center">
+		<element kind="staticText" uuid="b4de5e85-5daa-4c5f-9b2a-c43f342e090f" x="305" y="40" width="130" height="20" fontName="Arial Black" italic="false" bold="true" hTextAlign="Center">
 			<text><![CDATA[Created time:]]></text>
 		</element>
-		<element kind="staticText" uuid="c7826919-cfd2-4e31-89cb-a5302b4abbd0" x="305" y="60" width="130" height="20" fontName="Arial Black" bold="true" italic="false" hTextAlign="Center">
+		<element kind="staticText" uuid="c7826919-cfd2-4e31-89cb-a5302b4abbd0" x="305" y="60" width="130" height="20" fontName="Arial Black" italic="false" bold="true" hTextAlign="Center">
 			<text><![CDATA[Total Price :]]></text>
 		</element>
 		<element kind="textField" uuid="d7aa6c40-9313-4082-9e8e-21550df37198" x="435" y="60" width="114" height="20" fontName="Arial Black" bold="true" hTextAlign="Center">
@@ -372,9 +369,6 @@ FROM orderdetails
 		<element kind="line" uuid="8db319a5-870a-4eae-bf7d-d4b4d0b91aa3" x="-20" y="10" width="593" height="1"/>
 	</columnFooter>
 	<pageFooter height="113" splitType="Stretch">
-		<element kind="image" uuid="bf406e42-799a-4734-96d0-ebbc0970b122" x="-40" y="80" width="731" height="20">
-			<expression><![CDATA["C:/Users/m1234/Desktop/New folder (6)/databaseproject.git/src/main/resources/defualt/databaseproject/img/image.png"]]></expression>
-		</element>
 		<element kind="textField" uuid="fb4a41c8-9a19-40ad-8f17-bd9e6f886c41" x="63" y="80" width="100" height="20" pattern="MMMMM dd, yyyy">
 			<expression><![CDATA[new java.util.Date()]]></expression>
 		</element>
