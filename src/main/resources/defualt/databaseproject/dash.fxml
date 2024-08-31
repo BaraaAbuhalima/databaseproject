@@ -112,6 +112,16 @@
                                                 <Image url="@img/logout.png" />
                                             </image>
                                         </ImageView>
+                              <Button id="button" alignment="CENTER" layoutX="15.0" layoutY="328.0" mnemonicParsing="false" onAction="#PrintOrder" prefHeight="24.0" prefWidth="187.0" style="-fx-background-radius: 20px;" stylesheets="@css/ooo.css" text="Print Order " textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="10.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" style="-fx-fit-height: 16px;">
+                                 <image>
+                                    <Image url="@img/printing.png" />
+                                 </image>
+                              </ImageView>
                                     </children>
                                 </AnchorPane>
                             </children>
@@ -338,7 +348,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane id="1e" layoutX="69.0" layoutY="15.0" prefHeight="181.0" prefWidth="751.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
@@ -554,7 +564,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane fx:id="AddOrderDetails" layoutX="-8.0" layoutY="-14.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="-14.0">
+                        <AnchorPane fx:id="AddOrderDetails" layoutX="-8.0" layoutY="-14.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="-14.0">
                            <children>
                               <AnchorPane id="1e" fx:id="DeleteCustomer111" layoutX="27.0" layoutY="55.0" prefHeight="345.0" prefWidth="816.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 40px;" stylesheets="@css/ooo.css">
                                  <children>

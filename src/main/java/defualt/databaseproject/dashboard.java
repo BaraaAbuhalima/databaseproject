@@ -12,13 +12,26 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.swing.JRViewer;
+
+import javax.swing.*;
 
 import static TableView.TableViewEditor.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.time.LocalDate;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.SimpleTimeZone;
+import java.util.*;
 
 
 public class dashboard {
@@ -147,7 +160,32 @@ public class dashboard {
 
     @FXML
     public void PrintOrder() {
+        Connection con;
+        InputStream input;
+        JasperDesign jd;
+        JasperReport jr;
+        JasperPrint jp;
+        OutputStream output;
+        try {
+            DriverManager.deregisterDriver(new org.postgresql.Driver());
+            con = DriverManager.getConnection("jdbc:postgresql://194.164.76.4:5432/baraamoh", "baraamoh",
+                    "baraamoh12345");
+            input = new FileInputStream(new File(
+                    "C:\\Users\\bk1ba\\CE NNU\\2YsS\\Data_Base\\Project\\databaseproject\\src\\main\\resources\\defualt\\databaseproject\\printorder (1).jrxml"));
+            jd = JRXmlLoader.load(input);
+            jr = JasperCompileManager.compileReport(jd);
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("orderid", 14);
+            jp = JasperFillManager.fillReport(input, parameters, con);
+            JFrame frame = new JFrame("laptops company");
+            frame.getContentPane().add(new JRViewer(jp));
+            frame.pack();
+            frame.setVisible(true);
 
+
+        } catch (Exception ex) {
+            System.out.print(ex.fillInStackTrace());
+        }
     }
 
 
