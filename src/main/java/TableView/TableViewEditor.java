@@ -62,6 +62,9 @@ public class TableViewEditor {
         } else if (object.getClass().getName().toLowerCase().contains("product")) {
             Product product = new Product(object.getId());
             product.update(criteria);
+        } else if (object.getClass().getName().toLowerCase().contains("customer")) {
+            Customer customer = new Customer(object.getId());
+            customer.update(criteria);
         }
     }
 

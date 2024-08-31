@@ -40,8 +40,8 @@ public class AdminSiteController {
     }
 
     private void setView(int choice) {
-        AdminMainPage.setVisible(choice == 1);
-        AddEmployee.setVisible(choice == 2);
+        AdminMainPage.setVisible(1 == choice);
+        AddEmployee.setVisible(2 == choice);
         ViewEmployee.setVisible(choice == 3);
         AddSupplier.setVisible(choice == 4);
         ViewSupplier.setVisible(choice == 5);
@@ -343,11 +343,14 @@ public class AdminSiteController {
 
     @FXML
     public void deleteEmployeeButton() {
+
         ObservableList<EmployeeTableView> selectedItems = employeeTable.getItems()
                 .filtered(EmployeeTableView::isSelected);
+
         selectedItems.forEach(selectedItem -> {
             Employee.delete(selectedItem.getId());
         });
+
         employeeTable.getItems().removeAll(selectedItems);
     }
 

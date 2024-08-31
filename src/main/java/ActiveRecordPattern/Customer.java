@@ -182,4 +182,10 @@ public class Customer extends ActiveRecordPattern<Customer> {
     public static ArrayList<Customer> find(ArrayList<SimpleEntry<String, String>> criteria) {
         return ActiveRecordPattern.find(criteria, entityName);
     }
+
+    public static void delete(int id) {
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+        criteria.add(new AbstractMap.SimpleEntry<String, String>("id", "" + id));
+        ActiveRecordPattern.delete(criteria, entityName);
+    }
 }

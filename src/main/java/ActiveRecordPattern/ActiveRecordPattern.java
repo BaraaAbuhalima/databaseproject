@@ -48,7 +48,8 @@ public abstract class ActiveRecordPattern<T> {
             Class<?> c = Class.forName("ActiveRecordPattern." + this.entityName);
             Field[] fields = c.getDeclaredFields();
             for (Field field : fields) {
-                if (!(field.getName().equals("entityName") || field.getName().equals("primaryKey"))) {
+                if (!(field.getName().equals("entityName") || field.getName().equals("primaryKey") || field.getName()
+                        .equals("createdAt") || field.getName().equals("subTotal"))) {
                     filteredFields.add(field);
                 }
             }
@@ -58,6 +59,7 @@ public abstract class ActiveRecordPattern<T> {
 
 
     }
+
 
     public void save() {
         try {

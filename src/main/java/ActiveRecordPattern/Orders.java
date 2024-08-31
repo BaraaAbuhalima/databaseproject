@@ -13,7 +13,7 @@ public class Orders extends ActiveRecordPattern<Orders> {
     private int totalPrice;
     private int discount;
     private int customerId;
-    private int OrdersId;
+    private int employeeId;
     private int subTotal;
 
     public Orders() {
@@ -28,7 +28,6 @@ public class Orders extends ActiveRecordPattern<Orders> {
         this.totalPrice = totalPrice;
         this.discount = discount;
         this.customerId = customerId;
-        this.OrdersId = OrdersId;
         this.subTotal = subTotal;
 
     }
@@ -49,6 +48,14 @@ public class Orders extends ActiveRecordPattern<Orders> {
 
     public int getId() {
         return id;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
     }
 
     public LocalDate getCreatedAt() {
@@ -87,14 +94,6 @@ public class Orders extends ActiveRecordPattern<Orders> {
         return this;
     }
 
-    public int getOrdersId() {
-        return OrdersId;
-    }
-
-    public Orders setOrdersId(int OrdersId) {
-        this.OrdersId = OrdersId;
-        return this;
-    }
 
     public int getSubTotal() {
         return subTotal;
@@ -119,6 +118,12 @@ public class Orders extends ActiveRecordPattern<Orders> {
 
     public static ArrayList<Orders> find(ArrayList<SimpleEntry<String, String>> criteria) {
         return ActiveRecordPattern.find(criteria, entityName);
+    }
+
+    public static void delete(int id) {
+        ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<AbstractMap.SimpleEntry<String, String>>();
+        criteria.add(new AbstractMap.SimpleEntry<String, String>("id", "" + id));
+        ActiveRecordPattern.delete(criteria, entityName);
     }
 }
 

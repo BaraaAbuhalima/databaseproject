@@ -9,7 +9,7 @@ import java.util.AbstractMap.*;
 import java.util.ArrayList;
 
 public class LogInController {
-
+    public static int employeeId;
     private int userId = -1;
     private String userRole;
 
@@ -47,6 +47,7 @@ public class LogInController {
                 AdminSiteController.setUser(userList.getFirst());
                 StageManager.switchScene("admin.fxml");
             } else {
+                
                 StageManager.switchScene("dash.fxml");
             }
         }
