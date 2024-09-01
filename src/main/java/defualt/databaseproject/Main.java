@@ -17,10 +17,11 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Welcome Back !");
+        
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        
+
     }
 
     public static void main(String[] args) {

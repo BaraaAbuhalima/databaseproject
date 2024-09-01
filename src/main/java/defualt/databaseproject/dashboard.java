@@ -1,6 +1,11 @@
 
 package defualt.databaseproject;
 
+import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.*;
 import ActiveRecordPattern.*;
@@ -99,6 +104,7 @@ public class dashboard {
         customerGenderRadioButtonM.setToggleGroup(customerGenderToggleGroup);
         CustomerGenderRadioButtonF.setToggleGroup(customerGenderToggleGroup);
         setView(1);
+        homeButtonClick();
 //        homeButtonClick();
     }
 
@@ -116,7 +122,43 @@ public class dashboard {
 
     //////////////////////////////////////////////////////////////////////
     @FXML
+    private BarChart<String, Number> barChart;
+    @FXML
+    private CategoryAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
+
+    @FXML
     public void homeButtonClick() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Employee");
+        // Add data to the series
+        ArrayList<Employee> employees;
+
+        employees = Employee.find(null);
+        ArrayList<AbstractMap.SimpleEntry<String, Integer>> employeeOrder = new ArrayList<>();
+        employees.forEach(employee ->
+        {
+            ArrayList<AbstractMap.SimpleEntry<String, String>> criteria = new ArrayList<>();
+            criteria.add(new AbstractMap.SimpleEntry<>("employeeId", "" + employee.getId()));
+            employeeOrder.add(new AbstractMap.SimpleEntry<>(employee.getFirstName() + employee.getlastName(),
+                    Orders.find(criteria).size()));
+
+        });
+        employeeOrder.sort(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
+                return e2.getValue().compareTo(e1.getValue());
+            }
+        });
+        for (int i = 0; i < Math.min(employeeOrder.size(), 6); i++) {
+            series.getData()
+                    .add(new XYChart.Data<>(employeeOrder.get(i).getKey() + "", employeeOrder.get(i).getValue()));
+        }
+
+        // Add series to the bar chart
+        barChart.getData().add(series);
         setView(1);
         numberOfCustomersLabel.setText("" + Customer.size());
         numberOfOrdersLabel.setText("" + Orders.size());
@@ -160,32 +202,7 @@ public class dashboard {
 
     @FXML
     public void PrintOrder() {
-        Connection con;
-        InputStream input;
-        JasperDesign jd;
-        JasperReport jr;
-        JasperPrint jp;
-        OutputStream output;
-        try {
-            DriverManager.deregisterDriver(new org.postgresql.Driver());
-            con = DriverManager.getConnection("jdbc:postgresql://194.164.76.4:5432/baraamoh", "baraamoh",
-                    "baraamoh12345");
-            input = new FileInputStream(new File(
-                    "C:\\Users\\bk1ba\\CE NNU\\2YsS\\Data_Base\\Project\\databaseproject\\src\\main\\resources\\defualt\\databaseproject\\printorder (1).jrxml"));
-            jd = JRXmlLoader.load(input);
-            jr = JasperCompileManager.compileReport(jd);
-            Map<String, Object> parameters = new HashMap<>();
-            parameters.put("orderid", 14);
-            jp = JasperFillManager.fillReport(input, parameters, con);
-            JFrame frame = new JFrame("laptops company");
-            frame.getContentPane().add(new JRViewer(jp));
-            frame.pack();
-            frame.setVisible(true);
 
-
-        } catch (Exception ex) {
-            System.out.print(ex.fillInStackTrace());
-        }
     }
 
 

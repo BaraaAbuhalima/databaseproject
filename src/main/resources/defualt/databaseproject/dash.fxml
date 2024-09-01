@@ -130,7 +130,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="HomePage" layoutX="345.0" layoutY="169.0" prefHeight="555.0" prefWidth="889.0" style="-fx-background-color: #11192c;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="HomePage" layoutX="345.0" layoutY="169.0" prefHeight="555.0" prefWidth="889.0" style="-fx-background-color: #11192c;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane id="ee" layoutX="26.0" layoutY="14.0" prefHeight="194.0" prefWidth="837.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>
@@ -197,12 +197,12 @@
                                                 </AnchorPane>
                                             </children>
                                         </AnchorPane>
-                                        <BarChart id="1e" layoutX="52.0" layoutY="240.0" prefHeight="291.0" prefWidth="756.0" stylesheets="@css/ooo.css">
+                                        <BarChart id="1e" fx:id="barChart" layoutX="52.0" layoutY="240.0" prefHeight="291.0" prefWidth="756.0" styleClass="chart-line" stylesheets="@css/ooo.css">
                                             <xAxis>
-                                                <CategoryAxis side="BOTTOM" />
+                                                <CategoryAxis side="BOTTOM" styleClass="chart-line" stylesheets="@css/ooo.css" fx:id="xAxis" />
                                             </xAxis>
                                             <yAxis>
-                                                <NumberAxis side="LEFT" />
+                                                <NumberAxis fx:id="yAxis" side="LEFT" styleClass="chart-line" stylesheets="@css/ooo.css" />
                                             </yAxis>
                                         </BarChart>
                                     </children>
@@ -348,7 +348,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="ViewOrderPage" layoutX="332.0" layoutY="159.0" prefHeight="551.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane id="1e" layoutX="69.0" layoutY="15.0" prefHeight="181.0" prefWidth="751.0" style="-fx-background-color: #1f2a42; -fx-background-radius: 30px;" stylesheets="@css/ooo.css">
                                             <children>

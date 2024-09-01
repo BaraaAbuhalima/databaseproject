@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="89d18fbd-0682-4050-bd11-752c83943e86" name="Changes" comment="employee class is ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/defualt/databaseproject/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/css/ooo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/defualt/databaseproject/dash.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +128,8 @@
       <workItem from="1725050728872" duration="2316000" />
       <workItem from="1725096976776" duration="3056000" />
       <workItem from="1725115572861" duration="11294000" />
-      <workItem from="1725131334109" duration="650000" />
+      <workItem from="1725131334109" duration="1115000" />
+      <workItem from="1725211675332" duration="1518000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
