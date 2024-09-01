@@ -158,6 +158,7 @@ public class dashboard {
         }
 
         // Add series to the bar chart
+        barChart.getData().clear();
         barChart.getData().add(series);
         setView(1);
         numberOfCustomersLabel.setText("" + Customer.size());
